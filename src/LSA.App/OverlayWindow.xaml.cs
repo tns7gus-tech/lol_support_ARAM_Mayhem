@@ -21,6 +21,11 @@ namespace LSA.App;
 /// </summary>
 public class AugmentViewModel
 {
+    private static readonly SolidColorBrush STierBrush = CreateFrozenBrush(0xFF, 0xD7, 0x00);
+    private static readonly SolidColorBrush ATierBrush = CreateFrozenBrush(0x7B, 0x68, 0xEE);
+    private static readonly SolidColorBrush BTierBrush = CreateFrozenBrush(0x4E, 0xCD, 0xC4);
+    private static readonly SolidColorBrush CTierBrush = CreateFrozenBrush(0x80, 0x80, 0x80);
+
     public string AugmentId { get; set; } = "";
     public string Name { get; set; } = "";
     public string Tier { get; set; } = "C";
@@ -31,11 +36,18 @@ public class AugmentViewModel
     /// <summary>티어별 색상 브러시</summary>
     public SolidColorBrush TierBrush => Tier switch
     {
-        "S" => new SolidColorBrush(Color.FromRgb(0xFF, 0xD7, 0x00)), // 금
-        "A" => new SolidColorBrush(Color.FromRgb(0x7B, 0x68, 0xEE)), // 보라
-        "B" => new SolidColorBrush(Color.FromRgb(0x4E, 0xCD, 0xC4)), // 청록
-        _ => new SolidColorBrush(Color.FromRgb(0x80, 0x80, 0x80))    // 회색
+        "S" => STierBrush,
+        "A" => ATierBrush,
+        "B" => BTierBrush,
+        _ => CTierBrush
     };
+
+    private static SolidColorBrush CreateFrozenBrush(byte r, byte g, byte b)
+    {
+        var brush = new SolidColorBrush(Color.FromRgb(r, g, b));
+        brush.Freeze();
+        return brush;
+    }
 }
 
 /// <summary>
@@ -208,7 +220,14 @@ public partial class OverlayWindow : Window
                 if (champId != _currentChampionId)
                 {
                     _currentChampionId = champId;
-                    await UpdateRecommendationsAsync();
+                    if (_currentChampionId.HasValue)
+                    {
+                        await UpdateRecommendationsAsync();
+                    }
+                    else
+                    {
+                        ClearRecommendationsUI();
+                    }
                 }
             });
         };
@@ -328,6 +347,11 @@ public partial class OverlayWindow : Window
                 _currentChampionId = champId;
                 await UpdateRecommendationsAsync();
             }
+            else if (champId != _currentChampionId)
+            {
+                _currentChampionId = champId;
+                ClearRecommendationsUI();
+            }
         }
         catch (Exception ex)
         {
@@ -387,6 +411,17 @@ public partial class OverlayWindow : Window
         UpdateAugmentUI(_currentRecommendation.Augments.Take(8).ToList());
         UpdateItemUI(_currentRecommendation.Items);
 
+        _selectedAugmentIds.Clear();
+        AugmentSelectHint.Visibility = Visibility.Visible;
+    }
+
+    private void ClearRecommendationsUI()
+    {
+        _currentRecommendation = null;
+        ChampionText.Text = "-";
+        AugmentList.ItemsSource = null;
+        CoreItemList.ItemsSource = null;
+        SituationalItemList.ItemsSource = null;
         _selectedAugmentIds.Clear();
         AugmentSelectHint.Visibility = Visibility.Visible;
     }

@@ -35,6 +35,8 @@ public class LcuProvider : IGameStateProvider
     private bool _isConnected;
     private bool _isWebSocketConnected;
     private CancellationTokenSource? _monitorCts;
+    private Task? _monitorTask;
+    private Task? _webSocketReceiveTask;
 
     // 자동 재연결 설정
     private const int RECONNECT_BASE_DELAY_MS = 2000;
@@ -172,6 +174,12 @@ public class LcuProvider : IGameStateProvider
     /// </summary>
     public async Task StartMonitoringAsync(CancellationToken ct = default)
     {
+        if (_monitorCts != null && !_monitorCts.IsCancellationRequested)
+        {
+            _logger.LogDebug("LCU monitoring is already running.");
+            return;
+        }
+
         _monitorCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
         var token = _monitorCts.Token;
 
@@ -179,7 +187,7 @@ public class LcuProvider : IGameStateProvider
         await TryConnectWebSocketAsync(token);
 
         // 백그라운드 모니터링 루프 시작
-        _ = Task.Run(() => MonitoringLoopAsync(token), token);
+        _monitorTask = Task.Run(() => MonitoringLoopAsync(token), token);
     }
 
     /// <summary>
@@ -212,6 +220,26 @@ public class LcuProvider : IGameStateProvider
 
         _monitorCts?.Dispose();
         _monitorCts = null;
+
+        if (_webSocketReceiveTask != null)
+        {
+            try
+            {
+                await _webSocketReceiveTask;
+            }
+            catch { }
+            _webSocketReceiveTask = null;
+        }
+
+        if (_monitorTask != null)
+        {
+            try
+            {
+                await _monitorTask;
+            }
+            catch { }
+            _monitorTask = null;
+        }
     }
 
     /// <summary>
@@ -250,7 +278,7 @@ public class LcuProvider : IGameStateProvider
             _logger.LogInformation("LCU WebSocket 연결 성공");
 
             // 메시지 수신 루프 시작
-            _ = Task.Run(() => WebSocketReceiveLoopAsync(ct), ct);
+            _webSocketReceiveTask = Task.Run(() => WebSocketReceiveLoopAsync(ct), ct);
 
             return true;
         }
@@ -286,7 +314,8 @@ public class LcuProvider : IGameStateProvider
     /// </summary>
     private async Task WebSocketReceiveLoopAsync(CancellationToken ct)
     {
-        var buffer = new byte[8192];
+        var buffer = new byte[4096];
+        using var ms = new MemoryStream();
 
         try
         {
@@ -303,7 +332,12 @@ public class LcuProvider : IGameStateProvider
 
                 if (result.MessageType == WebSocketMessageType.Text)
                 {
-                    var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                    ms.Write(buffer, 0, result.Count);
+                    if (!result.EndOfMessage)
+                        continue;
+
+                    var message = Encoding.UTF8.GetString(ms.ToArray());
+                    ms.SetLength(0);
                     ProcessWampMessage(message);
                 }
             }

@@ -59,31 +59,31 @@ public class MockProviderTests
     }
 
     [Fact]
-    public void CyclePhase_FollowsExpectedOrder()
+    public async Task CyclePhase_FollowsExpectedOrder()
     {
         // Phase를 None으로 리셋 (여러번 순환)
         while (true)
         {
-            var p = _provider.GetPhaseAsync().Result;
+            var p = await _provider.GetPhaseAsync();
             if (p == GamePhase.None) break;
             _provider.CyclePhase();
         }
 
         // None → ChampSelect
         _provider.CyclePhase();
-        Assert.Equal(GamePhase.ChampSelect, _provider.GetPhaseAsync().Result);
+        Assert.Equal(GamePhase.ChampSelect, await _provider.GetPhaseAsync());
 
         // ChampSelect → InProgress
         _provider.CyclePhase();
-        Assert.Equal(GamePhase.InProgress, _provider.GetPhaseAsync().Result);
+        Assert.Equal(GamePhase.InProgress, await _provider.GetPhaseAsync());
 
         // InProgress → EndOfGame
         _provider.CyclePhase();
-        Assert.Equal(GamePhase.EndOfGame, _provider.GetPhaseAsync().Result);
+        Assert.Equal(GamePhase.EndOfGame, await _provider.GetPhaseAsync());
 
         // EndOfGame → None
         _provider.CyclePhase();
-        Assert.Equal(GamePhase.None, _provider.GetPhaseAsync().Result);
+        Assert.Equal(GamePhase.None, await _provider.GetPhaseAsync());
     }
 
     // ========================================================
