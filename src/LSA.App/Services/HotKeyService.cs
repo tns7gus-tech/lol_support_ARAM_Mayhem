@@ -1,14 +1,13 @@
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Interop;
+using LSA.Data.Models;
 
 namespace LSA.App.Services;
 
 /// <summary>
 /// 글로벌 핫키 서비스 — Win32 RegisterHotKey 기반
-/// Ctrl+Shift+O: 오버레이 토글
-/// Ctrl+Shift+C: 클릭 통과 토글
-/// Ctrl+Shift+P: [개발용] Phase 순환
 /// </summary>
 public class HotKeyService : IDisposable
 {
@@ -25,14 +24,16 @@ public class HotKeyService : IDisposable
     private const int HOTKEY_DEV_CYCLE_PHASE = 9003;
 
     // 수정자 키 플래그
+    private const uint MOD_ALT = 0x0001;
     private const uint MOD_CTRL = 0x0002;
     private const uint MOD_SHIFT = 0x0004;
+    private const uint MOD_WIN = 0x0008;
     private const uint MOD_NOREPEAT = 0x4000;
 
-    // 가상 키 코드
-    private const uint VK_O = 0x4F;
-    private const uint VK_C = 0x43;
-    private const uint VK_P = 0x50;
+    // 기본값
+    private const string DEFAULT_TOGGLE_OVERLAY = "Ctrl+Shift+O";
+    private const string DEFAULT_TOGGLE_CLICKTHROUGH = "Ctrl+Shift+C";
+    private const string DEFAULT_DEV_CYCLE_PHASE = "Ctrl+Shift+P";
 
     private IntPtr _windowHandle;
     private HwndSource? _source;
@@ -45,17 +46,80 @@ public class HotKeyService : IDisposable
     /// <summary>
     /// 핫키 등록 시작 — Window Loaded 이후 호출
     /// </summary>
-    public void Register(Window window)
+    public void Register(Window window, HotkeyConfig? config = null)
     {
         var helper = new WindowInteropHelper(window);
         _windowHandle = helper.Handle;
         _source = HwndSource.FromHwnd(_windowHandle);
         _source?.AddHook(HwndHook);
 
-        var mods = MOD_CTRL | MOD_SHIFT | MOD_NOREPEAT;
-        RegisterHotKey(_windowHandle, HOTKEY_TOGGLE_OVERLAY, mods, VK_O);
-        RegisterHotKey(_windowHandle, HOTKEY_TOGGLE_CLICKTHROUGH, mods, VK_C);
-        RegisterHotKey(_windowHandle, HOTKEY_DEV_CYCLE_PHASE, mods, VK_P);
+        RegisterWithFallback(HOTKEY_TOGGLE_OVERLAY, config?.ToggleOverlay, DEFAULT_TOGGLE_OVERLAY);
+        RegisterWithFallback(HOTKEY_TOGGLE_CLICKTHROUGH, config?.ToggleClickThrough, DEFAULT_TOGGLE_CLICKTHROUGH);
+        RegisterWithFallback(HOTKEY_DEV_CYCLE_PHASE, config?.DevCyclePhase, DEFAULT_DEV_CYCLE_PHASE);
+    }
+
+    private void RegisterWithFallback(int id, string? configured, string fallback)
+    {
+        var target = TryParseHotKey(configured, out var mods, out var vk)
+            ? configured!
+            : fallback;
+
+        if (!TryParseHotKey(target, out mods, out vk))
+            return;
+
+        RegisterHotKey(_windowHandle, id, mods | MOD_NOREPEAT, vk);
+    }
+
+    private static bool TryParseHotKey(string? hotkey, out uint modifiers, out uint virtualKey)
+    {
+        modifiers = 0;
+        virtualKey = 0;
+
+        if (string.IsNullOrWhiteSpace(hotkey))
+            return false;
+
+        var tokens = hotkey
+            .Split('+', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+        if (tokens.Length == 0)
+            return false;
+
+        foreach (var token in tokens[..^1])
+        {
+            switch (token.ToUpperInvariant())
+            {
+                case "CTRL":
+                case "CONTROL":
+                    modifiers |= MOD_CTRL;
+                    break;
+                case "SHIFT":
+                    modifiers |= MOD_SHIFT;
+                    break;
+                case "ALT":
+                    modifiers |= MOD_ALT;
+                    break;
+                case "WIN":
+                case "WINDOWS":
+                    modifiers |= MOD_WIN;
+                    break;
+                default:
+                    return false;
+            }
+        }
+
+        var keyToken = tokens[^1].ToUpperInvariant();
+        var converter = new KeyConverter();
+
+        var keyObj = converter.ConvertFromString(keyToken);
+        if (keyObj is not Key key)
+            return false;
+
+        var vk = KeyInterop.VirtualKeyFromKey(key);
+        if (vk <= 0)
+            return false;
+
+        virtualKey = (uint)vk;
+        return true;
     }
 
     /// <summary>

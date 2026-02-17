@@ -23,11 +23,13 @@ public class DataService
     public KnowledgeBase KnowledgeBase { get; private set; } = new();
     public AppConfig Config { get; private set; } = new();
 
-    public DataService(ILogger<DataService> logger)
+    public DataService(ILogger<DataService> logger, string? basePath = null)
     {
         _logger = logger;
-        // 실행 파일 기준 경로 (Portable 우선)
-        _basePath = AppDomain.CurrentDomain.BaseDirectory;
+        // 기본은 실행 파일 기준 경로(Portable 우선), 필요 시 외부에서 명시 주입 가능
+        _basePath = string.IsNullOrWhiteSpace(basePath)
+            ? AppDomain.CurrentDomain.BaseDirectory
+            : basePath;
     }
 
     /// <summary>

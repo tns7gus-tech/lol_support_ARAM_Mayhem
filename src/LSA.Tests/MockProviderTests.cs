@@ -13,6 +13,19 @@ namespace LSA.Tests;
 /// </summary>
 public class MockProviderTests
 {
+    private static string FindRepoRoot()
+    {
+        var dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+        while (dir != null)
+        {
+            if (File.Exists(Path.Combine(dir.FullName, "data", "knowledge_base.json")))
+                return dir.FullName;
+            dir = dir.Parent;
+        }
+
+        return Directory.GetCurrentDirectory();
+    }
+
     private readonly MockProvider _provider;
 
     public MockProviderTests()
@@ -20,7 +33,7 @@ public class MockProviderTests
         var loggerFactory = LoggerFactory.Create(builder =>
             builder.SetMinimumLevel(LogLevel.Warning));
 
-        var dataService = new DataService(loggerFactory.CreateLogger<DataService>());
+        var dataService = new DataService(loggerFactory.CreateLogger<DataService>(), FindRepoRoot());
         dataService.LoadKnowledgeBaseAsync().Wait();
 
         _provider = new MockProvider(dataService, loggerFactory.CreateLogger<MockProvider>());

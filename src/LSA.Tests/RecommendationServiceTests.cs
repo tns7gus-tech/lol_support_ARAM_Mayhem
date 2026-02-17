@@ -12,6 +12,19 @@ namespace LSA.Tests;
 /// </summary>
 public class RecommendationServiceTests
 {
+    private static string FindRepoRoot()
+    {
+        var dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+        while (dir != null)
+        {
+            if (File.Exists(Path.Combine(dir.FullName, "data", "knowledge_base.json")))
+                return dir.FullName;
+            dir = dir.Parent;
+        }
+
+        return Directory.GetCurrentDirectory();
+    }
+
     private readonly RecommendationService _service;
     private readonly DataService _dataService;
 
@@ -20,7 +33,7 @@ public class RecommendationServiceTests
         var loggerFactory = LoggerFactory.Create(builder =>
             builder.SetMinimumLevel(LogLevel.Warning));
 
-        _dataService = new DataService(loggerFactory.CreateLogger<DataService>());
+        _dataService = new DataService(loggerFactory.CreateLogger<DataService>(), FindRepoRoot());
 
         // knowledge_base.json 로드 (data/ 디렉터리에서)
         _dataService.LoadKnowledgeBaseAsync().Wait();
@@ -99,6 +112,30 @@ public class RecommendationServiceTests
             Assert.True(minS >= avgB,
                 $"S티어 최저({minS})가 B티어 평균({avgB})보다 낮음");
         }
+    }
+
+
+    [Fact]
+    public void GetRecommendations_TieScores_AreSortedByName()
+    {
+        var result = _service.GetRecommendations(222);
+
+        var tieGroup = result.Augments
+            .GroupBy(a => a.Score)
+            .FirstOrDefault(g => g.Count() > 1);
+
+        if (tieGroup == null) return;
+
+        var expected = tieGroup
+            .Select(a => a.Name)
+            .OrderBy(name => name)
+            .ToList();
+
+        var actual = tieGroup
+            .Select(a => a.Name)
+            .ToList();
+
+        Assert.Equal(expected, actual);
     }
 
     // ========================================================
