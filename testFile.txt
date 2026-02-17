@@ -1,0 +1,2 @@
+dotnet build src/LSA.Tests/LSA.Tests.csproj
+dotnet test src/LSA.Tests/LSA.Tests.csproj --no-build --verbosity normal

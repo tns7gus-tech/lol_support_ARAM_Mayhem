@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>LSA</AssemblyName>
+
+    <!-- 앱 정보 -->
+    <Version>0.2.0</Version>
+    <Product>Your.Gengi — ARAM Overlay</Product>
+    <Description>ARAM 증강/아이템 추천 오버레이</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LSA.Core\LSA.Core.csproj" />
+    <ProjectReference Include="..\LSA.Data\LSA.Data.csproj" />
+    <ProjectReference Include="..\LSA.Mock\LSA.Mock.csproj" />
+    <ProjectReference Include="..\LSA.Lcu\LSA.Lcu.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
+  </ItemGroup>
+
+  <!-- data/ 폴더 → 출력/배포 디렉터리에 자동 복사 -->
+  <ItemGroup>
+    <None Include="..\..\data\**\*" CopyToOutputDirectory="PreserveNewest" LinkBase="data" />
+  </ItemGroup>
+</Project>

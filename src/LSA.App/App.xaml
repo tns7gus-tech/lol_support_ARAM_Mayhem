@@ -1,0 +1,29 @@
+﻿<Application x:Class="LSA.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="OverlayWindow.xaml">
+    <Application.Resources>
+        <!-- 기본 색상 팔레트 — Riot UI와 구분되는 Your.Gengi 톤 -->
+        <Color x:Key="PrimaryColor">#FF1A1A2E</Color>
+        <Color x:Key="SecondaryColor">#FF16213E</Color>
+        <Color x:Key="AccentColor">#FF0F3460</Color>
+        <Color x:Key="HighlightColor">#FFE94560</Color>
+        <Color x:Key="TextColor">#FFE0E0E0</Color>
+        <Color x:Key="SubTextColor">#FF9E9E9E</Color>
+        <Color x:Key="TierS_Color">#FFFFD700</Color>
+        <Color x:Key="TierA_Color">#FF7B68EE</Color>
+        <Color x:Key="TierB_Color">#FF4ECDC4</Color>
+        <Color x:Key="TierC_Color">#FF808080</Color>
+
+        <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+        <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
+        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+        <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource HighlightColor}" />
+        <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}" />
+        <SolidColorBrush x:Key="SubTextBrush" Color="{StaticResource SubTextColor}" />
+        <SolidColorBrush x:Key="TierS_Brush" Color="{StaticResource TierS_Color}" />
+        <SolidColorBrush x:Key="TierA_Brush" Color="{StaticResource TierA_Color}" />
+        <SolidColorBrush x:Key="TierB_Brush" Color="{StaticResource TierB_Color}" />
+        <SolidColorBrush x:Key="TierC_Brush" Color="{StaticResource TierC_Color}" />
+    </Application.Resources>
+</Application>

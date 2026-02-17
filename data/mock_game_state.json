@@ -1,0 +1,12 @@
+{
+    "phase": "ChampSelect",
+    "myChampionId": 145,
+    "enemyChampionIds": [
+        86,
+        238,
+        412,
+        99,
+        31
+    ],
+    "mode": "ARAM_MAYHEM"
+}
