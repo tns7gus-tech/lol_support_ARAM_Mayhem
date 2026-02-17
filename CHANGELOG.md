@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.3.1] - 2026-02-17
+
+### Fixed
+- **LCU WebSocket**: Fixed fragmented frame handling in `LcuProvider` receive loop to prevent dropped or malformed event messages.
+- **LCU Monitoring**: Added guard against duplicate monitoring starts and awaited monitor/socket tasks on stop for cleaner lifecycle handling.
+- **Overlay UI**: Cleared recommendation panel when champion becomes unselected (`null`) to avoid stale champion data in UI.
+- **Performance**: Replaced per-bind brush allocations with cached frozen brushes in `OverlayWindow` tier rendering.
+- **Tests**: Updated `MockProviderTests` to use `async/await` instead of blocking `.Result` in phase cycle assertions.
+
 ## [v0.3.0] - 2026-02-17
 
 ### Added
