@@ -1,234 +1,1711 @@
 {
   "meta": {
-    "version": "0.1.0",
-    "updatedAt": "2026-02-16"
+    "version": "0.2.0",
+    "updatedAt": "2026-02-17",
+    "totalChampions": 169
   },
   "augments": {
-    "GiantSlayer": {
-      "name": "Giant Slayer",
-      "tier": "S",
-      "tags": ["tank_killer", "dps"],
-      "notes": "탱커/체력 많은 조합 상대로 강함"
-    },
-    "BladeWaltz": {
-      "name": "Blade Waltz",
-      "tier": "A",
-      "tags": ["burst", "assassin"],
-      "notes": "단일 대상 폭딜에 유리"
-    },
-    "Ethereal": {
-      "name": "Ethereal",
-      "tier": "S",
-      "tags": ["survivability", "anti_burst"],
-      "notes": "무적 효과로 폭딜 조합 상대에 강함"
-    },
-    "OrbOfWinter": {
-      "name": "Orb of Winter",
-      "tier": "A",
-      "tags": ["survivability", "anti_burst", "mr"],
-      "notes": "마법 피해 보호막으로 AP 조합 상대에 유리"
-    },
-    "Infernal": {
-      "name": "Infernal",
-      "tier": "S",
-      "tags": ["dps", "range"],
-      "notes": "원거리 딜러에게 범위 폭발 추가"
-    },
-    "DemonicAffinity": {
-      "name": "Demonic Affinity",
-      "tier": "A",
-      "tags": ["dps", "tank_killer", "dot"],
-      "notes": "지속 피해 + 체력 비례로 탱커에 강함"
-    },
-    "CelestialBlessing": {
-      "name": "Celestial Blessing",
-      "tier": "A",
-      "tags": ["survivability", "heal"],
-      "notes": "체력 회복으로 장기전에 유리"
-    },
-    "Overclock": {
-      "name": "Overclock",
-      "tier": "S",
-      "tags": ["cdr", "dps"],
-      "notes": "스킬 쿨감으로 스킬 의존 챔피언에 강함"
-    },
-    "TankItUp": {
-      "name": "Tank It Up",
-      "tier": "A",
-      "tags": ["survivability", "tank"],
-      "notes": "보너스 체력으로 탱커 챔피언에 최적"
-    },
-    "MasterOfDualWielding": {
-      "name": "Master of Dual-Wielding",
-      "tier": "S",
-      "tags": ["dps", "onhit"],
-      "notes": "온힛 챔피언에게 최고의 시너지"
-    },
-    "SymbioticArmor": {
-      "name": "Symbiotic Armor",
-      "tier": "B",
-      "tags": ["survivability", "anti_burst"],
-      "notes": "피해 받을 때 저항 상승"
-    },
-    "WitheringStrike": {
-      "name": "Withering Strike",
-      "tier": "A",
-      "tags": ["anti_heal", "dps"],
-      "notes": "적 회복 감소로 힐 조합 상대에 유리"
-    },
-    "MarksmansFinesse": {
-      "name": "Marksman's Finesse",
-      "tier": "S",
-      "tags": ["dps", "range", "crit"],
-      "notes": "원거리 딜러 크리티컬 강화"
-    },
-    "ThreadTheNeedle": {
-      "name": "Thread the Needle",
-      "tier": "A",
-      "tags": ["dps", "range"],
-      "notes": "관통 피해로 방어력 높은 적에 유리"
-    },
-    "SpiritLink": {
-      "name": "Spirit Link",
-      "tier": "B",
-      "tags": ["survivability", "heal", "support"],
-      "notes": "아군 연결 힐로 서포트에 유리"
-    }
+    "gold": [],
+    "silver": [],
+    "prismatic": []
   },
-  "items": {
-    "6672": { "name": "Kraken Slayer", "tags": ["dps", "onhit"] },
-    "3006": { "name": "Berserker's Greaves", "tags": ["attack_speed"] },
-    "3124": { "name": "Guinsoo's Rageblade", "tags": ["dps", "onhit"] },
-    "3153": { "name": "Blade of the Ruined King", "tags": ["dps", "lifesteal", "tank_killer"] },
-    "3036": { "name": "Lord Dominik's Regards", "tags": ["armor_pen", "tank_killer"] },
-    "3031": { "name": "Infinity Edge", "tags": ["crit", "burst"] },
-    "3046": { "name": "Phantom Dancer", "tags": ["attack_speed", "crit"] },
-    "3072": { "name": "Bloodthirster", "tags": ["lifesteal", "survivability"] },
-    "3156": { "name": "Maw of Malmortius", "tags": ["mr", "survivability", "anti_burst"] },
-    "3026": { "name": "Guardian Angel", "tags": ["armor", "survivability"] },
-    "3065": { "name": "Spirit Visage", "tags": ["mr", "heal", "tank"] },
-    "3068": { "name": "Sunfire Aegis", "tags": ["armor", "tank", "dps"] },
-    "3075": { "name": "Thornmail", "tags": ["armor", "anti_heal", "tank"] },
-    "3083": { "name": "Warmog's Armor", "tags": ["tank", "heal", "survivability"] },
-    "3089": { "name": "Rabadon's Deathcap", "tags": ["ap", "burst"] },
-    "3157": { "name": "Zhonya's Hourglass", "tags": ["ap", "armor", "anti_burst"] },
-    "3116": { "name": "Rylai's Crystal Scepter", "tags": ["ap", "cc"] },
-    "3151": { "name": "Liandry's Torment", "tags": ["ap", "dot", "tank_killer"] },
-    "6653": { "name": "Luden's Tempest", "tags": ["ap", "burst", "poke"] },
-    "3165": { "name": "Morellonomicon", "tags": ["ap", "anti_heal"] }
-  },
+  "items": {},
   "champions": {
-    "145": {
-      "name": "Kai'Sa",
-      "roles": ["Marksman", "Assassin"],
-      "augmentPreferences": [
-        { "augmentId": "GiantSlayer", "baseBonus": 25, "reason": "온힛/지속딜 시너지" },
-        { "augmentId": "MasterOfDualWielding", "baseBonus": 30, "reason": "온힛 최고의 시너지" },
-        { "augmentId": "Infernal", "baseBonus": 15, "reason": "범위 딜 확장" },
-        { "augmentId": "Overclock", "baseBonus": 10, "reason": "W 쿨감으로 원거리 포킹 강화" }
-      ],
+    "1": {
+      "id": "Annie",
+      "name": "애니",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [6672, 3006, 3124],
-        "situational": [
-          { "itemId": 3153, "whenTags": ["tank"], "reason": "탱커 상대로 체력 비례 피해" },
-          { "itemId": 3036, "whenTags": ["tank"], "reason": "탱커 상대로 관통" },
-          { "itemId": 3156, "whenTags": ["burst"], "reason": "AP 폭딜 상대 생존" }
-        ]
+        "core": [],
+        "situational": []
       }
     },
-    "222": {
-      "name": "Jinx",
-      "roles": ["Marksman"],
-      "augmentPreferences": [
-        { "augmentId": "MarksmansFinesse", "baseBonus": 30, "reason": "크리티컬 원딜 극대화" },
-        { "augmentId": "Infernal", "baseBonus": 20, "reason": "로켓 범위딜 시너지" },
-        { "augmentId": "GiantSlayer", "baseBonus": 15, "reason": "탱커 상대 딜 증가" }
-      ],
+    "2": {
+      "id": "Olaf",
+      "name": "올라프",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [3031, 3006, 3046],
-        "situational": [
-          { "itemId": 3072, "whenTags": ["burst"], "reason": "폭딜 상대 흡혈 생존" },
-          { "itemId": 3036, "whenTags": ["tank"], "reason": "탱커 상대 관통" },
-          { "itemId": 3156, "whenTags": ["burst"], "reason": "AP 폭딜 방어" }
-        ]
+        "core": [],
+        "situational": []
+      }
+    },
+    "3": {
+      "id": "Galio",
+      "name": "갈리오",
+      "roles": ["Tank", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "4": {
+      "id": "TwistedFate",
+      "name": "트위스티드 페이트",
+      "roles": ["Mage", "Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "5": {
+      "id": "XinZhao",
+      "name": "신 짜오",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "6": {
+      "id": "Urgot",
+      "name": "우르곳",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "7": {
+      "id": "Leblanc",
+      "name": "르블랑",
+      "roles": ["Assassin", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "8": {
+      "id": "Vladimir",
+      "name": "블라디미르",
+      "roles": ["Mage", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "9": {
+      "id": "Fiddlesticks",
+      "name": "피들스틱",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "10": {
+      "id": "Kayle",
+      "name": "케일",
+      "roles": ["Mage", "Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "11": {
+      "id": "MasterYi",
+      "name": "마스터 이",
+      "roles": ["Assassin", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "12": {
+      "id": "Alistar",
+      "name": "알리스타",
+      "roles": ["Tank", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "13": {
+      "id": "Ryze",
+      "name": "라이즈",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "14": {
+      "id": "Sion",
+      "name": "사이온",
+      "roles": ["Tank", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "15": {
+      "id": "Sivir",
+      "name": "시비르",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "16": {
+      "id": "Soraka",
+      "name": "소라카",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "17": {
+      "id": "Teemo",
+      "name": "티모",
+      "roles": ["Marksman", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "18": {
+      "id": "Tristana",
+      "name": "트리스타나",
+      "roles": ["Marksman", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "19": {
+      "id": "Warwick",
+      "name": "워윅",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "20": {
+      "id": "Nunu",
+      "name": "누누와 윌럼프",
+      "roles": ["Tank", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "21": {
+      "id": "MissFortune",
+      "name": "미스 포츈",
+      "roles": ["Marksman", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "22": {
+      "id": "Ashe",
+      "name": "애쉬",
+      "roles": ["Marksman", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "23": {
+      "id": "Tryndamere",
+      "name": "트린다미어",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "24": {
+      "id": "Jax",
+      "name": "잭스",
+      "roles": ["Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "25": {
+      "id": "Morgana",
+      "name": "모르가나",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "26": {
+      "id": "Zilean",
+      "name": "질리언",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "27": {
+      "id": "Singed",
+      "name": "신지드",
+      "roles": ["Tank", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "28": {
+      "id": "Evelynn",
+      "name": "이블린",
+      "roles": ["Assassin", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "29": {
+      "id": "Twitch",
+      "name": "트위치",
+      "roles": ["Marksman", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "30": {
+      "id": "Karthus",
+      "name": "카서스",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "31": {
+      "id": "Chogath",
+      "name": "초가스",
+      "roles": ["Tank", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "32": {
+      "id": "Amumu",
+      "name": "아무무",
+      "roles": ["Tank", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "33": {
+      "id": "Rammus",
+      "name": "람머스",
+      "roles": ["Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "34": {
+      "id": "Anivia",
+      "name": "애니비아",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "35": {
+      "id": "Shaco",
+      "name": "샤코",
+      "roles": ["Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "36": {
+      "id": "DrMundo",
+      "name": "문도 박사",
+      "roles": ["Tank", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "37": {
+      "id": "Sona",
+      "name": "소나",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "38": {
+      "id": "Kassadin",
+      "name": "카사딘",
+      "roles": ["Assassin", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "39": {
+      "id": "Irelia",
+      "name": "이렐리아",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "40": {
+      "id": "Janna",
+      "name": "잔나",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "41": {
+      "id": "Gangplank",
+      "name": "갱플랭크",
+      "roles": ["Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "42": {
+      "id": "Corki",
+      "name": "코르키",
+      "roles": ["Marksman", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "43": {
+      "id": "Karma",
+      "name": "카르마",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "44": {
+      "id": "Taric",
+      "name": "타릭",
+      "roles": ["Support", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "45": {
+      "id": "Veigar",
+      "name": "베이가",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "48": {
+      "id": "Trundle",
+      "name": "트런들",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "50": {
+      "id": "Swain",
+      "name": "스웨인",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "51": {
+      "id": "Caitlyn",
+      "name": "케이틀린",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "53": {
+      "id": "Blitzcrank",
+      "name": "블리츠크랭크",
+      "roles": ["Tank", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "54": {
+      "id": "Malphite",
+      "name": "말파이트",
+      "roles": ["Tank", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "55": {
+      "id": "Katarina",
+      "name": "카타리나",
+      "roles": ["Assassin", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "56": {
+      "id": "Nocturne",
+      "name": "녹턴",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "57": {
+      "id": "Maokai",
+      "name": "마오카이",
+      "roles": ["Tank", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "58": {
+      "id": "Renekton",
+      "name": "레넥톤",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "59": {
+      "id": "JarvanIV",
+      "name": "자르반 4세",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "60": {
+      "id": "Elise",
+      "name": "엘리스",
+      "roles": ["Assassin", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "61": {
+      "id": "Orianna",
+      "name": "오리아나",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "62": {
+      "id": "MonkeyKing",
+      "name": "오공",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "63": {
+      "id": "Brand",
+      "name": "브랜드",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "64": {
+      "id": "LeeSin",
+      "name": "리 신",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "67": {
+      "id": "Vayne",
+      "name": "베인",
+      "roles": ["Marksman", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "68": {
+      "id": "Rumble",
+      "name": "럼블",
+      "roles": ["Fighter", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "69": {
+      "id": "Cassiopeia",
+      "name": "카시오페아",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "72": {
+      "id": "Skarner",
+      "name": "스카너",
+      "roles": ["Tank", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "74": {
+      "id": "Heimerdinger",
+      "name": "하이머딩거",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "75": {
+      "id": "Nasus",
+      "name": "나서스",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "76": {
+      "id": "Nidalee",
+      "name": "니달리",
+      "roles": ["Assassin", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "77": {
+      "id": "Udyr",
+      "name": "우디르",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "78": {
+      "id": "Poppy",
+      "name": "뽀삐",
+      "roles": ["Tank", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "79": {
+      "id": "Gragas",
+      "name": "그라가스",
+      "roles": ["Fighter", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "80": {
+      "id": "Pantheon",
+      "name": "판테온",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "81": {
+      "id": "Ezreal",
+      "name": "이즈리얼",
+      "roles": ["Marksman", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "82": {
+      "id": "Mordekaiser",
+      "name": "모데카이저",
+      "roles": ["Fighter", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "83": {
+      "id": "Yorick",
+      "name": "요릭",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "84": {
+      "id": "Akali",
+      "name": "아칼리",
+      "roles": ["Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "85": {
+      "id": "Kennen",
+      "name": "케넨",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
       }
     },
     "86": {
-      "name": "Garen",
+      "id": "Garen",
+      "name": "가렌",
       "roles": ["Fighter", "Tank"],
-      "augmentPreferences": [
-        { "augmentId": "TankItUp", "baseBonus": 25, "reason": "체력 보너스 탱커 시너지" },
-        { "augmentId": "CelestialBlessing", "baseBonus": 20, "reason": "패시브 회복 시너지" },
-        { "augmentId": "DemonicAffinity", "baseBonus": 15, "reason": "E 지속딜 강화" }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [3068, 3006, 3075],
-        "situational": [
-          { "itemId": 3083, "whenTags": ["poke"], "reason": "포킹 상대 체력 회복" },
-          { "itemId": 3065, "whenTags": ["heal"], "reason": "회복 강화" },
-          { "itemId": 3026, "whenTags": ["burst"], "reason": "부활로 폭딜 생존" }
-        ]
+        "core": [],
+        "situational": []
+      }
+    },
+    "89": {
+      "id": "Leona",
+      "name": "레오나",
+      "roles": ["Tank", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "90": {
+      "id": "Malzahar",
+      "name": "말자하",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "91": {
+      "id": "Talon",
+      "name": "탈론",
+      "roles": ["Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "92": {
+      "id": "Riven",
+      "name": "리븐",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "96": {
+      "id": "KogMaw",
+      "name": "코그모",
+      "roles": ["Marksman", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "98": {
+      "id": "Shen",
+      "name": "쉔",
+      "roles": ["Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
       }
     },
     "99": {
-      "name": "Lux",
+      "id": "Lux",
+      "name": "럭스",
       "roles": ["Mage", "Support"],
-      "augmentPreferences": [
-        { "augmentId": "Overclock", "baseBonus": 25, "reason": "R 쿨감 극대화" },
-        { "augmentId": "Infernal", "baseBonus": 20, "reason": "범위 폭발 시너지" },
-        { "augmentId": "Ethereal", "baseBonus": 15, "reason": "W 실드 + 무적으로 생존" }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [6653, 3006, 3089],
-        "situational": [
-          { "itemId": 3157, "whenTags": ["burst"], "reason": "폭딜 상대 정지 생존" },
-          { "itemId": 3116, "whenTags": ["cc"], "reason": "둔화 추가로 CC 강화" },
-          { "itemId": 3165, "whenTags": ["heal"], "reason": "적 회복 차단" }
-        ]
+        "core": [],
+        "situational": []
+      }
+    },
+    "101": {
+      "id": "Xerath",
+      "name": "제라스",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "102": {
+      "id": "Shyvana",
+      "name": "쉬바나",
+      "roles": ["Fighter", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "103": {
+      "id": "Ahri",
+      "name": "아리",
+      "roles": ["Mage", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "104": {
+      "id": "Graves",
+      "name": "그레이브즈",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "105": {
+      "id": "Fizz",
+      "name": "피즈",
+      "roles": ["Assassin", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "106": {
+      "id": "Volibear",
+      "name": "볼리베어",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "107": {
+      "id": "Rengar",
+      "name": "렝가",
+      "roles": ["Assassin", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "110": {
+      "id": "Varus",
+      "name": "바루스",
+      "roles": ["Marksman", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "111": {
+      "id": "Nautilus",
+      "name": "노틸러스",
+      "roles": ["Tank", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "112": {
+      "id": "Viktor",
+      "name": "빅토르",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "113": {
+      "id": "Sejuani",
+      "name": "세주아니",
+      "roles": ["Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "114": {
+      "id": "Fiora",
+      "name": "피오라",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "115": {
+      "id": "Ziggs",
+      "name": "직스",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "117": {
+      "id": "Lulu",
+      "name": "룰루",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "119": {
+      "id": "Draven",
+      "name": "드레이븐",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "120": {
+      "id": "Hecarim",
+      "name": "헤카림",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "121": {
+      "id": "Khazix",
+      "name": "카직스",
+      "roles": ["Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "122": {
+      "id": "Darius",
+      "name": "다리우스",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "126": {
+      "id": "Jayce",
+      "name": "제이스",
+      "roles": ["Marksman", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "127": {
+      "id": "Lissandra",
+      "name": "리산드라",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "131": {
+      "id": "Diana",
+      "name": "다이애나",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "133": {
+      "id": "Quinn",
+      "name": "퀸",
+      "roles": ["Marksman", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "134": {
+      "id": "Syndra",
+      "name": "신드라",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "136": {
+      "id": "AurelionSol",
+      "name": "아우렐리온 솔",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "141": {
+      "id": "Kayn",
+      "name": "케인",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "142": {
+      "id": "Zoe",
+      "name": "조이",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "143": {
+      "id": "Zyra",
+      "name": "자이라",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "145": {
+      "id": "Kaisa",
+      "name": "카이사",
+      "roles": ["Marksman", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "147": {
+      "id": "Seraphine",
+      "name": "세라핀",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "150": {
+      "id": "Gnar",
+      "name": "나르",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "154": {
+      "id": "Zac",
+      "name": "자크",
+      "roles": ["Tank", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
       }
     },
     "157": {
-      "name": "Yasuo",
+      "id": "Yasuo",
+      "name": "야스오",
       "roles": ["Fighter", "Assassin"],
-      "augmentPreferences": [
-        { "augmentId": "MarksmansFinesse", "baseBonus": 25, "reason": "크리티컬 의존도 높은 챔피언" },
-        { "augmentId": "BladeWaltz", "baseBonus": 20, "reason": "단일 대상 폭딜 강화" },
-        { "augmentId": "Ethereal", "baseBonus": 15, "reason": "다이브 후 생존" }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [3031, 3006, 3153],
-        "situational": [
-          { "itemId": 3072, "whenTags": ["burst"], "reason": "폭딜 상대 흡혈 생존" },
-          { "itemId": 3036, "whenTags": ["tank"], "reason": "탱커 상대 관통" },
-          { "itemId": 3156, "whenTags": ["burst"], "reason": "AP 폭딜 방어" }
-        ]
+        "core": [],
+        "situational": []
+      }
+    },
+    "161": {
+      "id": "Velkoz",
+      "name": "벨코즈",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "163": {
+      "id": "Taliyah",
+      "name": "탈리야",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "164": {
+      "id": "Camille",
+      "name": "카밀",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "166": {
+      "id": "Akshan",
+      "name": "아크샨",
+      "roles": ["Marksman", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "200": {
+      "id": "Belveth",
+      "name": "벨베스",
+      "roles": ["Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "201": {
+      "id": "Braum",
+      "name": "브라움",
+      "roles": ["Tank", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "202": {
+      "id": "Jhin",
+      "name": "진",
+      "roles": ["Marksman", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "203": {
+      "id": "Kindred",
+      "name": "킨드레드",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "221": {
+      "id": "Zeri",
+      "name": "제리",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "222": {
+      "id": "Jinx",
+      "name": "징크스",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "223": {
+      "id": "TahmKench",
+      "name": "탐 켄치",
+      "roles": ["Tank", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "233": {
+      "id": "Briar",
+      "name": "브라이어",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "234": {
+      "id": "Viego",
+      "name": "비에고",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "235": {
+      "id": "Senna",
+      "name": "세나",
+      "roles": ["Support", "Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "236": {
+      "id": "Lucian",
+      "name": "루시안",
+      "roles": ["Marksman", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "238": {
+      "id": "Zed",
+      "name": "제드",
+      "roles": ["Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "240": {
+      "id": "Kled",
+      "name": "클레드",
+      "roles": ["Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "245": {
+      "id": "Ekko",
+      "name": "에코",
+      "roles": ["Assassin", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "246": {
+      "id": "Qiyana",
+      "name": "키아나",
+      "roles": ["Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "254": {
+      "id": "Vi",
+      "name": "바이",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "266": {
+      "id": "Aatrox",
+      "name": "아트록스",
+      "roles": ["Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "267": {
+      "id": "Nami",
+      "name": "나미",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "268": {
+      "id": "Azir",
+      "name": "아지르",
+      "roles": ["Mage", "Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "350": {
+      "id": "Yuumi",
+      "name": "유미",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "360": {
+      "id": "Samira",
+      "name": "사미라",
+      "roles": ["Marksman", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
       }
     },
     "412": {
-      "name": "Thresh",
+      "id": "Thresh",
+      "name": "쓰레쉬",
       "roles": ["Support", "Tank"],
-      "augmentPreferences": [
-        { "augmentId": "TankItUp", "baseBonus": 20, "reason": "패시브 영혼 + 체력 시너지" },
-        { "augmentId": "SpiritLink", "baseBonus": 25, "reason": "W 등불 + 힐 연결 시너지" },
-        { "augmentId": "CelestialBlessing", "baseBonus": 15, "reason": "팀파이트 생존" }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [3068, 3006, 3075],
-        "situational": [
-          { "itemId": 3065, "whenTags": ["heal"], "reason": "회복 강화" },
-          { "itemId": 3083, "whenTags": ["poke"], "reason": "포킹 상대 체력 회복" },
-          { "itemId": 3026, "whenTags": ["burst"], "reason": "부활 방어" }
-        ]
+        "core": [],
+        "situational": []
+      }
+    },
+    "420": {
+      "id": "Illaoi",
+      "name": "일라오이",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "421": {
+      "id": "RekSai",
+      "name": "렉사이",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "427": {
+      "id": "Ivern",
+      "name": "아이번",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "429": {
+      "id": "Kalista",
+      "name": "칼리스타",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "432": {
+      "id": "Bard",
+      "name": "바드",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "497": {
+      "id": "Rakan",
+      "name": "라칸",
+      "roles": ["Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "498": {
+      "id": "Xayah",
+      "name": "자야",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "516": {
+      "id": "Ornn",
+      "name": "오른",
+      "roles": ["Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "517": {
+      "id": "Sylas",
+      "name": "사일러스",
+      "roles": ["Mage", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "518": {
+      "id": "Neeko",
+      "name": "니코",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "523": {
+      "id": "Aphelios",
+      "name": "아펠리오스",
+      "roles": ["Marksman"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "526": {
+      "id": "Rell",
+      "name": "렐",
+      "roles": ["Tank", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "555": {
+      "id": "Pyke",
+      "name": "파이크",
+      "roles": ["Support", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "711": {
+      "id": "Vex",
+      "name": "벡스",
+      "roles": ["Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "777": {
+      "id": "Yone",
+      "name": "요네",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "799": {
+      "id": "Ambessa",
+      "name": "암베사",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "875": {
+      "id": "Sett",
+      "name": "세트",
+      "roles": ["Fighter", "Tank"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "876": {
+      "id": "Lillia",
+      "name": "릴리아",
+      "roles": ["Fighter", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "887": {
+      "id": "Gwen",
+      "name": "그웬",
+      "roles": ["Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "888": {
+      "id": "Renata",
+      "name": "레나타 글라스크",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "893": {
+      "id": "Aurora",
+      "name": "오로라",
+      "roles": ["Mage", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "895": {
+      "id": "Nilah",
+      "name": "닐라",
+      "roles": ["Fighter", "Assassin"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "897": {
+      "id": "KSante",
+      "name": "크산테",
+      "roles": ["Tank", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "901": {
+      "id": "Smolder",
+      "name": "스몰더",
+      "roles": ["Marksman", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "902": {
+      "id": "Milio",
+      "name": "밀리오",
+      "roles": ["Support", "Mage"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "910": {
+      "id": "Hwei",
+      "name": "흐웨이",
+      "roles": ["Mage", "Support"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
+      }
+    },
+    "950": {
+      "id": "Naafiri",
+      "name": "나피리",
+      "roles": ["Assassin", "Fighter"],
+      "augmentPreferences": [],
+      "itemBuild": {
+        "core": [],
+        "situational": []
       }
     }
   },
   "rules": {
-    "enemyTagWeights": {
-      "tank": { "tank_killer": 30, "dps": 10, "armor_pen": 15 },
-      "heal": { "anti_heal": 25, "dot": 10 },
-      "burst": { "anti_burst": 25, "survivability": 15 },
-      "poke": { "survivability": 15, "heal": 10, "engage": 20 },
-      "cc": { "survivability": 10, "anti_burst": 10 }
+    "augmentSelection": {
+      "maxPerRound": 1,
+      "preferChampionSpecific": true
     }
   }
 }
