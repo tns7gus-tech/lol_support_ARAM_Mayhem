@@ -85,9 +85,6 @@ public class RecommendationService
         KnowledgeBase kb, Champion champion, List<string>? enemyTags)
     {
         var recommendations = new List<AugmentRecommendation>();
-        var preferenceMap = champion.AugmentPreferences
-            .GroupBy(p => p.AugmentId)
-            .ToDictionary(g => g.Key, g => g.First());
 
         foreach (var (augId, augment) in kb.Augments)
         {
@@ -99,7 +96,9 @@ public class RecommendationService
             reasons.Add($"티어 {augment.Tier}");
 
             // 2) 챔피언 시너지 점수
-            if (preferenceMap.TryGetValue(augId, out var synergy))
+            var synergy = champion.AugmentPreferences
+                .FirstOrDefault(p => p.AugmentId == augId);
+            if (synergy != null)
             {
                 score += synergy.BaseBonus;
                 reasons.Add($"챔피언 시너지: {synergy.Reason}");
@@ -137,7 +136,6 @@ public class RecommendationService
 
         return recommendations
             .OrderByDescending(r => r.Score)
-            .ThenBy(r => r.Name)
             .ToList();
     }
 
@@ -158,7 +156,6 @@ public class RecommendationService
                 Reasons = new List<string> { $"티어 {kv.Value.Tier} (범용 추천)" }
             })
             .OrderByDescending(r => r.Score)
-            .ThenBy(r => r.Name)
             .ToList();
     }
 

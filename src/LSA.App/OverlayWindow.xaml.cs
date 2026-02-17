@@ -65,14 +65,10 @@ public partial class OverlayWindow : Window
 
     // 서비스
     private readonly ILoggerFactory _loggerFactory;
-    private readonly ILogger<OverlayWindow> _logger;
     private readonly DataService _dataService;
     private readonly RecommendationService _recommendationService;
     private readonly HotKeyService _hotKeyService;
     private IGameStateProvider? _provider;
-    private Action<GamePhase>? _onPhaseChangedHandler;
-    private Action<int?>? _onChampionChangedHandler;
-    private Action<bool>? _onConnectionChangedHandler;
     private MockProvider? _mockProvider; // Mock 전용 기능 접근용
     private CancellationTokenSource? _appCts;
 
@@ -110,7 +106,6 @@ public partial class OverlayWindow : Window
         _recommendationService = new RecommendationService(
             _dataService, _loggerFactory.CreateLogger<RecommendationService>());
         _hotKeyService = new HotKeyService();
-        _logger = _loggerFactory.CreateLogger<OverlayWindow>();
     }
 
     /// <summary>
@@ -132,7 +127,7 @@ public partial class OverlayWindow : Window
         _hotKeyService.OnToggleOverlay += ToggleOverlay;
         _hotKeyService.OnToggleClickThrough += ToggleClickThrough;
         _hotKeyService.OnDevCyclePhase += DevCyclePhase;
-        _hotKeyService.Register(this, _dataService.Config.Hotkeys);
+        _hotKeyService.Register(this);
 
         // Provider 연결 + 이벤트 구독
         await ConnectProviderAsync();
@@ -192,7 +187,7 @@ public partial class OverlayWindow : Window
     /// </summary>
     private void SubscribeProviderEvents(IGameStateProvider provider)
     {
-        _onPhaseChangedHandler = phase =>
+        provider.OnPhaseChanged += phase =>
         {
             Dispatcher.BeginInvoke(() =>
             {
@@ -201,7 +196,7 @@ public partial class OverlayWindow : Window
             });
         };
 
-        _onChampionChangedHandler = champId =>
+        provider.OnChampionChanged += champId =>
         {
             Dispatcher.BeginInvoke(async () =>
             {
@@ -213,7 +208,7 @@ public partial class OverlayWindow : Window
             });
         };
 
-        _onConnectionChangedHandler = connected =>
+        provider.OnConnectionChanged += connected =>
         {
             Dispatcher.BeginInvoke(() =>
             {
@@ -233,26 +228,6 @@ public partial class OverlayWindow : Window
                 }
             });
         };
-
-        provider.OnPhaseChanged += _onPhaseChangedHandler;
-        provider.OnChampionChanged += _onChampionChangedHandler;
-        provider.OnConnectionChanged += _onConnectionChangedHandler;
-    }
-
-    private void UnsubscribeProviderEvents(IGameStateProvider provider)
-    {
-        if (_onPhaseChangedHandler != null)
-            provider.OnPhaseChanged -= _onPhaseChangedHandler;
-
-        if (_onChampionChangedHandler != null)
-            provider.OnChampionChanged -= _onChampionChangedHandler;
-
-        if (_onConnectionChangedHandler != null)
-            provider.OnConnectionChanged -= _onConnectionChangedHandler;
-
-        _onPhaseChangedHandler = null;
-        _onChampionChangedHandler = null;
-        _onConnectionChangedHandler = null;
     }
 
     // ===== 연결 상태 UI =====
@@ -329,9 +304,9 @@ public partial class OverlayWindow : Window
                 await UpdateRecommendationsAsync();
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            _logger.LogDebug(ex, "Fallback 폴링 중 오류");
+            // 폴링 오류는 조용히 무시
         }
     }
 
@@ -374,10 +349,7 @@ public partial class OverlayWindow : Window
                 enemyTags = DeriveEnemyTags(enemyIds);
             }
         }
-        catch (Exception ex)
-        {
-            _logger.LogDebug(ex, "적 챔피언 조회 실패 — enemyTags 생략");
-        }
+        catch { }
 
         _currentRecommendation = _recommendationService.GetRecommendations(
             _currentChampionId.Value, enemyTags);
@@ -551,7 +523,6 @@ public partial class OverlayWindow : Window
         if (_provider != null)
         {
             await _provider.StopMonitoringAsync();
-            UnsubscribeProviderEvents(_provider);
         }
 
         // 위치 저장

@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using System.Net.Http.Headers;
-using System.Net.Security;
 using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
@@ -122,7 +121,7 @@ public class LcuProvider : IGameStateProvider
 
         var handler = new HttpClientHandler
         {
-            ServerCertificateCustomValidationCallback = (request, _, _, errors) => IsAllowedLcuTlsRequest(request?.RequestUri, errors)
+            ServerCertificateCustomValidationCallback = (_, _, _, _) => true
         };
         _httpClient = new HttpClient(handler)
         {
@@ -133,25 +132,6 @@ public class LcuProvider : IGameStateProvider
         var authBytes = Encoding.ASCII.GetBytes($"riot:{_connInfo.Password}");
         _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Basic", Convert.ToBase64String(authBytes));
-    }
-
-
-    private static bool IsAllowedLcuTlsRequest(Uri? requestUri, SslPolicyErrors errors)
-    {
-        var isLoopback = requestUri != null &&
-                         (requestUri.IsLoopback ||
-                          string.Equals(requestUri.Host, "127.0.0.1", StringComparison.OrdinalIgnoreCase) ||
-                          string.Equals(requestUri.Host, "localhost", StringComparison.OrdinalIgnoreCase));
-
-        if (!isLoopback)
-            return false;
-
-        return errors == SslPolicyErrors.None || errors == SslPolicyErrors.RemoteCertificateChainErrors;
-    }
-
-    private static bool IsAllowedLcuTlsForWebSocket(SslPolicyErrors errors)
-    {
-        return errors == SslPolicyErrors.None || errors == SslPolicyErrors.RemoteCertificateChainErrors;
     }
 
     // ===================================================================
@@ -218,9 +198,8 @@ public class LcuProvider : IGameStateProvider
             _webSocket?.Dispose();
             _webSocket = new ClientWebSocket();
 
-            // Loopback 대상 + self-signed 체인 오류만 허용
-            _webSocket.Options.RemoteCertificateValidationCallback = (_, _, _, errors) =>
-                IsAllowedLcuTlsForWebSocket(errors);
+            // Self-signed 인증서 허용
+            _webSocket.Options.RemoteCertificateValidationCallback = (_, _, _, _) => true;
 
             // Basic Auth 헤더 설정 (password는 로그 기록 금지)
             var authBytes = Encoding.ASCII.GetBytes($"riot:{_connInfo.Password}");
