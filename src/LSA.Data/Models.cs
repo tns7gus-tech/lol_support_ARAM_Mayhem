@@ -124,6 +124,9 @@ public class EnemyTagWeights
     [JsonPropertyName("cc")]
     public Dictionary<string, int>? Cc { get; set; }
 
+    [JsonPropertyName("dps")]
+    public Dictionary<string, int>? Dps { get; set; }
+
     /// <summary>
     /// 태그 이름으로 가중치 딕셔너리 조회
     /// </summary>
@@ -136,6 +139,7 @@ public class EnemyTagWeights
             "burst" => Burst,
             "poke" => Poke,
             "cc" => Cc,
+            "dps" => Dps,
             _ => null
         };
     }

@@ -149,8 +149,17 @@ public class LcuProvider : IGameStateProvider
         return errors == SslPolicyErrors.None || errors == SslPolicyErrors.RemoteCertificateChainErrors;
     }
 
-    private static bool IsAllowedLcuTlsForWebSocket(SslPolicyErrors errors)
+    private static bool IsAllowedLcuTlsForWebSocket(Uri? requestUri, SslPolicyErrors errors)
     {
+        // WebSocket도 REST와 동일하게 loopback만 허용
+        var isLoopback = requestUri != null &&
+                         (requestUri.IsLoopback ||
+                          string.Equals(requestUri.Host, "127.0.0.1", StringComparison.OrdinalIgnoreCase) ||
+                          string.Equals(requestUri.Host, "localhost", StringComparison.OrdinalIgnoreCase));
+
+        if (!isLoopback)
+            return false;
+
         return errors == SslPolicyErrors.None || errors == SslPolicyErrors.RemoteCertificateChainErrors;
     }
 
@@ -219,15 +228,15 @@ public class LcuProvider : IGameStateProvider
             _webSocket = new ClientWebSocket();
 
             // Loopback 대상 + self-signed 체인 오류만 허용
+            var wsUri = new Uri($"wss://127.0.0.1:{_connInfo.Port}/");
             _webSocket.Options.RemoteCertificateValidationCallback = (_, _, _, errors) =>
-                IsAllowedLcuTlsForWebSocket(errors);
+                IsAllowedLcuTlsForWebSocket(wsUri, errors);
 
             // Basic Auth 헤더 설정 (password는 로그 기록 금지)
             var authBytes = Encoding.ASCII.GetBytes($"riot:{_connInfo.Password}");
             _webSocket.Options.SetRequestHeader("Authorization",
                 $"Basic {Convert.ToBase64String(authBytes)}");
 
-            var wsUri = new Uri($"wss://127.0.0.1:{_connInfo.Port}/");
             await _webSocket.ConnectAsync(wsUri, ct);
 
             // WAMP Subscribe — Phase 변경 이벤트

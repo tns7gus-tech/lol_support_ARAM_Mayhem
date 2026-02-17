@@ -44,7 +44,7 @@ public class RecommendationServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal("Jinx", result.ChampionName);
+        Assert.Equal("징크스", result.ChampionName);
         Assert.NotEmpty(result.Augments);
         Assert.NotEmpty(result.Items);
     }
