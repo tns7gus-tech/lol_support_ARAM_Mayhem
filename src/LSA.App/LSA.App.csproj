@@ -8,7 +8,7 @@
     <AssemblyName>LSA</AssemblyName>
 
     <!-- 앱 정보 -->
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
     <Product>Your.Gengi — ARAM Overlay</Product>
     <Description>ARAM 증강/아이템 추천 오버레이</Description>
   </PropertyGroup>
