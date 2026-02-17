@@ -184,6 +184,42 @@ public class KnowledgeBase
 }
 
 /// <summary>
+/// 정적 증강 사전 엔트리 (자동 수집 캐시용)
+/// </summary>
+public class AugmentDictionaryEntry
+{
+    [JsonPropertyName("id")]
+    public string Id { get; set; } = "";
+
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = "";
+
+    [JsonPropertyName("description")]
+    public string Description { get; set; } = "";
+
+    [JsonPropertyName("iconPath")]
+    public string IconPath { get; set; } = "";
+
+    [JsonPropertyName("source")]
+    public string Source { get; set; } = "communitydragon";
+}
+
+/// <summary>
+/// 증강 사전 캐시 루트 모델 (data/augments_dictionary.json)
+/// </summary>
+public class AugmentDictionary
+{
+    [JsonPropertyName("version")]
+    public string Version { get; set; } = "1.0";
+
+    [JsonPropertyName("updatedAt")]
+    public string UpdatedAt { get; set; } = "";
+
+    [JsonPropertyName("entries")]
+    public Dictionary<string, AugmentDictionaryEntry> Entries { get; set; } = new();
+}
+
+/// <summary>
 /// Mock 게임 상태 모델
 /// </summary>
 public class MockGameState
