@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="OverlayWindow.xaml">
     <Application.Resources>
-        <!-- 기본 색상 팔레트 — Riot UI와 구분되는 Your.Gengi 톤 -->
+        <!-- 기본 색상 팔레트 — Riot UI와 구분되는 LSA 톤 -->
         <Color x:Key="PrimaryColor">#FF1A1A2E</Color>
         <Color x:Key="SecondaryColor">#FF16213E</Color>
         <Color x:Key="AccentColor">#FF0F3460</Color>

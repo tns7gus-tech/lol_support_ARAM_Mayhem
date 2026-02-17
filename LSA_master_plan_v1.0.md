@@ -1,4 +1,4 @@
-# 🚀 Your.Gengi Overlay (LSA) — **최종 종합 계획서 v1.0**
+# 🚀 LSA Overlay — **최종 종합 계획서 v1.0**
 > **목표:** (칼바람/아레나/증강 모드)에서 **증강 추천 + 아이템 트리 추천**을 “오버레이로” 제공하는 **무설치(Portable) PC 프로그램**  
 > **핵심 원칙:** **Security First / Read-Only / 정책 리스크 최소화**  
 > **최종 산출물:** `LSA.exe` (단일 실행 파일) + `data/knowledge_base.json` + `config.json` (Portable)
@@ -99,7 +99,7 @@
 - “현재 3개 증강 중” 기능도 **랭킹/이유 제공**까지만(선택 강제 X).
 
 **D. 시각적 구분**
-- Riot UI와 헷갈리지 않게 **Your.Gengi 로고/톤**으로 명확히 구분한다.
+- Riot UI와 헷갈리지 않게 **LSA 로고/톤**으로 명확히 구분한다.
 - 게임 HUD(미니맵/스킬바/상점 등) 가리는 기본 배치 금지(기본 위치를 안전 영역으로).
 
 ---
@@ -349,7 +349,7 @@ score = baseTierScore
 
 ### 3) 화면 레이아웃(권장)
 **상단 바**
-- Your.Gengi 로고 / 현재 상태(ChampSelect/InProgress) / 모드
+- LSA 로고 / 현재 상태(ChampSelect/InProgress) / 모드
 - 버튼: `설정`, `접기`, `Mock 토글(개발용)`
 
 **본문 1: 증강 추천**
@@ -566,4 +566,3 @@ LSA_Portable/
 - Riot Support — Third Party Applications(숨겨진 정보 노출/대신 행동/게임 중 결론 등 경고)
 - Riot DevRel — Vanguard FAQ(메모리 리딩 불가, API/LCU 기반 오버레이는 동작 예상, LCU는 지원 보장 없음)
 - OP.GG Desktop Patch Notes — 2026-02-04 “LoL 증강체 티어 오버레이” 추가 (시장 검증 관점)
-

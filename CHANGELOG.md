@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.3.2] - 2026-02-17
+
+### Changed
+- **Branding**: Removed all `Your.Gengi` naming from app metadata/UI and project planning docs.
+
 ## [v0.3.1] - 2026-02-17
 
 ### Fixed

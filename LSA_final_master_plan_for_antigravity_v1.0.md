@@ -1,4 +1,4 @@
-# 🧲 Your.Gengi Augment Picker Overlay (LSA) — 최종 기획/개발 종합계획서 v1.0
+# 🧲 LSA Augment Picker Overlay — 최종 기획/개발 종합계획서 v1.0
 > 전달 대상: **antigravity**  
 > 최종 목표: **지금 화면에 뜬 증강 3개(새로고침 포함 시 최대 6개 후보)** 중에서, 내 챔피언/상황에 가장 잘 맞는 선택을 **오버레이로 즉시 추천**해주는 PC 프로그램  
 > 운영 원칙: **합법/안전(읽기 전용)** + **무설치(Portable)** + **PC방 사용 가능** + **LoL 미설치 노트북에서는 Mock로 개발**
@@ -328,4 +328,3 @@ dotnet publish src/LSA.App/LSA.App.csproj -c Release -r win-x64 ^
 - 데이터는 **정적 사전 자동화 + 최소 메타(태그/룰) 수동 입력**으로 해결한다.
 - 결과물은 **무설치(Portable)**로 PC방에서 즉시 실행 가능해야 한다.
 - 사용자에게는 “정답”을 강요하지 않고 **Top3 + 이유**로 빠른 의사결정을 돕는다.
-
