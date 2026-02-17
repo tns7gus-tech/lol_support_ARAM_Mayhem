@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "0.4.0",
+    "version": "0.3.1",
     "updatedAt": "2026-02-17",
     "totalChampions": 171,
     "sampleChampionsConfigured": [
@@ -34,12 +34,7 @@
       "마스터 이",
       "아우렐리온 솔"
     ],
-    "missingRequestedChampions": [],
-    "sampleCoverage": "all champions seeded with baseline recommendations",
-    "newChampionsAdded": [
-      "자헨",
-      "유나라"
-    ]
+    "missingRequestedChampions": []
   },
   "augments": {
     "aug_arcane_surge": {
@@ -416,45 +411,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "2": {
@@ -464,45 +424,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "3": {
@@ -561,45 +486,10 @@
         "Mage",
         "Marksman"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "5": {
@@ -609,45 +499,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "6": {
@@ -657,45 +512,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "7": {
@@ -705,45 +525,10 @@
         "Assassin",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "8": {
@@ -753,45 +538,10 @@
         "Mage",
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "9": {
@@ -801,45 +551,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "10": {
@@ -946,45 +661,10 @@
         "Tank",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "13": {
@@ -1042,45 +722,10 @@
         "Tank",
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "15": {
@@ -1089,45 +734,10 @@
       "roles": [
         "Marksman"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "16": {
@@ -1137,45 +747,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "17": {
@@ -1185,45 +760,10 @@
         "Marksman",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "18": {
@@ -1233,45 +773,10 @@
         "Marksman",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "19": {
@@ -1281,45 +786,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "20": {
@@ -1329,45 +799,10 @@
         "Tank",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "21": {
@@ -1377,45 +812,10 @@
         "Marksman",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "22": {
@@ -1473,45 +873,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "24": {
@@ -1520,45 +885,10 @@
       "roles": [
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_bruiser_drive",
-          "baseBonus": 20,
-          "reason": "브루저 교전력"
-        },
-        {
-          "augmentId": "aug_omnivamp_frenzy",
-          "baseBonus": 14,
-          "reason": "지속 전투 회복"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 12,
-          "reason": "전열 관통"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6630,
-          3071,
-          3053
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "교전 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "전열 압박"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "25": {
@@ -1616,45 +946,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "27": {
@@ -1712,45 +1007,10 @@
         "Assassin",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "29": {
@@ -1760,45 +1020,10 @@
         "Marksman",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "30": {
@@ -1807,45 +1032,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "31": {
@@ -1855,45 +1045,10 @@
         "Tank",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "32": {
@@ -1903,45 +1058,10 @@
         "Tank",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "33": {
@@ -1950,45 +1070,10 @@
       "roles": [
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "34": {
@@ -1997,45 +1082,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "35": {
@@ -2044,45 +1094,10 @@
       "roles": [
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "36": {
@@ -2237,45 +1252,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "40": {
@@ -2285,45 +1265,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "41": {
@@ -2332,45 +1277,10 @@
       "roles": [
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_bruiser_drive",
-          "baseBonus": 20,
-          "reason": "브루저 교전력"
-        },
-        {
-          "augmentId": "aug_omnivamp_frenzy",
-          "baseBonus": 14,
-          "reason": "지속 전투 회복"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 12,
-          "reason": "전열 관통"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6630,
-          3071,
-          3053
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "교전 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "전열 압박"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "42": {
@@ -2380,45 +1290,10 @@
         "Marksman",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "43": {
@@ -2428,45 +1303,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "44": {
@@ -2476,45 +1316,10 @@
         "Support",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "45": {
@@ -2523,45 +1328,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "48": {
@@ -2571,45 +1341,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "50": {
@@ -2619,45 +1354,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "51": {
@@ -2714,45 +1414,10 @@
         "Tank",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "54": {
@@ -2762,45 +1427,10 @@
         "Tank",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "55": {
@@ -2810,45 +1440,10 @@
         "Assassin",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "56": {
@@ -2858,45 +1453,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "57": {
@@ -2954,45 +1514,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "59": {
@@ -3002,45 +1527,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "60": {
@@ -3050,45 +1540,10 @@
         "Assassin",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "61": {
@@ -3098,45 +1553,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "62": {
@@ -3146,45 +1566,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "63": {
@@ -3242,45 +1627,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "67": {
@@ -3338,45 +1688,10 @@
         "Fighter",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "69": {
@@ -3385,45 +1700,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "72": {
@@ -3433,45 +1713,10 @@
         "Tank",
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "74": {
@@ -3481,45 +1726,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "75": {
@@ -3529,45 +1739,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "76": {
@@ -3577,45 +1752,10 @@
         "Assassin",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "77": {
@@ -3625,45 +1765,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "78": {
@@ -3673,45 +1778,10 @@
         "Tank",
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "79": {
@@ -3721,45 +1791,10 @@
         "Fighter",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "80": {
@@ -3769,45 +1804,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "81": {
@@ -3817,45 +1817,10 @@
         "Marksman",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "82": {
@@ -3865,45 +1830,10 @@
         "Fighter",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "83": {
@@ -3913,45 +1843,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "84": {
@@ -3960,45 +1855,10 @@
       "roles": [
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "85": {
@@ -4007,45 +1867,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "86": {
@@ -4055,45 +1880,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "89": {
@@ -4103,45 +1893,10 @@
         "Tank",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "90": {
@@ -4197,45 +1952,10 @@
       "roles": [
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "92": {
@@ -4245,45 +1965,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "96": {
@@ -4293,45 +1978,10 @@
         "Marksman",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "98": {
@@ -4340,45 +1990,10 @@
       "roles": [
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "99": {
@@ -4388,45 +2003,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "101": {
@@ -4485,45 +2065,10 @@
         "Fighter",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "103": {
@@ -4677,45 +2222,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "107": {
@@ -4725,45 +2235,10 @@
         "Assassin",
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "110": {
@@ -4773,45 +2248,10 @@
         "Marksman",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "111": {
@@ -4821,45 +2261,10 @@
         "Tank",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "112": {
@@ -4916,45 +2321,10 @@
       "roles": [
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "114": {
@@ -4964,45 +2334,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "115": {
@@ -5011,45 +2346,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "117": {
@@ -5059,45 +2359,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "119": {
@@ -5106,45 +2371,10 @@
       "roles": [
         "Marksman"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "120": {
@@ -5154,45 +2384,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "121": {
@@ -5201,45 +2396,10 @@
       "roles": [
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "122": {
@@ -5249,45 +2409,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "126": {
@@ -5297,45 +2422,10 @@
         "Marksman",
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "127": {
@@ -5344,45 +2434,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "131": {
@@ -5392,45 +2447,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "133": {
@@ -5440,45 +2460,10 @@
         "Marksman",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "134": {
@@ -5487,45 +2472,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "136": {
@@ -5583,45 +2533,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "142": {
@@ -5630,45 +2545,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "143": {
@@ -5726,45 +2606,10 @@
         "Marksman",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "147": {
@@ -5822,45 +2667,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "154": {
@@ -5870,45 +2680,10 @@
         "Tank",
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "157": {
@@ -5918,45 +2693,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "161": {
@@ -5966,45 +2706,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "163": {
@@ -6014,45 +2719,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "164": {
@@ -6062,45 +2732,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "166": {
@@ -6110,45 +2745,10 @@
         "Marksman",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "200": {
@@ -6157,45 +2757,10 @@
       "roles": [
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_bruiser_drive",
-          "baseBonus": 20,
-          "reason": "브루저 교전력"
-        },
-        {
-          "augmentId": "aug_omnivamp_frenzy",
-          "baseBonus": 14,
-          "reason": "지속 전투 회복"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 12,
-          "reason": "전열 관통"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6630,
-          3071,
-          3053
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "교전 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "전열 압박"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "201": {
@@ -6205,45 +2770,10 @@
         "Tank",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "202": {
@@ -6253,45 +2783,10 @@
         "Marksman",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "203": {
@@ -6300,45 +2795,10 @@
       "roles": [
         "Marksman"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "221": {
@@ -6347,45 +2807,10 @@
       "roles": [
         "Marksman"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "222": {
@@ -6442,45 +2867,10 @@
         "Tank",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "233": {
@@ -6490,45 +2880,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "234": {
@@ -6538,45 +2893,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "235": {
@@ -6586,45 +2906,10 @@
         "Support",
         "Marksman"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "236": {
@@ -6634,45 +2919,10 @@
         "Marksman",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "238": {
@@ -6728,45 +2978,10 @@
       "roles": [
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_bruiser_drive",
-          "baseBonus": 20,
-          "reason": "브루저 교전력"
-        },
-        {
-          "augmentId": "aug_omnivamp_frenzy",
-          "baseBonus": 14,
-          "reason": "지속 전투 회복"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 12,
-          "reason": "전열 관통"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6630,
-          3071,
-          3053
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "교전 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "전열 압박"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "245": {
@@ -6776,45 +2991,10 @@
         "Assassin",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "246": {
@@ -6823,45 +3003,10 @@
       "roles": [
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "254": {
@@ -6871,45 +3016,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "266": {
@@ -6918,45 +3028,10 @@
       "roles": [
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_bruiser_drive",
-          "baseBonus": 20,
-          "reason": "브루저 교전력"
-        },
-        {
-          "augmentId": "aug_omnivamp_frenzy",
-          "baseBonus": 14,
-          "reason": "지속 전투 회복"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 12,
-          "reason": "전열 관통"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6630,
-          3071,
-          3053
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "교전 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "전열 압박"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "267": {
@@ -6966,45 +3041,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "268": {
@@ -7014,45 +3054,10 @@
         "Mage",
         "Marksman"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "350": {
@@ -7062,45 +3067,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "360": {
@@ -7110,45 +3080,10 @@
         "Marksman",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "412": {
@@ -7158,45 +3093,10 @@
         "Support",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "420": {
@@ -7206,45 +3106,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "421": {
@@ -7254,45 +3119,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "427": {
@@ -7302,45 +3132,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "429": {
@@ -7349,45 +3144,10 @@
       "roles": [
         "Marksman"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "432": {
@@ -7397,45 +3157,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "497": {
@@ -7444,45 +3169,10 @@
       "roles": [
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_harmonic_echo",
-          "baseBonus": 20,
-          "reason": "보호막/힐 효율"
-        },
-        {
-          "augmentId": "aug_cc_chain",
-          "baseBonus": 16,
-          "reason": "이니시/연계 강화"
-        },
-        {
-          "augmentId": "aug_moonlit_grace",
-          "baseBonus": 12,
-          "reason": "한타 유지력"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6617,
-          2065,
-          3504
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "생존력 보강"
-          },
-          {
-            "itemId": 3165,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "치유 감소 지원"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "498": {
@@ -7538,45 +3228,10 @@
       "roles": [
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "517": {
@@ -7586,45 +3241,10 @@
         "Mage",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "518": {
@@ -7634,45 +3254,10 @@
         "Mage",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "523": {
@@ -7681,45 +3266,10 @@
       "roles": [
         "Marksman"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "526": {
@@ -7729,45 +3279,10 @@
         "Tank",
         "Support"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "555": {
@@ -7777,45 +3292,10 @@
         "Support",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "711": {
@@ -7824,45 +3304,10 @@
       "roles": [
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "777": {
@@ -7872,45 +3317,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "799": {
@@ -7920,45 +3330,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "875": {
@@ -7968,45 +3343,10 @@
         "Fighter",
         "Tank"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "876": {
@@ -8063,45 +3403,10 @@
       "roles": [
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_bruiser_drive",
-          "baseBonus": 20,
-          "reason": "브루저 교전력"
-        },
-        {
-          "augmentId": "aug_omnivamp_frenzy",
-          "baseBonus": 14,
-          "reason": "지속 전투 회복"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 12,
-          "reason": "전열 관통"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6630,
-          3071,
-          3053
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "교전 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "전열 압박"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "888": {
@@ -8111,45 +3416,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "893": {
@@ -8208,45 +3478,10 @@
         "Fighter",
         "Assassin"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "897": {
@@ -8256,45 +3491,10 @@
         "Tank",
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_colossus_heart",
-          "baseBonus": 22,
-          "reason": "최전방 유지력"
-        },
-        {
-          "augmentId": "aug_stone_skin",
-          "baseBonus": 16,
-          "reason": "방어 효율 상승"
-        },
-        {
-          "augmentId": "aug_frontline_oath",
-          "baseBonus": 12,
-          "reason": "아군 보호 시너지"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          3068,
-          3111,
-          3075
-        ],
-        "situational": [
-          {
-            "itemId": 3157,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "폭딜 회피"
-          },
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "heal"
-            ],
-            "reason": "지속교전 안정"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "901": {
@@ -8304,45 +3504,10 @@
         "Marksman",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_lethal_tempo",
-          "baseBonus": 22,
-          "reason": "공속 기반 캐리력"
-        },
-        {
-          "augmentId": "aug_sharpshooter_focus",
-          "baseBonus": 16,
-          "reason": "원거리 딜 강화"
-        },
-        {
-          "augmentId": "aug_kiting_master",
-          "baseBonus": 12,
-          "reason": "생존형 딜링"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6672,
-          3006,
-          3094
-        ],
-        "situational": [
-          {
-            "itemId": 3031,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "치명타 고점 확보"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "탱커 카운터"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "902": {
@@ -8352,45 +3517,10 @@
         "Support",
         "Mage"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_burn_protocol",
-          "baseBonus": 24,
-          "reason": "지속피해 핵심 시너지"
-        },
-        {
-          "augmentId": "aug_spellweaver",
-          "baseBonus": 14,
-          "reason": "장기교전 주문 강화"
-        },
-        {
-          "augmentId": "aug_anti_tank_core",
-          "baseBonus": 10,
-          "reason": "전열 상대 대응"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6655,
-          3157,
-          3165
-        ],
-        "situational": [
-          {
-            "itemId": 3135,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "마저 관통 필요"
-          },
-          {
-            "itemId": 3089,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "딜 상한 확장"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "910": {
@@ -8448,45 +3578,10 @@
         "Assassin",
         "Fighter"
       ],
-      "augmentPreferences": [
-        {
-          "augmentId": "aug_shadow_hunt",
-          "baseBonus": 22,
-          "reason": "암살 진입 시너지"
-        },
-        {
-          "augmentId": "aug_executioner_edge",
-          "baseBonus": 16,
-          "reason": "마무리 킬각 강화"
-        },
-        {
-          "augmentId": "aug_spellshield_matrix",
-          "baseBonus": 10,
-          "reason": "진입 안정성 확보"
-        }
-      ],
+      "augmentPreferences": [],
       "itemBuild": {
-        "core": [
-          6692,
-          3158,
-          3814
-        ],
-        "situational": [
-          {
-            "itemId": 3742,
-            "whenTags": [
-              "burst"
-            ],
-            "reason": "진입 후 생존"
-          },
-          {
-            "itemId": 3036,
-            "whenTags": [
-              "tank"
-            ],
-            "reason": "단단한 조합 대응"
-          }
-        ]
+        "core": [],
+        "situational": []
       }
     },
     "970": {
