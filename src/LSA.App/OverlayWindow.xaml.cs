@@ -173,7 +173,9 @@ public partial class OverlayWindow : Window
     private async Task ConnectProviderAsync()
     {
         // 먼저 Real LCU 시도
-        var lcuProvider = new LcuProvider(_loggerFactory.CreateLogger<LcuProvider>());
+        var lcuProvider = new LcuProvider(
+            _loggerFactory.CreateLogger<LcuProvider>(),
+            _dataService.Config.Lol.InstallPath);
         if (await lcuProvider.TryConnectAsync())
         {
             _provider = lcuProvider;

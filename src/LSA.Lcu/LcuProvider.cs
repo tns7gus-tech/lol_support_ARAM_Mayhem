@@ -29,6 +29,7 @@ public class LcuConnectionInfo
 public class LcuProvider : IGameStateProvider
 {
     private readonly ILogger<LcuProvider> _logger;
+    private readonly string? _configuredInstallPath;
     private HttpClient? _httpClient;
     private ClientWebSocket? _webSocket;
     private LcuConnectionInfo? _connInfo;
@@ -57,9 +58,10 @@ public class LcuProvider : IGameStateProvider
     public event Action<int?>? OnChampionChanged;
     public event Action<bool>? OnConnectionChanged;
 
-    public LcuProvider(ILogger<LcuProvider> logger)
+    public LcuProvider(ILogger<LcuProvider> logger, string? installPath = null)
     {
         _logger = logger;
+        _configuredInstallPath = string.IsNullOrWhiteSpace(installPath) ? null : installPath.Trim();
     }
 
     // ===================================================================
@@ -776,12 +778,24 @@ public class LcuProvider : IGameStateProvider
                 }
 
                 // 2) 일반적인 설치 경로 탐색
+                if (!string.IsNullOrWhiteSpace(_configuredInstallPath))
+                {
+                    var configuredPath = _configuredInstallPath!;
+                    var configuredLockfilePath = Path.Combine(configuredPath, "lockfile");
+                    if (File.Exists(configuredLockfilePath))
+                    {
+                        return ParseLockfile(configuredLockfilePath);
+                    }
+                }
+
                 var commonPaths = new[]
                 {
                     @"C:\Riot Games\League of Legends\lockfile",
                     @"D:\Riot Games\League of Legends\lockfile",
+                    @"E:\Riot Games\League of Legends\lockfile",
                     @"C:\Program Files\Riot Games\League of Legends\lockfile",
                     @"D:\Program Files\Riot Games\League of Legends\lockfile",
+                    @"E:\Program Files\Riot Games\League of Legends\lockfile",
                 };
 
                 foreach (var path in commonPaths)
@@ -789,6 +803,27 @@ public class LcuProvider : IGameStateProvider
                     if (File.Exists(path))
                     {
                         return ParseLockfile(path);
+                    }
+                }
+
+                foreach (var drive in DriveInfo.GetDrives())
+                {
+                    if (!drive.IsReady || drive.DriveType != DriveType.Fixed)
+                        continue;
+
+                    var root = drive.RootDirectory.FullName;
+                    var candidatePaths = new[]
+                    {
+                        Path.Combine(root, "Riot Games", "League of Legends", "lockfile"),
+                        Path.Combine(root, "Program Files", "Riot Games", "League of Legends", "lockfile"),
+                    };
+
+                    foreach (var candidate in candidatePaths)
+                    {
+                        if (File.Exists(candidate))
+                        {
+                            return ParseLockfile(candidate);
+                        }
                     }
                 }
             }

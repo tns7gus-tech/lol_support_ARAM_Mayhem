@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.3.3] - 2026-02-18
+
+### Fixed
+- **LCU Detection (PC Bang)**: Added `config.lol.installPath`-based lockfile lookup and expanded lockfile discovery to include `E:` and all local fixed drives under common Riot install patterns.
+- **Startup Connection**: `OverlayWindow` now passes configured LoL install path into `LcuProvider`, reducing false fallback to Mock mode on non-standard installations.
+
 ## [v0.3.2] - 2026-02-17
 
 ### Changed
