@@ -1,4 +1,4 @@
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -17,7 +17,7 @@ using Microsoft.Extensions.Logging.Console;
 namespace LSA.App;
 
 /// <summary>
-/// 오버레이 뷰모델 — 증강 추천 표시용
+/// ?ㅻ쾭?덉씠 酉곕え????利앷컯 異붿쿇 ?쒖떆??
 /// </summary>
 public class AugmentViewModel
 {
@@ -33,7 +33,7 @@ public class AugmentViewModel
     public string ReasonText { get; set; } = "";
     public bool IsSelected { get; set; }
 
-    /// <summary>티어별 색상 브러시</summary>
+    /// <summary>?곗뼱蹂??됱긽 釉뚮윭??/summary>
     public SolidColorBrush TierBrush => Tier switch
     {
         "S" => STierBrush,
@@ -51,7 +51,7 @@ public class AugmentViewModel
 }
 
 /// <summary>
-/// 아이템 뷰모델
+/// ?꾩씠??酉곕え??
 /// </summary>
 public class ItemViewModel
 {
@@ -61,12 +61,12 @@ public class ItemViewModel
 }
 
 /// <summary>
-/// 오버레이 윈도우 — 투명/TopMost/드래그 가능
-/// Phase 2: 이벤트 기반 업데이트 + 폴링 fallback + 연결 상태 표시
+/// ?ㅻ쾭?덉씠 ?덈룄?????щ챸/TopMost/?쒕옒洹?媛??
+/// Phase 2: ?대깽??湲곕컲 ?낅뜲?댄듃 + ?대쭅 fallback + ?곌껐 ?곹깭 ?쒖떆
 /// </summary>
 public partial class OverlayWindow : Window
 {
-    // Win32 — 클릭 통과 모드
+    // Win32 ???대┃ ?듦낵 紐⑤뱶
     [DllImport("user32.dll")]
     private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
     [DllImport("user32.dll")]
@@ -75,7 +75,7 @@ public partial class OverlayWindow : Window
     private const int GWL_EXSTYLE = -20;
     private const int WS_EX_TRANSPARENT = 0x00000020;
 
-    // 서비스
+    // ?쒕퉬??
     private readonly ILoggerFactory _loggerFactory;
     private readonly ILogger<OverlayWindow> _logger;
     private readonly DataService _dataService;
@@ -85,31 +85,32 @@ public partial class OverlayWindow : Window
     private Action<GamePhase>? _onPhaseChangedHandler;
     private Action<int?>? _onChampionChangedHandler;
     private Action<bool>? _onConnectionChangedHandler;
-    private MockProvider? _mockProvider; // Mock 전용 기능 접근용
+    private MockProvider? _mockProvider; // Mock ?꾩슜 湲곕뒫 ?묎렐??
     private CancellationTokenSource? _appCts;
 
-    // 상태
+    // ?곹깭
     private bool _isClickThrough;
     private bool _isCollapsed;
     private GamePhase _currentPhase = GamePhase.None;
     private int? _currentChampionId;
     private RecommendationResult? _currentRecommendation;
     private readonly List<string> _selectedAugmentIds = new();
+    private readonly List<string> _connectionLogs = new();
 
-    // Phase 2: fallback 폴링 타이머 (간격 5초 — WebSocket 활성 시 보조 역할)
+    // Phase 2: fallback ?대쭅 ??대㉧ (媛꾧꺽 5珥???WebSocket ?쒖꽦 ??蹂댁“ ??븷)
     private DispatcherTimer? _fallbackPollTimer;
 
-    // 연결 상태 색상
+    // ?곌껐 ?곹깭 ?됱긽
     private static readonly SolidColorBrush _connGreen = new(Color.FromRgb(0x4C, 0xAF, 0x50));  // WebSocket
     private static readonly SolidColorBrush _connYellow = new(Color.FromRgb(0xFF, 0xC1, 0x07)); // REST
-    private static readonly SolidColorBrush _connRed = new(Color.FromRgb(0xF4, 0x43, 0x36));    // 미연결
+    private static readonly SolidColorBrush _connRed = new(Color.FromRgb(0xF4, 0x43, 0x36));    // 誘몄뿰寃?
     private static readonly SolidColorBrush _connPurple = new(Color.FromRgb(0xAB, 0x47, 0xBC)); // Mock
 
     public OverlayWindow()
     {
         InitializeComponent();
 
-        // 로거 팩토리 생성
+        // 濡쒓굅 ?⑺넗由??앹꽦
         _loggerFactory = LoggerFactory.Create(builder =>
         {
             builder
@@ -117,7 +118,7 @@ public partial class OverlayWindow : Window
                 .AddConsole();
         });
 
-        // 서비스 초기화
+        // ?쒕퉬??珥덇린??
         _dataService = new DataService(_loggerFactory.CreateLogger<DataService>());
         _recommendationService = new RecommendationService(
             _dataService, _loggerFactory.CreateLogger<RecommendationService>());
@@ -126,36 +127,37 @@ public partial class OverlayWindow : Window
     }
 
     /// <summary>
-    /// 윈도우 로드 완료 — 서비스 초기화 + 핫키 등록 + Provider 연결 + 모니터링 시작
+    /// ?덈룄??濡쒕뱶 ?꾨즺 ???쒕퉬??珥덇린??+ ?ロ궎 ?깅줉 + Provider ?곌껐 + 紐⑤땲?곕쭅 ?쒖옉
     /// </summary>
     private async void Window_Loaded(object sender, RoutedEventArgs e)
     {
         _appCts = new CancellationTokenSource();
+        AppendConnectionLog("App started");
 
-        // 설정 로드
+        // ?ㅼ젙 濡쒕뱶
         await _dataService.LoadConfigAsync();
         await _dataService.LoadKnowledgeBaseAsync();
 
-        // 설정에서 위치 복원
+        // ?ㅼ젙?먯꽌 ?꾩튂 蹂듭썝
         Left = _dataService.Config.Overlay.X;
         Top = _dataService.Config.Overlay.Y;
 
-        // 핫키 등록
+        // ?ロ궎 ?깅줉
         _hotKeyService.OnToggleOverlay += ToggleOverlay;
         _hotKeyService.OnToggleClickThrough += ToggleClickThrough;
         _hotKeyService.OnDevCyclePhase += DevCyclePhase;
         _hotKeyService.Register(this, _dataService.Config.Hotkeys);
 
-        // Provider 연결 + 이벤트 구독
+        // Provider ?곌껐 + ?대깽??援щ룆
         await ConnectProviderAsync();
 
-        // 모니터링 시작 (WebSocket + 프로세스 감시)
+        // 紐⑤땲?곕쭅 ?쒖옉 (WebSocket + ?꾨줈?몄뒪 媛먯떆)
         if (_provider != null)
         {
             await _provider.StartMonitoringAsync(_appCts.Token);
         }
 
-        // Fallback 폴링 타이머 (5초 간격 — WebSocket 보조)
+        // Fallback ?대쭅 ??대㉧ (5珥?媛꾧꺽 ??WebSocket 蹂댁“)
         _fallbackPollTimer = new DispatcherTimer
         {
             Interval = TimeSpan.FromSeconds(5)
@@ -163,21 +165,29 @@ public partial class OverlayWindow : Window
         _fallbackPollTimer.Tick += async (s, args) => await FallbackPollAsync();
         _fallbackPollTimer.Start();
 
-        // 초기 상태 갱신
+        // 珥덇린 ?곹깭 媛깆떊
         await FallbackPollAsync();
     }
 
     /// <summary>
-    /// Provider 연결 + 이벤트 구독 — LCU 시도 → 실패 시 Mock fallback
+    /// Provider ?곌껐 + ?대깽??援щ룆 ??LCU ?쒕룄 ???ㅽ뙣 ??Mock fallback
     /// </summary>
     private async Task ConnectProviderAsync()
     {
-        // 먼저 Real LCU 시도
+        AppendConnectionLog("Trying LCU provider...");
+        if (!string.IsNullOrWhiteSpace(_dataService.Config.Lol.InstallPath))
+        {
+            AppendConnectionLog($"Config path: {_dataService.Config.Lol.InstallPath}");
+        }
+
         var lcuProvider = new LcuProvider(
             _loggerFactory.CreateLogger<LcuProvider>(),
             _dataService.Config.Lol.InstallPath);
+
         if (await lcuProvider.TryConnectAsync())
         {
+            AppendLcuLogs(lcuProvider);
+            AppendConnectionLog("LCU connected");
             _provider = lcuProvider;
             SubscribeProviderEvents(_provider);
             MockBadge.Visibility = Visibility.Collapsed;
@@ -185,7 +195,9 @@ public partial class OverlayWindow : Window
             return;
         }
 
-        // LCU 실패 → Mock 전환
+        AppendLcuLogs(lcuProvider);
+        AppendConnectionLog("LCU connect failed");
+
         if (_dataService.Config.App.UseMockWhenLcuMissing)
         {
             _mockProvider = new MockProvider(_dataService, _loggerFactory.CreateLogger<MockProvider>());
@@ -194,15 +206,16 @@ public partial class OverlayWindow : Window
             SubscribeProviderEvents(_provider);
             MockBadge.Visibility = Visibility.Visible;
             UpdateConnectionUI_Mock();
+            AppendConnectionLog("Fallback to MOCK");
         }
         else
         {
             UpdateConnectionUI(false, false);
+            AppendConnectionLog("MOCK fallback disabled");
         }
     }
-
     /// <summary>
-    /// Provider 이벤트 구독 — Phase/Champion/Connection 변경 즉시 반응
+    /// Provider ?대깽??援щ룆 ??Phase/Champion/Connection 蹂寃?利됱떆 諛섏쓳
     /// </summary>
     private void SubscribeProviderEvents(IGameStateProvider provider)
     {
@@ -276,17 +289,17 @@ public partial class OverlayWindow : Window
         _onConnectionChangedHandler = null;
     }
 
-    // ===== 연결 상태 UI =====
+    // ===== ?곌껐 ?곹깭 UI =====
 
     /// <summary>
-    /// 연결 상태 인디케이터 업데이트 — 🟢WS / 🟡REST / 🔴미연결
+    /// ?곌껐 ?곹깭 ?몃뵒耳?댄꽣 ?낅뜲?댄듃 ???윟WS / ?윞REST / ?뵶誘몄뿰寃?
     /// </summary>
     private void UpdateConnectionUI(bool connected, bool isWebSocket)
     {
         if (!connected)
         {
             ConnIndicator.Fill = _connRed;
-            ConnText.Text = "미연결";
+            ConnText.Text = "Disconnected";
         }
         else if (isWebSocket)
         {
@@ -301,7 +314,7 @@ public partial class OverlayWindow : Window
     }
 
     /// <summary>
-    /// Mock 모드 인디케이터 — 🟣
+    /// Mock 紐⑤뱶 ?몃뵒耳?댄꽣 ???윢
     /// </summary>
     private void UpdateConnectionUI_Mock()
     {
@@ -309,11 +322,31 @@ public partial class OverlayWindow : Window
         ConnText.Text = "MOCK";
     }
 
-    // ===== Fallback 폴링 =====
+    private void AppendLcuLogs(LcuProvider provider)
+    {
+        foreach (var line in provider.ConnectionLog)
+        {
+            AppendConnectionLog(line);
+        }
+    }
+
+    private void AppendConnectionLog(string text)
+    {
+        _connectionLogs.Add(text);
+        if (_connectionLogs.Count > 12)
+        {
+            _connectionLogs.RemoveAt(0);
+        }
+
+        ConnectionLogList.ItemsSource = null;
+        ConnectionLogList.ItemsSource = _connectionLogs.ToList();
+    }
+
+    // ===== Fallback ?대쭅 =====
 
     /// <summary>
-    /// Fallback 폴링 — WebSocket 보조 (5초 간격)
-    /// WebSocket이 활성이면 연결 상태 UI만 갱신
+    /// Fallback ?대쭅 ??WebSocket 蹂댁“ (5珥?媛꾧꺽)
+    /// WebSocket???쒖꽦?대㈃ ?곌껐 ?곹깭 UI留?媛깆떊
     /// </summary>
     private async Task FallbackPollAsync()
     {
@@ -321,7 +354,7 @@ public partial class OverlayWindow : Window
 
         try
         {
-            // 연결 상태 UI 갱신
+            // ?곌껐 ?곹깭 UI 媛깆떊
             if (_mockProvider != null)
             {
                 UpdateConnectionUI_Mock();
@@ -331,10 +364,10 @@ public partial class OverlayWindow : Window
                 UpdateConnectionUI(_provider.IsConnected, _provider.IsWebSocketConnected);
             }
 
-            // WebSocket이 활성이면 데이터 폴링은 스킵 (이벤트로 이미 수신 중)
+            // WebSocket???쒖꽦?대㈃ ?곗씠???대쭅? ?ㅽ궢 (?대깽?몃줈 ?대? ?섏떊 以?
             if (_provider.IsWebSocketConnected) return;
 
-            // REST fallback 폴링
+            // REST fallback ?대쭅
             var phase = await _provider.GetPhaseAsync();
             var champId = await _provider.GetMyChampionIdAsync();
 
@@ -357,35 +390,35 @@ public partial class OverlayWindow : Window
         }
         catch (Exception ex)
         {
-            _logger.LogDebug(ex, "Fallback 폴링 중 오류");
+            _logger.LogDebug(ex, "Fallback ?대쭅 以??ㅻ쪟");
         }
     }
 
     /// <summary>
-    /// Phase에 따른 UI 전환
+    /// Phase???곕Ⅸ UI ?꾪솚
     /// </summary>
     private void UpdatePhaseUI()
     {
         var phaseText = _currentPhase switch
         {
-            GamePhase.None => "대기 중...",
-            GamePhase.Lobby => "로비 대기",
-            GamePhase.ChampSelect => "🎯 챔피언 선택",
-            GamePhase.InProgress => "⚔️ 게임 진행 중",
-            GamePhase.EndOfGame => "게임 종료",
-            _ => "알 수 없음"
+            GamePhase.None => "?湲?以?..",
+            GamePhase.Lobby => "Lobby",
+            GamePhase.ChampSelect => "?렞 梨뷀뵾???좏깮",
+            GamePhase.InProgress => "In Progress",
+            GamePhase.EndOfGame => "寃뚯엫 醫낅즺",
+            _ => "?????놁쓬"
         };
         PhaseText.Text = phaseText;
 
         ContentPanel.Visibility = _currentPhase switch
         {
             GamePhase.ChampSelect or GamePhase.InProgress => Visibility.Visible,
-            _ => Visibility.Visible // MVP에서는 항상 표시
+            _ => Visibility.Visible // MVP?먯꽌????긽 ?쒖떆
         };
     }
 
     /// <summary>
-    /// 추천 데이터 갱신
+    /// 異붿쿇 ?곗씠??媛깆떊
     /// </summary>
     private async Task UpdateRecommendationsAsync()
     {
@@ -402,7 +435,7 @@ public partial class OverlayWindow : Window
         }
         catch (Exception ex)
         {
-            _logger.LogDebug(ex, "적 챔피언 조회 실패 — enemyTags 생략");
+            _logger.LogDebug(ex, "??梨뷀뵾??議고쉶 ?ㅽ뙣 ??enemyTags ?앸왂");
         }
 
         _currentRecommendation = _recommendationService.GetRecommendations(
@@ -429,7 +462,7 @@ public partial class OverlayWindow : Window
     }
 
     /// <summary>
-    /// 적 챔피언 ID → 태그 변환 (knowledge_base 기반)
+    /// ??梨뷀뵾??ID ???쒓렇 蹂??(knowledge_base 湲곕컲)
     /// </summary>
     private List<string> DeriveEnemyTags(List<int> enemyIds)
     {
@@ -462,7 +495,7 @@ public partial class OverlayWindow : Window
     }
 
     /// <summary>
-    /// 증강 UI 업데이트
+    /// 利앷컯 UI ?낅뜲?댄듃
     /// </summary>
     private void UpdateAugmentUI(List<AugmentRecommendation> augments)
     {
@@ -471,7 +504,7 @@ public partial class OverlayWindow : Window
             AugmentId = a.AugmentId,
             Name = a.Name,
             Tier = a.Tier,
-            TagsText = string.Join(" · ", a.Tags),
+            TagsText = string.Join(" 쨌 ", a.Tags),
             ReasonText = string.Join(" | ", a.Reasons.Take(2))
         }).ToList();
 
@@ -479,7 +512,7 @@ public partial class OverlayWindow : Window
     }
 
     /// <summary>
-    /// 아이템 UI 업데이트
+    /// ?꾩씠??UI ?낅뜲?댄듃
     /// </summary>
     private void UpdateItemUI(List<ItemRecommendation> items)
     {
@@ -493,7 +526,7 @@ public partial class OverlayWindow : Window
     }
 
     /// <summary>
-    /// 증강 클릭 — "현재 3개 증강 선택" 기능
+    /// 利앷컯 ?대┃ ??"?꾩옱 3媛?利앷컯 ?좏깮" 湲곕뒫
     /// </summary>
     private void Augment_Click(object sender, MouseButtonEventArgs e)
     {
@@ -522,9 +555,9 @@ public partial class OverlayWindow : Window
         }
     }
 
-    // ===== 핫키 핸들러 =====
+    // ===== ?ロ궎 ?몃뱾??=====
 
-    /// <summary>Ctrl+Shift+O — 오버레이 표시/숨김 토글</summary>
+    /// <summary>Ctrl+Shift+O ???ㅻ쾭?덉씠 ?쒖떆/?④? ?좉?</summary>
     private void ToggleOverlay()
     {
         Dispatcher.Invoke(() =>
@@ -535,7 +568,7 @@ public partial class OverlayWindow : Window
         });
     }
 
-    /// <summary>Ctrl+Shift+C — 클릭 통과 토글</summary>
+    /// <summary>Ctrl+Shift+C ???대┃ ?듦낵 ?좉?</summary>
     private void ToggleClickThrough()
     {
         Dispatcher.Invoke(() =>
@@ -551,47 +584,52 @@ public partial class OverlayWindow : Window
         });
     }
 
-    /// <summary>Ctrl+Shift+P — [개발용] Mock Phase 순환</summary>
+    /// <summary>Ctrl+Shift+P ??[媛쒕컻?? Mock Phase ?쒗솚</summary>
     private void DevCyclePhase()
     {
         if (_mockProvider != null)
         {
-            // Phase 2: Mock CyclePhase()가 이벤트를 발생시키므로
-            // 별도 PollGameState 호출 불필요 — 이벤트 구독이 처리함
+            // Phase 2: Mock CyclePhase()媛 ?대깽?몃? 諛쒖깮?쒗궎誘濡?
+            // 蹂꾨룄 PollGameState ?몄텧 遺덊븘?????대깽??援щ룆??泥섎━??
             _mockProvider.CyclePhase();
         }
     }
 
-    /// <summary>접기/펼치기 버튼</summary>
+    /// <summary>?묎린/?쇱튂湲?踰꾪듉</summary>
     private void CollapseBtn_Click(object sender, RoutedEventArgs e)
     {
         _isCollapsed = !_isCollapsed;
         ContentPanel.Visibility = _isCollapsed ? Visibility.Collapsed : Visibility.Visible;
-        CollapseBtn.Content = _isCollapsed ? "+" : "—";
+        CollapseBtn.Content = _isCollapsed ? "+" : "-";
         Height = _isCollapsed ? 80 : 600;
     }
 
-    /// <summary>드래그 이동</summary>
+    private void ExitBtn_Click(object sender, RoutedEventArgs e)
+    {
+        System.Windows.Application.Current.Shutdown();
+    }
+
+    /// <summary>?쒕옒洹??대룞</summary>
     private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
         if (e.ChangedButton == MouseButton.Left)
             DragMove();
     }
 
-    /// <summary>창 닫힐 때 — 모니터링 중지 + 위치 저장 + 리소스 해제</summary>
+    /// <summary>李??ロ옄 ????紐⑤땲?곕쭅 以묒? + ?꾩튂 ???+ 由ъ냼???댁젣</summary>
     protected override async void OnClosing(CancelEventArgs e)
     {
-        // 앱 취소 토큰 해제
+        // ??痍⑥냼 ?좏겙 ?댁젣
         _appCts?.Cancel();
 
-        // 모니터링 중지
+        // 紐⑤땲?곕쭅 以묒?
         if (_provider != null)
         {
             await _provider.StopMonitoringAsync();
             UnsubscribeProviderEvents(_provider);
         }
 
-        // 위치 저장
+        // ?꾩튂 ???
         _dataService.Config.Overlay.X = Left;
         _dataService.Config.Overlay.Y = Top;
         await _dataService.SaveConfigAsync();
@@ -609,3 +647,5 @@ public partial class OverlayWindow : Window
         base.OnClosing(e);
     }
 }
+
+

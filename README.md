@@ -1,137 +1,137 @@
-# 🎮 칼바람나락 아수라장(ARAM) 증강/아이템 추천 오버레이
+﻿# ?렜 移쇰컮?뚮굹???꾩닔?쇱옣(ARAM) 利앷컯/?꾩씠??異붿쿇 ?ㅻ쾭?덉씠
 
-> 칼바람나락 아수라장(ARAM) 게임에서 **어떤 증강을 골라야 할지** 바로 알려주는 오버레이 프로그램입니다.
+> 移쇰컮?뚮굹???꾩닔?쇱옣(ARAM) 寃뚯엫?먯꽌 **?대뼡 利앷컯??怨⑤씪???좎?** 諛붾줈 ?뚮젮二쇰뒗 ?ㅻ쾭?덉씠 ?꾨줈洹몃옩?낅땲??
 
 ---
 
-## ⚡ 3분만에 시작하기
+## ??3遺꾨쭔???쒖옉?섍린
 
-### 1. 다운로드
+### 1. ?ㅼ슫濡쒕뱶
 
-👉 [**최신 버전 다운로드 (v0.3.3)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
+?몛 [**理쒖떊 踰꾩쟾 ?ㅼ슫濡쒕뱶 (v0.3.4)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
 
-> ZIP 파일을 다운로드하고 원하는 곳에 압축 해제하세요.
+> ZIP ?뚯씪???ㅼ슫濡쒕뱶?섍퀬 ?먰븯??怨녹뿉 ?뺤텞 ?댁젣?섏꽭??
 
-### 2. 실행
+### 2. ?ㅽ뻾
 
 ```
-📁 압축 해제한 폴더
-├── LSA.exe       ← 이것만 더블클릭!
-└── data/         ← 같은 폴더에 있어야 함 (건드리지 마세요)
+?뱚 ?뺤텞 ?댁젣???대뜑
+?쒋?? LSA.exe       ???닿쾬留??붾툝?대┃!
+?붴?? data/         ??媛숈? ?대뜑???덉뼱????(嫄대뱶由ъ? 留덉꽭??
 ```
 
-1. **LoL 클라이언트를 먼저 실행**
-2. **`LSA.exe` 더블클릭**
-3. 끝! 오버레이가 화면에 표시됩니다
+1. **LoL ?대씪?댁뼵?몃? 癒쇱? ?ㅽ뻾**
+2. **`LSA.exe` ?붾툝?대┃**
+3. ?? ?ㅻ쾭?덉씠媛 ?붾㈃???쒖떆?⑸땲??
 
-### 3. 핫키
+### 3. ?ロ궎
 
-| 키 | 동작 |
+| ??| ?숈옉 |
 |----|------|
-| `Ctrl+Shift+O` | 오버레이 표시 / 숨김 |
-| `Ctrl+Shift+C` | 클릭 통과 모드 (마우스가 오버레이를 무시) |
+| `Ctrl+Shift+O` | ?ㅻ쾭?덉씠 ?쒖떆 / ?④? |
+| `Ctrl+Shift+C` | ?대┃ ?듦낵 紐⑤뱶 (留덉슦?ㅺ? ?ㅻ쾭?덉씠瑜?臾댁떆) |
 
 ---
 
-## 🎯 사용 방법
+## ?렞 ?ъ슜 諛⑸쾿
 
-### 칼바람나락 아수라장(ARAM) 게임 진행 흐름
+### 移쇰컮?뚮굹???꾩닔?쇱옣(ARAM) 寃뚯엫 吏꾪뻾 ?먮쫫
 
 ```
-1. LoL 실행 → LSA.exe 실행
-2. 칼바람나락 아수라장(ARAM) 큐 돌리기
-3. 챔피언 선택 화면 → 오버레이에 추천 증강 + 아이템 자동 표시!
-4. 게임 중 증강 3개 선택 화면 → 오버레이에서 최적 픽 확인
+1. LoL ?ㅽ뻾 ??LSA.exe ?ㅽ뻾
+2. 移쇰컮?뚮굹???꾩닔?쇱옣(ARAM) ???뚮━湲?
+3. 梨뷀뵾???좏깮 ?붾㈃ ???ㅻ쾭?덉씠??異붿쿇 利앷컯 + ?꾩씠???먮룞 ?쒖떆!
+4. 寃뚯엫 以?利앷컯 3媛??좏깮 ?붾㈃ ???ㅻ쾭?덉씠?먯꽌 理쒖쟻 ???뺤씤
 ```
 
-### 오버레이 화면 설명
+### ?ㅻ쾭?덉씠 ?붾㈃ ?ㅻ챸
 
-- **증강 추천 (Top 8)** — 티어(S/A/B/C)별 색상으로 표시
-  - 🟡 **S티어** = 무조건 픽
-  - 🟣 **A티어** = 강추
-  - 🔵 **B티어** = 괜찮음
-  - ⚪ **C티어** = 차선책
-- **코어 아이템** — 반드시 사야 할 아이템
-- **상황템** — 적 구성에 따라 추천되는 아이템
+- **利앷컯 異붿쿇 (Top 8)** ???곗뼱(S/A/B/C)蹂??됱긽?쇰줈 ?쒖떆
+  - ?윞 **S?곗뼱** = 臾댁“嫄???
+  - ?윢 **A?곗뼱** = 媛뺤텛
+  - ?뵷 **B?곗뼱** = 愿쒖갖??
+  - ??**C?곗뼱** = 李⑥꽑梨?
+- **肄붿뼱 ?꾩씠??* ??諛섎뱶???ъ빞 ???꾩씠??
+- **?곹솴??* ????援ъ꽦???곕씪 異붿쿇?섎뒗 ?꾩씠??
 
-### 증강 3개 선택 기능
+### 利앷컯 3媛??좏깮 湲곕뒫
 
-게임 내에서 증강 3개가 뜨면:
-1. 오버레이에서 해당 3개 증강을 **클릭**
-2. 그 3개 중 **최적 선택**을 순위별로 보여줌 (1순위/2순위/3순위)
+寃뚯엫 ?댁뿉??利앷컯 3媛쒓? ?⑤㈃:
+1. ?ㅻ쾭?덉씠?먯꽌 ?대떦 3媛?利앷컯??**?대┃**
+2. 洹?3媛?以?**理쒖쟻 ?좏깮**???쒖쐞蹂꾨줈 蹂댁뿬以?(1?쒖쐞/2?쒖쐞/3?쒖쐞)
 
-### 연결 상태 표시
+### ?곌껐 ?곹깭 ?쒖떆
 
-| 색상 | 의미 |
+| ?됱긽 | ?섎? |
 |------|------|
-| 🟢 **WS** | 실시간 연결 (최상) |
-| 🟡 **REST** | 일반 연결 |
-| 🔴 **미연결** | LoL 클라이언트를 먼저 실행하세요 |
-| 🟣 **MOCK** | 테스트 모드 (LoL 없이 작동) |
+| ?윟 **WS** | ?ㅼ떆媛??곌껐 (理쒖긽) |
+| ?윞 **REST** | ?쇰컲 ?곌껐 |
+| ?뵶 **誘몄뿰寃?* | LoL ?대씪?댁뼵?몃? 癒쇱? ?ㅽ뻾?섏꽭??|
+| ?윢 **MOCK** | ?뚯뒪??紐⑤뱶 (LoL ?놁씠 ?묐룞) |
 
 ---
 
-## ❓ FAQ
+## ??FAQ
 
-### Q: PC방에서도 되나요?
-**네!** LoL이 어디에 설치되어 있든 (`C:`, `D:`, `E:` 등) **자동으로 찾습니다.**
-USB나 클라우드에 `LSA.exe` + `data/` 폴더만 넣어가세요.
+### Q: PC諛⑹뿉?쒕룄 ?섎굹??
+**??** LoL???대뵒???ㅼ튂?섏뼱 ?덈뱺 (`C:`, `D:`, `E:` ?? **?먮룞?쇰줈 李얠뒿?덈떎.**
+USB???대씪?곕뱶??`LSA.exe` + `data/` ?대뜑留??ｌ뼱媛?몄슂.
 
-### Q: LoL 없이도 실행할 수 있나요?
-**네!** LoL이 없으면 자동으로 **MOCK 모드**로 전환됩니다.
-`Ctrl+Shift+P`로 가상 게임 진행을 시뮬레이션할 수 있습니다.
+### Q: LoL ?놁씠???ㅽ뻾?????덈굹??
+**??** LoL???놁쑝硫??먮룞?쇰줈 **MOCK 紐⑤뱶**濡??꾪솚?⑸땲??
+`Ctrl+Shift+P`濡?媛??寃뚯엫 吏꾪뻾???쒕??덉씠?섑븷 ???덉뒿?덈떎.
 
-### Q: 밴 당하지 않나요?
-**안전합니다.** 이 프로그램은:
-- ✅ 읽기 전용 API만 사용 (lockfile + REST GET)
-- ❌ 자동 입력/매크로 **없음**
-- ❌ 게임 메모리 접근 **없음**
-- ❌ 이미지 해킹/승률 노출 **없음**
+### Q: 諛??뱁븯吏 ?딅굹??
+**?덉쟾?⑸땲??** ???꾨줈洹몃옩?:
+- ???쎄린 ?꾩슜 API留??ъ슜 (lockfile + REST GET)
+- ???먮룞 ?낅젰/留ㅽ겕濡?**?놁쓬**
+- ??寃뚯엫 硫붾え由??묎렐 **?놁쓬**
+- ???대?吏 ?댄궧/?밸쪧 ?몄텧 **?놁쓬**
 
-[Riot Third Party Developer Policy](https://developer.riotgames.com/docs/lol) 준수
+[Riot Third Party Developer Policy](https://developer.riotgames.com/docs/lol) 以??
 
-### Q: .NET 런타임 설치해야 하나요?
-**아니요!** `LSA.exe`는 self-contained 빌드라 **.NET 없이 바로 실행** 가능합니다.
+### Q: .NET ?고????ㅼ튂?댁빞 ?섎굹??
+**?꾨땲??** `LSA.exe`??self-contained 鍮뚮뱶??**.NET ?놁씠 諛붾줈 ?ㅽ뻾** 媛?ν빀?덈떎.
 
 ---
 
-## 🛠️ 개발자 정보
+## ?썱截?媛쒕컻???뺣낫
 
 <details>
-<summary>📐 프로젝트 구조 (클릭해서 펼치기)</summary>
+<summary>?뱪 ?꾨줈?앺듃 援ъ“ (?대┃?댁꽌 ?쇱튂湲?</summary>
 
 ```
 LSA.sln
-├── src/
-│   ├── LSA.Data/      # 데이터 모델 + JSON 읽기/쓰기
-│   ├── LSA.Core/      # 추천 엔진 + IGameStateProvider 인터페이스
-│   ├── LSA.Lcu/       # LCU 연결 (lockfile + REST + WebSocket)
-│   ├── LSA.Mock/      # Mock Provider (개발/테스트용)
-│   ├── LSA.App/       # WPF 오버레이 앱
-│   └── LSA.Tests/     # xUnit 테스트
-├── data/
-│   ├── knowledge_base.json   # 증강/아이템/챔피언/룰 데이터
-│   └── mock_game_state.json  # Mock 시나리오 데이터
-└── dist/              # 빌드 출력 (LSA.exe)
+?쒋?? src/
+??  ?쒋?? LSA.Data/      # ?곗씠??紐⑤뜽 + JSON ?쎄린/?곌린
+??  ?쒋?? LSA.Core/      # 異붿쿇 ?붿쭊 + IGameStateProvider ?명꽣?섏씠??
+??  ?쒋?? LSA.Lcu/       # LCU ?곌껐 (lockfile + REST + WebSocket)
+??  ?쒋?? LSA.Mock/      # Mock Provider (媛쒕컻/?뚯뒪?몄슜)
+??  ?쒋?? LSA.App/       # WPF ?ㅻ쾭?덉씠 ??
+??  ?붴?? LSA.Tests/     # xUnit ?뚯뒪??
+?쒋?? data/
+??  ?쒋?? knowledge_base.json   # 利앷컯/?꾩씠??梨뷀뵾??猷??곗씠??
+??  ?붴?? mock_game_state.json  # Mock ?쒕굹由ъ삤 ?곗씠??
+?붴?? dist/              # 鍮뚮뱶 異쒕젰 (LSA.exe)
 ```
 </details>
 
 <details>
-<summary>🔧 빌드 & 테스트 (클릭해서 펼치기)</summary>
+<summary>?뵩 鍮뚮뱶 & ?뚯뒪??(?대┃?댁꽌 ?쇱튂湲?</summary>
 
-**요구 사항**: Windows 10/11, [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+**?붽뎄 ?ы빆**: Windows 10/11, [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 ```powershell
-# 빌드
+# 鍮뚮뱶
 dotnet build LSA.sln
 
-# 실행 (Mock 모드)
+# ?ㅽ뻾 (Mock 紐⑤뱶)
 dotnet run --project src/LSA.App
 
-# 테스트
+# ?뚯뒪??
 dotnet test src/LSA.Tests
 
-# 포터블 .exe 빌드
+# ?ы꽣釉?.exe 鍮뚮뱶
 dotnet publish src/LSA.App/LSA.App.csproj -c Release -r win-x64 `
   --self-contained true `
   -p:PublishSingleFile=true `
@@ -141,29 +141,29 @@ dotnet publish src/LSA.App/LSA.App.csproj -c Release -r win-x64 `
 </details>
 
 <details>
-<summary>📊 추천 알고리즘 (클릭해서 펼치기)</summary>
+<summary>?뱤 異붿쿇 ?뚭퀬由ъ쬁 (?대┃?댁꽌 ?쇱튂湲?</summary>
 
 ```
-Score = 티어 기본점수 + 챔피언 시너지 + 적 태그 카운터
+Score = ?곗뼱 湲곕낯?먯닔 + 梨뷀뵾???쒕꼫吏 + ???쒓렇 移댁슫??
           (S:100 A:80       (knowledge_base     (enemyTagWeights
-           B:60  C:40)       .augmentPreferences) 룰 적용)
+           B:60  C:40)       .augmentPreferences) 猷??곸슜)
 ```
 
-- **챔피언 시너지**: knowledge_base에서 해당 챔피언에 정의된 증강 보너스 적용
-- **적 태그 카운터**: 적 챔피언 역할(Tank, Mage 등)에 따른 카운터 가중치 적용
+- **梨뷀뵾???쒕꼫吏**: knowledge_base?먯꽌 ?대떦 梨뷀뵾?몄뿉 ?뺤쓽??利앷컯 蹂대꼫???곸슜
+- **???쒓렇 移댁슫??*: ??梨뷀뵾????븷(Tank, Mage ?????곕Ⅸ 移댁슫??媛以묒튂 ?곸슜
 </details>
 
 <details>
-<summary>📄 data/knowledge_base.json 구조 (클릭해서 펼치기)</summary>
+<summary>?뱞 data/knowledge_base.json 援ъ“ (?대┃?댁꽌 ?쇱튂湲?</summary>
 
 ```jsonc
 {
   "meta": { "version": "0.1.0" },
-  "augments": { "aug_id": { "name": "이름", "tier": "S", "tags": ["tag"] } },
-  "items":    { "item_id": { "name": "이름", "tags": ["tag"] } },
+  "augments": { "aug_id": { "name": "?대쫫", "tier": "S", "tags": ["tag"] } },
+  "items":    { "item_id": { "name": "?대쫫", "tags": ["tag"] } },
   "champions": {
     "champion_id": {
-      "name": "이름",
+      "name": "?대쫫",
       "roles": ["Marksman"],
       "augmentPreferences": [{ "augmentId": "aug_id", "baseBonus": 20, "reason": "..." }],
       "itemBuild": { "core": [1234], "situational": [{ "itemId": 5678, "whenTags": ["tank"] }] }
@@ -173,12 +173,13 @@ Score = 티어 기본점수 + 챔피언 시너지 + 적 태그 카운터
 }
 ```
 
-데이터를 수정하면 앱 재시작 시 자동 반영됩니다.
+?곗씠?곕? ?섏젙?섎㈃ ???ъ떆?????먮룞 諛섏쁺?⑸땲??
 </details>
 
 ---
 
-## 📝 라이선스
+## ?뱷 ?쇱씠?좎뒪
 
-개인 사용 목적 프로젝트입니다.  
-Riot Games의 [Third Party Developer Policy](https://developer.riotgames.com/docs/lol) 준수.
+媛쒖씤 ?ъ슜 紐⑹쟻 ?꾨줈?앺듃?낅땲??  
+Riot Games??[Third Party Developer Policy](https://developer.riotgames.com/docs/lol) 以??
+

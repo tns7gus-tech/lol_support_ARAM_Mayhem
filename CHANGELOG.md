@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.3.4] - 2026-02-18
+
+### Added
+- **Connection Diagnostics UI**: Added in-overlay `Connection Log` panel to show recent LCU connection attempts and fallback reasons.
+- **LCU Diagnostics Capture**: `LcuProvider` now records lockfile probing and HTTP connection failures for easier troubleshooting.
+
+### Changed
+- **App UX**: Added single-instance guard, tray icon/menu, and explicit `X` exit button on overlay header.
+
 ## [v0.3.3] - 2026-02-18
 
 ### Fixed

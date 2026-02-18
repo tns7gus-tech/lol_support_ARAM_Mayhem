@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Net.Security;
 using System.Net.WebSockets;
@@ -11,25 +11,26 @@ using Microsoft.Extensions.Logging;
 namespace LSA.Lcu;
 
 /// <summary>
-/// LCU 연결 정보 모델
+/// LCU ?곌껐 ?뺣낫 紐⑤뜽
 /// </summary>
 public class LcuConnectionInfo
 {
     public int Port { get; set; }
-    public string Password { get; set; } = ""; // 메모리에만 보관, 로그/디스크 저장 금지
+    public string Password { get; set; } = ""; // 硫붾え由ъ뿉留?蹂닿?, 濡쒓렇/?붿뒪?????湲덉?
     public string Protocol { get; set; } = "https";
 }
 
 /// <summary>
-/// Real LCU 연결 Provider — lockfile 기반 REST API + WebSocket WAMP
-/// ⚠️ POST/PATCH/DELETE 엔드포인트는 절대 사용하지 않음
+/// Real LCU ?곌껐 Provider ??lockfile 湲곕컲 REST API + WebSocket WAMP
+/// ?좑툘 POST/PATCH/DELETE ?붾뱶?ъ씤?몃뒗 ?덈? ?ъ슜?섏? ?딆쓬
 /// 
-/// Phase 2: WebSocket 실시간 이벤트 + 자동 재연결 (지수 백오프)
+/// Phase 2: WebSocket ?ㅼ떆媛??대깽??+ ?먮룞 ?ъ뿰寃?(吏??諛깆삤??
 /// </summary>
 public class LcuProvider : IGameStateProvider
 {
     private readonly ILogger<LcuProvider> _logger;
     private readonly string? _configuredInstallPath;
+    private readonly List<string> _connectionLog = new();
     private HttpClient? _httpClient;
     private ClientWebSocket? _webSocket;
     private LcuConnectionInfo? _connInfo;
@@ -39,21 +40,22 @@ public class LcuProvider : IGameStateProvider
     private Task? _monitorTask;
     private Task? _webSocketReceiveTask;
 
-    // 자동 재연결 설정
+    // ?먮룞 ?ъ뿰寃??ㅼ젙
     private const int RECONNECT_BASE_DELAY_MS = 2000;
     private const int RECONNECT_MAX_DELAY_MS = 30000;
     private const int PROCESS_POLL_INTERVAL_MS = 5000;
     private int _reconnectAttempt;
 
-    // 마지막 알려진 상태 (이벤트 중복 방지용)
+    // 留덉?留??뚮젮吏??곹깭 (?대깽??以묐났 諛⑹???
     private GamePhase _lastKnownPhase = GamePhase.None;
     private int? _lastKnownChampionId;
 
     public bool IsConnected => _isConnected;
     public bool IsWebSocketConnected => _isWebSocketConnected;
     public string ProviderName => _isWebSocketConnected ? "LCU (WS)" : "LCU (REST)";
+    public IReadOnlyList<string> ConnectionLog => _connectionLog.AsReadOnly();
 
-    // Phase 2 이벤트
+    // Phase 2 ?대깽??
     public event Action<GamePhase>? OnPhaseChanged;
     public event Action<int?>? OnChampionChanged;
     public event Action<bool>? OnConnectionChanged;
@@ -65,20 +67,22 @@ public class LcuProvider : IGameStateProvider
     }
 
     // ===================================================================
-    // 연결 관리
+    // ?곌껐 愿由?
     // ===================================================================
 
     /// <summary>
-    /// LCU 연결 시도 — lockfile 탐색 → HttpClient + WebSocket 구성
+    /// LCU ?곌껐 ?쒕룄 ??lockfile ?먯깋 ??HttpClient + WebSocket 援ъ꽦
     /// </summary>
     public async Task<bool> TryConnectAsync()
     {
+        AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] TryConnect start");
         try
         {
             _connInfo = await FindLcuConnectionAsync();
             if (_connInfo == null)
             {
                 _logger.LogWarning("LCU lockfile을 찾을 수 없음");
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile not found");
                 _isConnected = false;
                 return false;
             }
@@ -86,11 +90,12 @@ public class LcuProvider : IGameStateProvider
             // REST HttpClient 생성 (Self-signed 인증서 허용)
             SetupHttpClient();
 
-            // 연결 확인 — phase 조회 테스트
+            // 연결 확인 + phase 조회 테스트
             var phase = await GetPhaseAsync();
             _isConnected = true;
             _reconnectAttempt = 0;
-            _logger.LogInformation("LCU REST 연결 성공 — 현재 Phase: {Phase}", phase);
+            _logger.LogInformation("LCU REST 연결 성공 ? 현재 Phase: {Phase}", phase);
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] REST connected, phase={phase}");
 
             OnConnectionChanged?.Invoke(true);
             return true;
@@ -98,11 +103,11 @@ public class LcuProvider : IGameStateProvider
         catch (Exception ex)
         {
             _logger.LogError(ex, "LCU 연결 실패");
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] connect exception: {ex.Message}");
             _isConnected = false;
             return false;
         }
     }
-
     public async Task DisconnectAsync()
     {
         await StopMonitoringAsync();
@@ -113,12 +118,12 @@ public class LcuProvider : IGameStateProvider
         _isConnected = false;
         _isWebSocketConnected = false;
 
-        _logger.LogInformation("LCU 연결 해제");
+        _logger.LogInformation("LCU ?곌껐 ?댁젣");
         OnConnectionChanged?.Invoke(false);
     }
 
     /// <summary>
-    /// HttpClient 설정 — Basic Auth (password는 로그 기록 금지)
+    /// HttpClient ?ㅼ젙 ??Basic Auth (password??濡쒓렇 湲곕줉 湲덉?)
     /// </summary>
     private void SetupHttpClient()
     {
@@ -155,7 +160,7 @@ public class LcuProvider : IGameStateProvider
 
     private static bool IsAllowedLcuTlsForWebSocket(Uri? requestUri, SslPolicyErrors errors)
     {
-        // WebSocket도 REST와 동일하게 loopback만 허용
+        // WebSocket??REST? ?숈씪?섍쾶 loopback留??덉슜
         var isLoopback = requestUri != null &&
                          (requestUri.IsLoopback ||
                           string.Equals(requestUri.Host, "127.0.0.1", StringComparison.OrdinalIgnoreCase) ||
@@ -168,11 +173,11 @@ public class LcuProvider : IGameStateProvider
     }
 
     // ===================================================================
-    // Phase 2: 실시간 모니터링 (WebSocket + 프로세스 감시)
+    // Phase 2: ?ㅼ떆媛?紐⑤땲?곕쭅 (WebSocket + ?꾨줈?몄뒪 媛먯떆)
     // ===================================================================
 
     /// <summary>
-    /// 모니터링 시작 — WebSocket 연결 시도 + 프로세스 감시 루프
+    /// 紐⑤땲?곕쭅 ?쒖옉 ??WebSocket ?곌껐 ?쒕룄 + ?꾨줈?몄뒪 媛먯떆 猷⑦봽
     /// </summary>
     public async Task StartMonitoringAsync(CancellationToken ct = default)
     {
@@ -185,15 +190,15 @@ public class LcuProvider : IGameStateProvider
         _monitorCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
         var token = _monitorCts.Token;
 
-        // WebSocket 연결 시도 (실패해도 REST fallback으로 계속)
+        // WebSocket ?곌껐 ?쒕룄 (?ㅽ뙣?대룄 REST fallback?쇰줈 怨꾩냽)
         await TryConnectWebSocketAsync(token);
 
-        // 백그라운드 모니터링 루프 시작
+        // 諛깃렇?쇱슫??紐⑤땲?곕쭅 猷⑦봽 ?쒖옉
         _monitorTask = Task.Run(() => MonitoringLoopAsync(token), token);
     }
 
     /// <summary>
-    /// 모니터링 중지 + 리소스 해제
+    /// 紐⑤땲?곕쭅 以묒? + 由ъ냼???댁젣
     /// </summary>
     public async Task StopMonitoringAsync()
     {
@@ -207,7 +212,7 @@ public class LcuProvider : IGameStateProvider
                 {
                     await _webSocket.CloseAsync(
                         WebSocketCloseStatus.NormalClosure,
-                        "앱 종료",
+                        "??醫낅즺",
                         CancellationToken.None);
                 }
             }
@@ -245,7 +250,7 @@ public class LcuProvider : IGameStateProvider
     }
 
     /// <summary>
-    /// WebSocket 연결 시도 — LCU WAMP 프로토콜
+    /// WebSocket ?곌껐 ?쒕룄 ??LCU WAMP ?꾨줈?좎퐳
     /// wss://riot:{password}@127.0.0.1:{port}/
     /// </summary>
     private async Task<bool> TryConnectWebSocketAsync(CancellationToken ct)
@@ -257,36 +262,36 @@ public class LcuProvider : IGameStateProvider
             _webSocket?.Dispose();
             _webSocket = new ClientWebSocket();
 
-            // Loopback 대상 + self-signed 체인 오류만 허용
+            // Loopback ???+ self-signed 泥댁씤 ?ㅻ쪟留??덉슜
             var wsUri = new Uri($"wss://127.0.0.1:{_connInfo.Port}/");
             _webSocket.Options.RemoteCertificateValidationCallback = (_, _, _, errors) =>
                 IsAllowedLcuTlsForWebSocket(wsUri, errors);
 
-            // Basic Auth 헤더 설정 (password는 로그 기록 금지)
+            // Basic Auth ?ㅻ뜑 ?ㅼ젙 (password??濡쒓렇 湲곕줉 湲덉?)
             var authBytes = Encoding.ASCII.GetBytes($"riot:{_connInfo.Password}");
             _webSocket.Options.SetRequestHeader("Authorization",
                 $"Basic {Convert.ToBase64String(authBytes)}");
 
             await _webSocket.ConnectAsync(wsUri, ct);
 
-            // WAMP Subscribe — Phase 변경 이벤트
+            // WAMP Subscribe ??Phase 蹂寃??대깽??
             await WampSubscribeAsync("OnJsonApiEvent_lol-gameflow_v1_gameflow-phase", ct);
 
-            // WAMP Subscribe — ChampSelect 세션 변경 이벤트
+            // WAMP Subscribe ??ChampSelect ?몄뀡 蹂寃??대깽??
             await WampSubscribeAsync("OnJsonApiEvent_lol-champ-select_v1_session", ct);
 
             _isWebSocketConnected = true;
             _reconnectAttempt = 0;
-            _logger.LogInformation("LCU WebSocket 연결 성공");
+            _logger.LogInformation("LCU WebSocket ?곌껐 ?깃났");
 
-            // 메시지 수신 루프 시작
+            // 硫붿떆吏 ?섏떊 猷⑦봽 ?쒖옉
             _webSocketReceiveTask = Task.Run(() => WebSocketReceiveLoopAsync(ct), ct);
 
             return true;
         }
         catch (Exception ex)
         {
-            _logger.LogWarning("LCU WebSocket 연결 실패 (REST fallback 사용): {Msg}", ex.Message);
+            _logger.LogWarning("LCU WebSocket ?곌껐 ?ㅽ뙣 (REST fallback ?ъ슜): {Msg}", ex.Message);
             _isWebSocketConnected = false;
             _webSocket?.Dispose();
             _webSocket = null;
@@ -295,7 +300,7 @@ public class LcuProvider : IGameStateProvider
     }
 
     /// <summary>
-    /// WAMP Subscribe 메시지 전송 — [5, "topic"]
+    /// WAMP Subscribe 硫붿떆吏 ?꾩넚 ??[5, "topic"]
     /// </summary>
     private async Task WampSubscribeAsync(string topic, CancellationToken ct)
     {
@@ -308,11 +313,11 @@ public class LcuProvider : IGameStateProvider
             WebSocketMessageType.Text,
             true, ct);
 
-        _logger.LogDebug("WAMP 구독: {Topic}", topic);
+        _logger.LogDebug("WAMP 援щ룆: {Topic}", topic);
     }
 
     /// <summary>
-    /// WebSocket 메시지 수신 루프 — WAMP 이벤트 파싱
+    /// WebSocket 硫붿떆吏 ?섏떊 猷⑦봽 ??WAMP ?대깽???뚯떛
     /// </summary>
     private async Task WebSocketReceiveLoopAsync(CancellationToken ct)
     {
@@ -328,7 +333,7 @@ public class LcuProvider : IGameStateProvider
 
                 if (result.MessageType == WebSocketMessageType.Close)
                 {
-                    _logger.LogInformation("LCU WebSocket 서버에서 종료");
+                    _logger.LogInformation("LCU WebSocket ?쒕쾭?먯꽌 醫낅즺");
                     break;
                 }
 
@@ -346,11 +351,11 @@ public class LcuProvider : IGameStateProvider
         }
         catch (OperationCanceledException)
         {
-            // 정상 종료
+            // ?뺤긽 醫낅즺
         }
         catch (WebSocketException ex)
         {
-            _logger.LogWarning("WebSocket 수신 오류: {Msg}", ex.Message);
+            _logger.LogWarning("WebSocket ?섏떊 ?ㅻ쪟: {Msg}", ex.Message);
         }
         finally
         {
@@ -358,13 +363,13 @@ public class LcuProvider : IGameStateProvider
 
             if (!ct.IsCancellationRequested)
             {
-                _logger.LogInformation("WebSocket 연결 끊김 — 재연결 시도 예정");
+                _logger.LogInformation("WebSocket ?곌껐 ?딄? ???ъ뿰寃??쒕룄 ?덉젙");
             }
         }
     }
 
     /// <summary>
-    /// WAMP 이벤트 메시지 파싱 — [8, "topic", { data }]
+    /// WAMP ?대깽??硫붿떆吏 ?뚯떛 ??[8, "topic", { data }]
     /// </summary>
     private void ProcessWampMessage(string message)
     {
@@ -395,12 +400,12 @@ public class LcuProvider : IGameStateProvider
         }
         catch (Exception ex)
         {
-            _logger.LogDebug("WAMP 메시지 파싱 실패 (무시): {Msg}", ex.Message);
+            _logger.LogDebug("WAMP 硫붿떆吏 ?뚯떛 ?ㅽ뙣 (臾댁떆): {Msg}", ex.Message);
         }
     }
 
     /// <summary>
-    /// Phase 변경 이벤트 처리 — { "data": "ChampSelect" }
+    /// Phase 蹂寃??대깽??泥섎━ ??{ "data": "ChampSelect" }
     /// </summary>
     private void HandlePhaseEvent(JsonElement payload)
     {
@@ -413,13 +418,13 @@ public class LcuProvider : IGameStateProvider
         if (phase != _lastKnownPhase)
         {
             _lastKnownPhase = phase;
-            _logger.LogInformation("[WS] Phase 변경 → {Phase}", phase);
+            _logger.LogInformation("[WS] Phase 蹂寃???{Phase}", phase);
             OnPhaseChanged?.Invoke(phase);
         }
     }
 
     /// <summary>
-    /// ChampSelect 세션 변경 이벤트 처리 — 챔피언 ID 추출
+    /// ChampSelect ?몄뀡 蹂寃??대깽??泥섎━ ??梨뷀뵾??ID 異붿텧
     /// </summary>
     private void HandleChampSelectEvent(JsonElement payload)
     {
@@ -448,7 +453,7 @@ public class LcuProvider : IGameStateProvider
                         if (champValue != _lastKnownChampionId)
                         {
                             _lastKnownChampionId = champValue;
-                            _logger.LogInformation("[WS] 챔피언 변경 → {ChampId}", champValue);
+                            _logger.LogInformation("[WS] 梨뷀뵾??蹂寃???{ChampId}", champValue);
                             OnChampionChanged?.Invoke(champValue);
                         }
                         return;
@@ -458,12 +463,12 @@ public class LcuProvider : IGameStateProvider
         }
         catch (Exception ex)
         {
-            _logger.LogDebug("ChampSelect 이벤트 파싱 실패: {Msg}", ex.Message);
+            _logger.LogDebug("ChampSelect ?대깽???뚯떛 ?ㅽ뙣: {Msg}", ex.Message);
         }
     }
 
     /// <summary>
-    /// 백그라운드 모니터링 루프 — 프로세스 감시 + 자동 재연결
+    /// 諛깃렇?쇱슫??紐⑤땲?곕쭅 猷⑦봽 ???꾨줈?몄뒪 媛먯떆 + ?먮룞 ?ъ뿰寃?
     /// </summary>
     private async Task MonitoringLoopAsync(CancellationToken ct)
     {
@@ -471,13 +476,13 @@ public class LcuProvider : IGameStateProvider
         {
             try
             {
-                // 1) LCU 프로세스 생존 확인
+                // 1) LCU ?꾨줈?몄뒪 ?앹〈 ?뺤씤
                 var lcuRunning = IsLcuProcessRunning();
 
                 if (!lcuRunning && _isConnected)
                 {
-                    // 클라이언트 종료됨 — 연결 해제
-                    _logger.LogInformation("LeagueClientUx 프로세스 종료 감지");
+                    // ?대씪?댁뼵??醫낅즺?????곌껐 ?댁젣
+                    _logger.LogInformation("LeagueClientUx ?꾨줈?몄뒪 醫낅즺 媛먯?");
                     _isConnected = false;
                     _isWebSocketConnected = false;
                     _webSocket?.Dispose();
@@ -493,17 +498,17 @@ public class LcuProvider : IGameStateProvider
                 }
                 else if (lcuRunning && !_isConnected)
                 {
-                    // 클라이언트 시작됨 — 재연결 시도
-                    _logger.LogInformation("LeagueClientUx 프로세스 감지 — 재연결 시도");
+                    // ?대씪?댁뼵???쒖옉?????ъ뿰寃??쒕룄
+                    _logger.LogInformation("LeagueClientUx ?꾨줈?몄뒪 媛먯? ???ъ뿰寃??쒕룄");
                     await AttemptReconnectAsync(ct);
                 }
                 else if (_isConnected && !_isWebSocketConnected)
                 {
-                    // REST는 살아있지만 WebSocket 끊김 → WebSocket 재연결
+                    // REST???댁븘?덉?留?WebSocket ?딄? ??WebSocket ?ъ뿰寃?
                     await TryConnectWebSocketAsync(ct);
                 }
 
-                // 2) 폴링 간격 대기
+                // 2) ?대쭅 媛꾧꺽 ?湲?
                 var delay = _isConnected ? PROCESS_POLL_INTERVAL_MS : GetReconnectDelay();
                 await Task.Delay(delay, ct);
             }
@@ -513,19 +518,19 @@ public class LcuProvider : IGameStateProvider
             }
             catch (Exception ex)
             {
-                _logger.LogWarning("모니터링 루프 오류: {Msg}", ex.Message);
+                _logger.LogWarning("紐⑤땲?곕쭅 猷⑦봽 ?ㅻ쪟: {Msg}", ex.Message);
                 await Task.Delay(PROCESS_POLL_INTERVAL_MS, ct);
             }
         }
     }
 
     /// <summary>
-    /// 자동 재연결 — REST + WebSocket
+    /// ?먮룞 ?ъ뿰寃???REST + WebSocket
     /// </summary>
     private async Task AttemptReconnectAsync(CancellationToken ct)
     {
         _reconnectAttempt++;
-        _logger.LogInformation("재연결 시도 #{Attempt}", _reconnectAttempt);
+        _logger.LogInformation("?ъ뿰寃??쒕룄 #{Attempt}", _reconnectAttempt);
 
         try
         {
@@ -534,27 +539,27 @@ public class LcuProvider : IGameStateProvider
 
             SetupHttpClient();
 
-            // REST 연결 확인
+            // REST ?곌껐 ?뺤씤
             var phase = await GetPhaseAsync();
             _isConnected = true;
             _reconnectAttempt = 0;
             _lastKnownPhase = phase;
 
-            _logger.LogInformation("LCU 재연결 성공 — Phase: {Phase}", phase);
+            _logger.LogInformation("LCU ?ъ뿰寃??깃났 ??Phase: {Phase}", phase);
             OnConnectionChanged?.Invoke(true);
             OnPhaseChanged?.Invoke(phase);
 
-            // WebSocket 재연결 시도
+            // WebSocket ?ъ뿰寃??쒕룄
             await TryConnectWebSocketAsync(ct);
         }
         catch (Exception ex)
         {
-            _logger.LogWarning("재연결 실패 #{Attempt}: {Msg}", _reconnectAttempt, ex.Message);
+            _logger.LogWarning("?ъ뿰寃??ㅽ뙣 #{Attempt}: {Msg}", _reconnectAttempt, ex.Message);
         }
     }
 
     /// <summary>
-    /// 지수 백오프 딜레이 계산 (2s → 4s → 8s → max 30s)
+    /// 吏??諛깆삤???쒕젅??怨꾩궛 (2s ??4s ??8s ??max 30s)
     /// </summary>
     private int GetReconnectDelay()
     {
@@ -563,7 +568,7 @@ public class LcuProvider : IGameStateProvider
     }
 
     /// <summary>
-    /// LeagueClientUx 프로세스 실행 여부 확인
+    /// LeagueClientUx ?꾨줈?몄뒪 ?ㅽ뻾 ?щ? ?뺤씤
     /// </summary>
     private bool IsLcuProcessRunning()
     {
@@ -578,11 +583,11 @@ public class LcuProvider : IGameStateProvider
     }
 
     // ===================================================================
-    // REST API 조회 (기존 — 변경 없음)
+    // REST API 議고쉶 (湲곗〈 ??蹂寃??놁쓬)
     // ===================================================================
 
     /// <summary>
-    /// GET /lol-gameflow/v1/gameflow-phase → GamePhase
+    /// GET /lol-gameflow/v1/gameflow-phase ??GamePhase
     /// </summary>
     public async Task<GamePhase> GetPhaseAsync()
     {
@@ -594,7 +599,7 @@ public class LcuProvider : IGameStateProvider
     }
 
     /// <summary>
-    /// GET /lol-champ-select/v1/session → 내 챔피언 ID
+    /// GET /lol-champ-select/v1/session ????梨뷀뵾??ID
     /// </summary>
     public async Task<int?> GetMyChampionIdAsync()
     {
@@ -628,14 +633,14 @@ public class LcuProvider : IGameStateProvider
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "ChampSelect 세션 파싱 실패");
+            _logger.LogError(ex, "ChampSelect ?몄뀡 ?뚯떛 ?ㅽ뙣");
         }
 
         return null;
     }
 
     /// <summary>
-    /// 적 챔피언 ID 목록 (ChampSelect에서 가능할 때만)
+    /// ??梨뷀뵾??ID 紐⑸줉 (ChampSelect?먯꽌 媛?ν븷 ?뚮쭔)
     /// </summary>
     public async Task<List<int>> GetEnemyChampionIdsAsync()
     {
@@ -663,13 +668,13 @@ public class LcuProvider : IGameStateProvider
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "적 챔피언 파싱 실패");
+            _logger.LogError(ex, "??梨뷀뵾???뚯떛 ?ㅽ뙣");
             return new();
         }
     }
 
     /// <summary>
-    /// 게임 모드 조회
+    /// 寃뚯엫 紐⑤뱶 議고쉶
     /// </summary>
     public async Task<string> GetGameModeAsync()
     {
@@ -692,11 +697,11 @@ public class LcuProvider : IGameStateProvider
     }
 
     // ===================================================================
-    // 유틸리티
+    // ?좏떥由ы떚
     // ===================================================================
 
     /// <summary>
-    /// Phase 문자열 → GamePhase 변환 (공통 사용)
+    /// Phase 臾몄옄????GamePhase 蹂??(怨듯넻 ?ъ슜)
     /// </summary>
     private static GamePhase ParsePhaseString(string phaseStr)
     {
@@ -712,7 +717,7 @@ public class LcuProvider : IGameStateProvider
     }
 
     /// <summary>
-    /// 안전한 GET 요청 — 실패 시 null 반환 (앱 크래시 방지)
+    /// ?덉쟾??GET ?붿껌 ???ㅽ뙣 ??null 諛섑솚 (???щ옒??諛⑹?)
     /// </summary>
     private async Task<string?> SafeGetAsync(string endpoint)
     {
@@ -724,8 +729,9 @@ public class LcuProvider : IGameStateProvider
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning("LCU 요청 실패: {Endpoint} → {StatusCode}",
+                _logger.LogWarning("LCU ?붿껌 ?ㅽ뙣: {Endpoint} ??{StatusCode}",
                     endpoint, (int)response.StatusCode);
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] GET {endpoint} => {(int)response.StatusCode}");
                 return null;
             }
 
@@ -733,19 +739,21 @@ public class LcuProvider : IGameStateProvider
         }
         catch (HttpRequestException ex)
         {
-            _logger.LogWarning("LCU 통신 오류: {Endpoint} — {Message}", endpoint, ex.Message);
+            _logger.LogWarning("LCU ?듭떊 ?ㅻ쪟: {Endpoint} ??{Message}", endpoint, ex.Message);
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] HTTP error {endpoint}: {ex.Message}");
             _isConnected = false;
             return null;
         }
         catch (TaskCanceledException)
         {
-            _logger.LogWarning("LCU 요청 타임아웃: {Endpoint}", endpoint);
+            _logger.LogWarning("LCU ?붿껌 ??꾩븘?? {Endpoint}", endpoint);
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] timeout {endpoint}");
             return null;
         }
     }
 
     /// <summary>
-    /// lockfile 탐색 — LeagueClientUx 프로세스에서 경로 추론
+    /// lockfile ?먯깋 ??LeagueClientUx ?꾨줈?몄뒪?먯꽌 寃쎈줈 異붾줎
     /// </summary>
     private async Task<LcuConnectionInfo?> FindLcuConnectionAsync()
     {
@@ -753,7 +761,8 @@ public class LcuProvider : IGameStateProvider
         {
             try
             {
-                // 1) LeagueClientUx 프로세스에서 실행 경로 추출
+                // 1) LeagueClientUx ?꾨줈?몄뒪?먯꽌 ?ㅽ뻾 寃쎈줈 異붿텧
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] probe by process");
                 var lcuProcesses = Process.GetProcessesByName("LeagueClientUx");
                 foreach (var proc in lcuProcesses)
                 {
@@ -768,24 +777,27 @@ public class LcuProvider : IGameStateProvider
                         var lockfilePath = Path.Combine(dir, "lockfile");
                         if (File.Exists(lockfilePath))
                         {
+                            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile via process: {lockfilePath}");
                             return ParseLockfile(lockfilePath);
                         }
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogWarning("프로세스 {ProcId} 경로 추출 실패: {Msg}", proc.Id, ex.Message);
+                        _logger.LogWarning("?꾨줈?몄뒪 {ProcId} 寃쎈줈 異붿텧 ?ㅽ뙣: {Msg}", proc.Id, ex.Message);
                     }
                 }
 
-                // 2) 일반적인 설치 경로 탐색
+                // 2) ?쇰컲?곸씤 ?ㅼ튂 寃쎈줈 ?먯깋
                 if (!string.IsNullOrWhiteSpace(_configuredInstallPath))
                 {
                     var configuredPath = _configuredInstallPath!;
                     var configuredLockfilePath = Path.Combine(configuredPath, "lockfile");
                     if (File.Exists(configuredLockfilePath))
                     {
+                        AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile via config: {configuredLockfilePath}");
                         return ParseLockfile(configuredLockfilePath);
                     }
+                    AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] config path miss: {configuredLockfilePath}");
                 }
 
                 var commonPaths = new[]
@@ -802,6 +814,7 @@ public class LcuProvider : IGameStateProvider
                 {
                     if (File.Exists(path))
                     {
+                        AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile via common path: {path}");
                         return ParseLockfile(path);
                     }
                 }
@@ -822,14 +835,17 @@ public class LcuProvider : IGameStateProvider
                     {
                         if (File.Exists(candidate))
                         {
+                            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile via drive scan: {candidate}");
                             return ParseLockfile(candidate);
                         }
                     }
                 }
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile probe exhausted");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "LCU lockfile 탐색 실패");
+                _logger.LogError(ex, "LCU lockfile ?먯깋 ?ㅽ뙣");
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile probe exception: {ex.Message}");
             }
 
             return null;
@@ -837,8 +853,8 @@ public class LcuProvider : IGameStateProvider
     }
 
     /// <summary>
-    /// lockfile 파싱 — "name:pid:port:password:protocol" 형식
-    /// ⚠️ password는 메모리에만 보관
+    /// lockfile ?뚯떛 ??"name:pid:port:password:protocol" ?뺤떇
+    /// ?좑툘 password??硫붾え由ъ뿉留?蹂닿?
     /// </summary>
     private LcuConnectionInfo? ParseLockfile(string path)
     {
@@ -848,8 +864,9 @@ public class LcuProvider : IGameStateProvider
             var parts = content.Split(':');
             if (parts.Length < 5) return null;
 
-            _logger.LogInformation("lockfile 발견 — Port: {Port}", parts[2]);
-            // password(parts[3])는 절대 로그에 남기지 않음
+            _logger.LogInformation("lockfile 諛쒓껄 ??Port: {Port}", parts[2]);
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parsed, port={parts[2]}");
+            // password(parts[3])???덈? 濡쒓렇???④린吏 ?딆쓬
 
             return new LcuConnectionInfo
             {
@@ -860,8 +877,21 @@ public class LcuProvider : IGameStateProvider
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "lockfile 파싱 실패");
+            _logger.LogError(ex, "lockfile ?뚯떛 ?ㅽ뙣");
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse error: {ex.Message}");
             return null;
         }
     }
+
+    private void AddConnectionLog(string message)
+    {
+        _connectionLog.Add(message);
+        if (_connectionLog.Count > 50)
+        {
+            _connectionLog.RemoveAt(0);
+        }
+    }
 }
+
+
+

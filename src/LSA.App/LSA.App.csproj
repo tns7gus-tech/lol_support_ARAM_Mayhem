@@ -8,7 +8,7 @@
     <AssemblyName>LSA</AssemblyName>
 
     <!-- 앱 정보 -->
-    <Version>0.3.3</Version>
+    <Version>0.3.4</Version>
     <Product>LSA — ARAM Overlay</Product>
     <Description>ARAM 증강/아이템 추천 오버레이</Description>
   </PropertyGroup>
@@ -23,6 +23,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App.WindowsForms" />
   </ItemGroup>
 
   <!-- data/ 폴더 → 출력/배포 디렉터리에 자동 복사 -->
