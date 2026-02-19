@@ -96,6 +96,7 @@ public partial class OverlayWindow : Window
     private RecommendationResult? _currentRecommendation;
     private readonly List<string> _selectedAugmentIds = new();
     private readonly List<string> _connectionLogs = new();
+    private const int MaxConnectionLogLines = 50;
 
     // Phase 2: fallback ?대쭅 ??대㉧ (媛꾧꺽 5珥???WebSocket ?쒖꽦 ??蹂댁“ ??븷)
     private DispatcherTimer? _fallbackPollTimer;
@@ -133,6 +134,8 @@ public partial class OverlayWindow : Window
     {
         _appCts = new CancellationTokenSource();
         AppendConnectionLog("App started");
+        SyncClickThroughStateFromWindowStyle();
+        UpdateClickThroughUI();
 
         // ?ㅼ젙 濡쒕뱶
         await _dataService.LoadConfigAsync();
@@ -333,13 +336,14 @@ public partial class OverlayWindow : Window
     private void AppendConnectionLog(string text)
     {
         _connectionLogs.Add(text);
-        if (_connectionLogs.Count > 12)
+        if (_connectionLogs.Count > MaxConnectionLogLines)
         {
             _connectionLogs.RemoveAt(0);
         }
 
-        ConnectionLogList.ItemsSource = null;
-        ConnectionLogList.ItemsSource = _connectionLogs.ToList();
+        ConnectionLogTextBox.Text = string.Join(Environment.NewLine, _connectionLogs);
+        ConnectionLogTextBox.CaretIndex = ConnectionLogTextBox.Text.Length;
+        ConnectionLogTextBox.ScrollToEnd();
     }
 
     // ===== Fallback ?대쭅 =====
@@ -581,7 +585,29 @@ public partial class OverlayWindow : Window
                 SetWindowLong(hwnd, GWL_EXSTYLE, exStyle | WS_EX_TRANSPARENT);
             else
                 SetWindowLong(hwnd, GWL_EXSTYLE, exStyle & ~WS_EX_TRANSPARENT);
+
+            UpdateClickThroughUI();
+            AppendConnectionLog($"Click-through {(_isClickThrough ? "ON" : "OFF")}");
         });
+    }
+
+    private void SyncClickThroughStateFromWindowStyle()
+    {
+        var hwnd = new WindowInteropHelper(this).Handle;
+        if (hwnd == IntPtr.Zero)
+        {
+            _isClickThrough = false;
+            return;
+        }
+
+        var exStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
+        _isClickThrough = (exStyle & WS_EX_TRANSPARENT) != 0;
+    }
+
+    private void UpdateClickThroughUI()
+    {
+        ClickThroughText.Text = _isClickThrough ? "CT ON" : "CT OFF";
+        ClickThroughText.Foreground = _isClickThrough ? _connGreen : _connRed;
     }
 
     /// <summary>Ctrl+Shift+P ??[媛쒕컻?? Mock Phase ?쒗솚</summary>

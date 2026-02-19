@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.3.6] - 2026-02-19
+
+### Added
+- **Connection Log Copy UX**: Replaced the connection log list with a selectable read-only text box and expanded retained history to 50 lines.
+- **Click-through Status Indicator**: Added `CT ON/OFF` status text in the top status bar so click-through mode is visible at a glance.
+
+### Fixed
+- **LCU Lockfile Read Reliability**: Added shared-read retries for temporarily locked lockfile access and transient malformed content during lockfile updates.
+- **LCU Probe Fallback Flow**: If lockfile parsing fails on one candidate path, probing now continues to remaining candidates instead of stopping early.
+- **Connection Validation**: Startup/reconnect now require successful REST phase probe before treating LCU as connected.
+- **Reconnect Resource Handling**: Disposes previous `HttpClient` before recreating it during reconnect attempts.
+
 ## [v0.3.5] - 2026-02-19
 
 ### Fixed

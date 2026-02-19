@@ -94,6 +94,11 @@
                     <!-- ?곌껐 ?곹깭 ?몃뵒耳?댄꽣 -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal"
                                 VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <TextBlock x:Name="ClickThroughText" Text="CT OFF"
+                                   Foreground="{StaticResource SubTextBrush}"
+                                   FontSize="9" FontWeight="SemiBold"
+                                   Margin="0,0,8,0"
+                                   VerticalAlignment="Center"/>
                         <Ellipse x:Name="ConnIndicator" Width="8" Height="8"
                                  Fill="#FF808080" Margin="0,0,4,0"/>
                         <TextBlock x:Name="ConnText" Text="Disconnected"
@@ -232,16 +237,20 @@
                             <TextBlock Text="Connection Log"
                                        Foreground="{StaticResource SubTextBrush}"
                                        FontSize="11" FontWeight="Bold" Margin="0,0,0,4"/>
-                            <ItemsControl x:Name="ConnectionLogList">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}"
-                                                   Foreground="{StaticResource SubTextBrush}"
-                                                   FontSize="10"
-                                                   TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
+                            <TextBox x:Name="ConnectionLogTextBox"
+                                     IsReadOnly="True"
+                                     IsReadOnlyCaretVisible="True"
+                                     AcceptsReturn="True"
+                                     TextWrapping="Wrap"
+                                     VerticalScrollBarVisibility="Auto"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     Foreground="{StaticResource SubTextBrush}"
+                                     FontSize="10"
+                                     FontFamily="Consolas"
+                                     MinHeight="56"
+                                     MaxHeight="140"
+                                     Padding="0"/>
                         </StackPanel>
                     </Border>
 

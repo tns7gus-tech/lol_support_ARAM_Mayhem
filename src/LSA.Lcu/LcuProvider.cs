@@ -81,8 +81,8 @@ public class LcuProvider : IGameStateProvider
             _connInfo = await FindLcuConnectionAsync();
             if (_connInfo == null)
             {
-                _logger.LogWarning("LCU lockfile을 찾을 수 없음");
-                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile not found");
+                _logger.LogWarning("LCU lockfile unavailable (not found or unreadable)");
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile unavailable");
                 _isConnected = false;
                 return false;
             }
@@ -91,7 +91,14 @@ public class LcuProvider : IGameStateProvider
             SetupHttpClient();
 
             // 연결 확인 + phase 조회 테스트
-            var phase = await GetPhaseAsync();
+            var (phaseOk, phase) = await ProbePhaseAsync();
+            if (!phaseOk)
+            {
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] REST probe failed");
+                _isConnected = false;
+                return false;
+            }
+
             _isConnected = true;
             _reconnectAttempt = 0;
             _logger.LogInformation("LCU REST 연결 성공 ? 현재 Phase: {Phase}", phase);
@@ -129,6 +136,7 @@ public class LcuProvider : IGameStateProvider
     {
         if (_connInfo == null) return;
 
+        _httpClient?.Dispose();
         var handler = new HttpClientHandler
         {
             ServerCertificateCustomValidationCallback = (request, _, _, errors) => IsAllowedLcuTlsRequest(request?.RequestUri, errors)
@@ -540,7 +548,14 @@ public class LcuProvider : IGameStateProvider
             SetupHttpClient();
 
             // REST ?곌껐 ?뺤씤
-            var phase = await GetPhaseAsync();
+            var (phaseOk, phase) = await ProbePhaseAsync();
+            if (!phaseOk)
+            {
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] reconnect REST probe failed");
+                _isConnected = false;
+                return;
+            }
+
             _isConnected = true;
             _reconnectAttempt = 0;
             _lastKnownPhase = phase;
@@ -753,6 +768,21 @@ public class LcuProvider : IGameStateProvider
     }
 
     /// <summary>
+    /// 연결 확인에 사용하는 phase probe. HTTP 성공 여부를 명확히 분리한다.
+    /// </summary>
+    private async Task<(bool Success, GamePhase Phase)> ProbePhaseAsync()
+    {
+        var response = await SafeGetAsync("/lol-gameflow/v1/gameflow-phase");
+        if (response == null)
+        {
+            return (false, GamePhase.None);
+        }
+
+        var phase = ParsePhaseString(response.Trim('"'));
+        return (true, phase);
+    }
+
+    /// <summary>
     /// lockfile ?먯깋 ??LeagueClientUx ?꾨줈?몄뒪?먯꽌 寃쎈줈 異붾줎
     /// </summary>
     private async Task<LcuConnectionInfo?> FindLcuConnectionAsync()
@@ -778,7 +808,9 @@ public class LcuProvider : IGameStateProvider
                         if (File.Exists(lockfilePath))
                         {
                             AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile via process: {lockfilePath}");
-                            return ParseLockfile(lockfilePath);
+                            var parsed = ParseLockfile(lockfilePath);
+                            if (parsed != null) return parsed;
+                            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse failed: {lockfilePath}");
                         }
                     }
                     catch (Exception ex)
@@ -795,7 +827,9 @@ public class LcuProvider : IGameStateProvider
                     if (File.Exists(configuredLockfilePath))
                     {
                         AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile via config: {configuredLockfilePath}");
-                        return ParseLockfile(configuredLockfilePath);
+                        var parsed = ParseLockfile(configuredLockfilePath);
+                        if (parsed != null) return parsed;
+                        AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse failed: {configuredLockfilePath}");
                     }
                     AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] config path miss: {configuredLockfilePath}");
                 }
@@ -815,7 +849,9 @@ public class LcuProvider : IGameStateProvider
                     if (File.Exists(path))
                     {
                         AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile via common path: {path}");
-                        return ParseLockfile(path);
+                        var parsed = ParseLockfile(path);
+                        if (parsed != null) return parsed;
+                        AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse failed: {path}");
                     }
                 }
 
@@ -836,7 +872,9 @@ public class LcuProvider : IGameStateProvider
                         if (File.Exists(candidate))
                         {
                             AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile via drive scan: {candidate}");
-                            return ParseLockfile(candidate);
+                            var parsed = ParseLockfile(candidate);
+                            if (parsed != null) return parsed;
+                            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse failed: {candidate}");
                         }
                     }
                 }
@@ -858,29 +896,70 @@ public class LcuProvider : IGameStateProvider
     /// </summary>
     private LcuConnectionInfo? ParseLockfile(string path)
     {
-        try
+        const int maxAttempts = 5;
+        const int retryDelayMs = 120;
+
+        for (var attempt = 1; attempt <= maxAttempts; attempt++)
         {
-            var content = File.ReadAllText(path);
-            var parts = content.Split(':');
-            if (parts.Length < 5) return null;
-
-            _logger.LogInformation("lockfile 諛쒓껄 ??Port: {Port}", parts[2]);
-            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parsed, port={parts[2]}");
-            // password(parts[3])???덈? 濡쒓렇???④린吏 ?딆쓬
-
-            return new LcuConnectionInfo
+            try
             {
-                Port = int.Parse(parts[2]),
-                Password = parts[3],
-                Protocol = parts[4]
-            };
+                // Riot client가 lockfile을 갱신 중일 때도 읽을 수 있도록 공유 모드로 연다.
+                using var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete);
+                using var sr = new StreamReader(fs, Encoding.UTF8, detectEncodingFromByteOrderMarks: true);
+                var content = sr.ReadToEnd().Trim();
+                var parts = content.Split(':');
+                if (parts.Length < 5)
+                {
+                    if (attempt < maxAttempts)
+                    {
+                        AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile malformed, retry {attempt}/{maxAttempts}");
+                        Thread.Sleep(retryDelayMs);
+                        continue;
+                    }
+
+                    AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse error: malformed");
+                    return null;
+                }
+
+                if (!int.TryParse(parts[2], out var port))
+                {
+                    if (attempt < maxAttempts)
+                    {
+                        AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile port invalid, retry {attempt}/{maxAttempts}");
+                        Thread.Sleep(retryDelayMs);
+                        continue;
+                    }
+
+                    AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse error: invalid port");
+                    return null;
+                }
+
+                _logger.LogInformation("lockfile 諛쒓껄 ??Port: {Port}", parts[2]);
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parsed, port={parts[2]}");
+                // password(parts[3])???덈? 濡쒓렇???④린吏 ?딆쓬
+
+                return new LcuConnectionInfo
+                {
+                    Port = port,
+                    Password = parts[3].Trim(),
+                    Protocol = parts[4].Trim()
+                };
+            }
+            catch (IOException) when (attempt < maxAttempts)
+            {
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile busy, retry {attempt}/{maxAttempts}");
+                Thread.Sleep(retryDelayMs);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "lockfile ?뚯떛 ?ㅽ뙣");
+                AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse error: {ex.Message}");
+                return null;
+            }
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "lockfile ?뚯떛 ?ㅽ뙣");
-            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse error: {ex.Message}");
-            return null;
-        }
+
+        AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] lockfile parse error: busy timeout");
+        return null;
     }
 
     private void AddConnectionLog(string message)
