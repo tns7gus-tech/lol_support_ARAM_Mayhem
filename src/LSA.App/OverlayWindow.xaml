@@ -38,7 +38,7 @@
 
                     <!-- 濡쒓퀬/??댄? -->
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBlock Text="?뷂툘" FontSize="18" Margin="0,0,6,0"/>
+                        <TextBlock Text="⚔️" FontSize="18" Margin="0,0,6,0"/>
                         <TextBlock Text="LSA"
                                    Foreground="{StaticResource HighlightBrush}"
                                    FontSize="16" FontWeight="Bold"
@@ -56,7 +56,7 @@
                                        FontSize="10" FontWeight="Bold"/>
                         </Border>
                         <!-- ?묎린 踰꾪듉 -->
-                                                <Button x:Name="CollapseBtn" Content="_"
+                                                <Button x:Name="CollapseBtn" Content="-"
                                 Click="CollapseBtn_Click"
                                 Width="28" Height="28"
                                 Background="Transparent"
@@ -84,7 +84,7 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock x:Name="PhaseText" Text="?湲?以?.."
+                        <TextBlock x:Name="PhaseText" Text="대기 중..."
                                    Foreground="{StaticResource SubTextBrush}" FontSize="11"/>
                         <TextBlock Text="  |  " Foreground="{StaticResource SubTextBrush}" FontSize="11"/>
                         <TextBlock x:Name="ChampionText" Text=""
@@ -109,7 +109,7 @@
                 <StackPanel x:Name="ContentPanel" Margin="12,8,12,12">
 
                     <!-- 利앷컯 異붿쿇 ?뱀뀡 -->
-                    <TextBlock Text="?렞 利앷컯 異붿쿇"
+                    <TextBlock Text="증강 추천"
                                Foreground="{StaticResource HighlightBrush}"
                                FontSize="14" FontWeight="Bold" Margin="0,4,0,8"/>
 
@@ -174,12 +174,12 @@
                     <Border Height="1" Background="#33FFFFFF" Margin="0,8"/>
 
                     <!-- ?꾩씠??異붿쿇 ?뱀뀡 -->
-                    <TextBlock Text="?썳截??꾩씠??鍮뚮뱶"
+                    <TextBlock Text="아이템 빌드"
                                Foreground="{StaticResource HighlightBrush}"
                                FontSize="14" FontWeight="Bold" Margin="0,4,0,8"/>
 
                     <!-- 肄붿뼱 ?꾩씠??-->
-                    <TextBlock Text="肄붿뼱"
+                    <TextBlock Text="코어"
                                Foreground="{StaticResource SubTextBrush}"
                                FontSize="11" Margin="0,0,0,4"/>
                     <ItemsControl x:Name="CoreItemList">
@@ -252,13 +252,13 @@
                             <TextBlock Text="Hotkeys" Foreground="{StaticResource SubTextBrush}"
                                        FontSize="11" FontWeight="Bold" Margin="0,0,0,4"/>
                             <TextBlock Foreground="{StaticResource SubTextBrush}" FontSize="10">
-                                <Run Text="Ctrl+Shift+O" FontWeight="SemiBold"/> ???ㅻ쾭?덉씠 ON/OFF
+                                <Run Text="Ctrl+Shift+O" FontWeight="SemiBold"/> 오버레이 ON/OFF
                             </TextBlock>
                             <TextBlock Foreground="{StaticResource SubTextBrush}" FontSize="10">
-                                <Run Text="Ctrl+Shift+C" FontWeight="SemiBold"/> ???대┃ ?듦낵 ?좉?
+                                <Run Text="Ctrl+Shift+C" FontWeight="SemiBold"/> 클릭 통과 토글
                             </TextBlock>
                             <TextBlock Foreground="{StaticResource SubTextBrush}" FontSize="10">
-                                <Run Text="Ctrl+Shift+P" FontWeight="SemiBold"/> ??[DEV] Phase 蹂寃?
+                                <Run Text="Ctrl+Shift+P" FontWeight="SemiBold"/> [DEV] Phase 변경
                             </TextBlock>
                         </StackPanel>
                     </Border>
@@ -268,5 +268,7 @@
         </Grid>
     </Border>
 </Window>
+
+
 
 

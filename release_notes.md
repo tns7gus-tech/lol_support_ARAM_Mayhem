@@ -1,22 +1,21 @@
-﻿## ???ъ슜 諛⑸쾿
+﻿## 사용 방법
 
-1. ?꾨옒 `LSA_v0.3.4.zip` ?ㅼ슫濡쒕뱶
-2. ?뺤텞 ?댁젣
-3. LoL ?대씪?댁뼵???ㅽ뻾
-4. `LSA.exe` ?붾툝?대┃
-5. ??
+1. 아래 `LSA_v0.3.4.zip` 다운로드
+2. 압축 해제
+3. LoL 클라이언트 실행
+4. `LSA.exe` 더블클릭
+5. 완료
 
-## ?⑨툘 ?ロ궎
-- `Ctrl+Shift+O` ???ㅻ쾭?덉씠 ?쒖떆/?④?
-- `Ctrl+Shift+C` ???대┃ ?듦낵 紐⑤뱶
+## 단축키
+- `Ctrl+Shift+O`: 오버레이 표시/숨김
+- `Ctrl+Shift+C`: 클릭 통과 모드 토글
+- `Ctrl+Shift+P`: [DEV] Mock Phase 전환
 
-## ?뱥 ?ы븿 ?뚯씪
-- `LSA.exe` ??硫붿씤 ?꾨줈洹몃옩 (self-contained, .NET ?ㅼ튂 遺덊븘??
-- `data/` ??利앷컯/?꾩씠??梨뷀뵾???곗씠??
-> ?좑툘 PC諛⑹뿉?쒕룄 ?ъ슜 媛?? LoL ?ㅼ튂 寃쎈줈瑜??먮룞?쇰줈 李얠뒿?덈떎.
-
+## 포함 파일
+- `LSA.exe`: 메인 프로그램 (self-contained)
+- `data/`: 증강/아이템/챔피언 데이터
 
 ## v0.3.4 Fixed
-- Improved LCU lockfile discovery for PC bang setups (config install path + all fixed drives).
-
-
+- PC방/다중 드라이브 환경에서 LCU lockfile 탐지 개선
+- 앱 내부 연결 진단(상태 표시/로그) 강화
+- 트레이 UX 보완

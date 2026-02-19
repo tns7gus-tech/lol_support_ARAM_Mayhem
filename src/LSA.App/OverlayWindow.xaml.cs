@@ -401,12 +401,12 @@ public partial class OverlayWindow : Window
     {
         var phaseText = _currentPhase switch
         {
-            GamePhase.None => "?湲?以?..",
+            GamePhase.None => "대기 중...",
             GamePhase.Lobby => "Lobby",
-            GamePhase.ChampSelect => "?렞 梨뷀뵾???좏깮",
+            GamePhase.ChampSelect => "챔피언 선택",
             GamePhase.InProgress => "In Progress",
-            GamePhase.EndOfGame => "寃뚯엫 醫낅즺",
-            _ => "?????놁쓬"
+            GamePhase.EndOfGame => "게임 종료",
+            _ => "알 수 없음"
         };
         PhaseText.Text = phaseText;
 
@@ -504,7 +504,7 @@ public partial class OverlayWindow : Window
             AugmentId = a.AugmentId,
             Name = a.Name,
             Tier = a.Tier,
-            TagsText = string.Join(" 쨌 ", a.Tags),
+            TagsText = string.Join(" · ", a.Tags),
             ReasonText = string.Join(" | ", a.Reasons.Take(2))
         }).ToList();
 
@@ -647,5 +647,7 @@ public partial class OverlayWindow : Window
         base.OnClosing(e);
     }
 }
+
+
 
 
