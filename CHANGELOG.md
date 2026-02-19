@@ -1,9 +1,14 @@
-# Changelog
+﻿# Changelog
 
 All notable changes to this project will be documented in this file.
 
-## [v0.3.4] - 2026-02-18
+## [v0.3.5] - 2026-02-19
 
+### Fixed
+- **Korean Text Recovery**: Restored corrupted Korean text in `README.md`, `release_notes.md`, and overlay UI strings.
+- **Release Documentation**: Rewrote release notes for readable Korean and aligned package reference to `LSA_v0.3.5.zip`.
+
+## [v0.3.4] - 2026-02-18
 ### Added
 - **Connection Diagnostics UI**: Added in-overlay `Connection Log` panel to show recent LCU connection attempts and fallback reasons.
 - **LCU Diagnostics Capture**: `LcuProvider` now records lockfile probing and HTTP connection failures for easier troubleshooting.
@@ -40,8 +45,8 @@ All notable changes to this project will be documented in this file.
 - **Docs**: Added `walkthrough.md` detailing Codex changes verification.
 
 ### Fixed
-- **Tests**: Fixed unit test `RecommendationServiceTests` failure due to champion name mismatch ("Jinx" -> "징크스").
-- **Data**: Removed invalid champion entries ("자헨", "유나라") from `knowledge_base.json`.
+- **Tests**: Fixed unit test `RecommendationServiceTests` failure due to champion name mismatch ("Jinx" -> "吏뺥겕??).
+- **Data**: Removed invalid champion entries ("?먰뿨", "?좊굹??) from `knowledge_base.json`.
 - **Cleanup**: Removed unused `Class1.cs` file and stale remote branches.
 
 ### Changed
@@ -50,3 +55,4 @@ All notable changes to this project will be documented in this file.
 
 ## [v0.2.0] - Previous Release
 - Initial release with overlay functionality.
+

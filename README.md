@@ -8,7 +8,7 @@
 
 ### 1. 다운로드
 
-👉 [**최신 버전 다운로드 (v0.3.4)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
+👉 [**최신 버전 다운로드 (v0.3.5)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
 
 > ZIP 파일을 다운로드하고 원하는 곳에 압축 해제하세요.
 
@@ -182,3 +182,4 @@ Score = 티어 기본점수 + 챔피언 시너지 + 적 태그 카운터
 
 개인 사용 목적 프로젝트입니다.  
 Riot Games의 [Third Party Developer Policy](https://developer.riotgames.com/docs/lol) 준수.
+
