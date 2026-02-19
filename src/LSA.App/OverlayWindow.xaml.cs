@@ -13,6 +13,7 @@ using LSA.Lcu;
 using LSA.Mock;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
+using Microsoft.Win32;
 
 namespace LSA.App;
 
@@ -71,9 +72,25 @@ public partial class OverlayWindow : Window
     private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
     [DllImport("user32.dll")]
     private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+    [DllImport("user32.dll", SetLastError = true)]
+    private static extern bool SetWindowPos(
+        IntPtr hWnd,
+        IntPtr hWndInsertAfter,
+        int X,
+        int Y,
+        int cx,
+        int cy,
+        uint uFlags);
 
     private const int GWL_EXSTYLE = -20;
     private const int WS_EX_TRANSPARENT = 0x00000020;
+    private static readonly IntPtr HWND_TOPMOST = new(-1);
+    private const uint SWP_NOSIZE = 0x0001;
+    private const uint SWP_NOMOVE = 0x0002;
+    private const uint SWP_NOACTIVATE = 0x0010;
+    private const uint SWP_SHOWWINDOW = 0x0040;
+    private const double DefaultLeft = 80;
+    private const double DefaultTop = 80;
 
     // ?쒕퉬??
     private readonly ILoggerFactory _loggerFactory;
@@ -146,6 +163,8 @@ public partial class OverlayWindow : Window
         // ?ㅼ젙?먯꽌 ?꾩튂 蹂듭썝
         Left = _dataService.Config.Overlay.X;
         Top = _dataService.Config.Overlay.Y;
+        EnsureWindowInsideVirtualBounds(logReason: "startup");
+        SystemEvents.DisplaySettingsChanged += OnDisplaySettingsChanged;
 
         // ?ロ궎 ?깅줉
         _hotKeyService.OnToggleOverlay += ToggleOverlay;
@@ -172,6 +191,8 @@ public partial class OverlayWindow : Window
 
         // 珥덇린 ?곹깭 媛깆떊
         await FallbackPollAsync();
+        EnsureOverlayOnTop();
+        AppendConnectionLog("Overlay topmost reinforce enabled");
     }
 
     /// <summary>
@@ -369,6 +390,7 @@ public partial class OverlayWindow : Window
     private async Task FallbackPollAsync()
     {
         if (_provider == null) return;
+        EnsureOverlayOnTop();
 
         if (_provider is LcuProvider lcuProvider)
         {
@@ -616,6 +638,12 @@ public partial class OverlayWindow : Window
             Visibility = Visibility == Visibility.Visible
                 ? Visibility.Hidden
                 : Visibility.Visible;
+
+            if (Visibility == Visibility.Visible)
+            {
+                EnsureWindowInsideVirtualBounds(logReason: "show");
+                EnsureOverlayOnTop();
+            }
         });
     }
 
@@ -633,9 +661,81 @@ public partial class OverlayWindow : Window
             else
                 SetWindowLong(hwnd, GWL_EXSTYLE, exStyle & ~WS_EX_TRANSPARENT);
 
+            EnsureOverlayOnTop();
             UpdateClickThroughUI();
             AppendConnectionLog($"Click-through {(_isClickThrough ? "ON" : "OFF")}");
         });
+    }
+
+    private void OnDisplaySettingsChanged(object? sender, EventArgs e)
+    {
+        Dispatcher.BeginInvoke(() =>
+        {
+            EnsureWindowInsideVirtualBounds(logReason: "display changed");
+            EnsureOverlayOnTop();
+        });
+    }
+
+    private void EnsureWindowInsideVirtualBounds(string? logReason = null)
+    {
+        var width = ActualWidth > 0 ? ActualWidth : Width;
+        var height = ActualHeight > 0 ? ActualHeight : Height;
+        if (width <= 0 || height <= 0)
+        {
+            return;
+        }
+
+        var virtualLeft = SystemParameters.VirtualScreenLeft;
+        var virtualTop = SystemParameters.VirtualScreenTop;
+        var virtualWidth = SystemParameters.VirtualScreenWidth;
+        var virtualHeight = SystemParameters.VirtualScreenHeight;
+
+        var maxLeft = virtualLeft + Math.Max(0, virtualWidth - width);
+        var maxTop = virtualTop + Math.Max(0, virtualHeight - height);
+
+        var currentLeft = double.IsFinite(Left) ? Left : DefaultLeft;
+        var currentTop = double.IsFinite(Top) ? Top : DefaultTop;
+
+        var clampedLeft = Math.Clamp(currentLeft, virtualLeft, maxLeft);
+        var clampedTop = Math.Clamp(currentTop, virtualTop, maxTop);
+
+        if (!AreClose(Left, clampedLeft) || !AreClose(Top, clampedTop))
+        {
+            Left = clampedLeft;
+            Top = clampedTop;
+            if (!string.IsNullOrWhiteSpace(logReason))
+            {
+                AppendConnectionLog($"Overlay repositioned ({logReason})");
+            }
+        }
+    }
+
+    private static bool AreClose(double a, double b)
+    {
+        return Math.Abs(a - b) < 0.5;
+    }
+
+    private void EnsureOverlayOnTop()
+    {
+        if (Visibility != Visibility.Visible)
+        {
+            return;
+        }
+
+        var hwnd = new WindowInteropHelper(this).Handle;
+        if (hwnd == IntPtr.Zero)
+        {
+            return;
+        }
+
+        SetWindowPos(
+            hwnd,
+            HWND_TOPMOST,
+            0,
+            0,
+            0,
+            0,
+            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE | SWP_SHOWWINDOW);
     }
 
     private void SyncClickThroughStateFromWindowStyle()
@@ -694,6 +794,7 @@ public partial class OverlayWindow : Window
     {
         // ??痍⑥냼 ?좏겙 ?댁젣
         _appCts?.Cancel();
+        SystemEvents.DisplaySettingsChanged -= OnDisplaySettingsChanged;
 
         // 紐⑤땲?곕쭅 以묒?
         if (_provider != null)

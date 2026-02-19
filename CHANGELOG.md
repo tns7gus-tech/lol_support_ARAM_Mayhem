@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.3.8] - 2026-02-19
+
+### Added
+- **Multi-Monitor Visibility Guard**: Overlay position is now clamped to the current virtual desktop bounds at startup, on display changes, and when re-showing the window.
+- **Display Change Recovery**: Automatically repositions the overlay when monitor layout/resolution changes so it does not stay off-screen.
+- **In-Game Visibility Guidance**: Added an in-app note recommending `Borderless/Windowed` mode for reliable overlay display.
+
+### Fixed
+- **Off-Screen Restore**: Invalid or out-of-range saved coordinates are corrected to visible positions.
+- **Topmost Reassertion**: Overlay now reasserts topmost state after display changes and when toggling visibility/click-through.
+
 ## [v0.3.7] - 2026-02-19
 
 ### Added
