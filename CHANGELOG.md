@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.3.7] - 2026-02-19
+
+### Added
+- **Safe In-Game Static Mode**: Recommendations are now frozen when phase enters `InProgress`, keeping the pick-screen reference visible without in-game auto-updates.
+- **Freeze State Logging**: Overlay `Connection Log` now records when recommendation freeze turns on/off.
+
+### Fixed
+- **In-Game Recommendation Reset**: Prevented fallback polling and champion-change events from clearing recommendations during in-game phase.
+- **LCU Runtime Diagnostics**: Added runtime connection logs for websocket connect/disconnect and reconnect attempts/results to make disconnect causes visible in overlay.
+
 ## [v0.3.6] - 2026-02-19
 
 ### Added

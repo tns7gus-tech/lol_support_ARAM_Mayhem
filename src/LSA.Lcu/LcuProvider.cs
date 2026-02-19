@@ -291,6 +291,7 @@ public class LcuProvider : IGameStateProvider
             _isWebSocketConnected = true;
             _reconnectAttempt = 0;
             _logger.LogInformation("LCU WebSocket ?곌껐 ?깃났");
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] websocket connected");
 
             // 硫붿떆吏 ?섏떊 猷⑦봽 ?쒖옉
             _webSocketReceiveTask = Task.Run(() => WebSocketReceiveLoopAsync(ct), ct);
@@ -300,6 +301,7 @@ public class LcuProvider : IGameStateProvider
         catch (Exception ex)
         {
             _logger.LogWarning("LCU WebSocket ?곌껐 ?ㅽ뙣 (REST fallback ?ъ슜): {Msg}", ex.Message);
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] websocket connect failed: {ex.Message}");
             _isWebSocketConnected = false;
             _webSocket?.Dispose();
             _webSocket = null;
@@ -368,6 +370,7 @@ public class LcuProvider : IGameStateProvider
         finally
         {
             _isWebSocketConnected = false;
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] websocket disconnected");
 
             if (!ct.IsCancellationRequested)
             {
@@ -491,6 +494,7 @@ public class LcuProvider : IGameStateProvider
                 {
                     // ?대씪?댁뼵??醫낅즺?????곌껐 ?댁젣
                     _logger.LogInformation("LeagueClientUx ?꾨줈?몄뒪 醫낅즺 媛먯?");
+                    AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] LeagueClientUx not running");
                     _isConnected = false;
                     _isWebSocketConnected = false;
                     _webSocket?.Dispose();
@@ -539,6 +543,7 @@ public class LcuProvider : IGameStateProvider
     {
         _reconnectAttempt++;
         _logger.LogInformation("?ъ뿰寃??쒕룄 #{Attempt}", _reconnectAttempt);
+        AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] reconnect attempt #{_reconnectAttempt}");
 
         try
         {
@@ -561,6 +566,7 @@ public class LcuProvider : IGameStateProvider
             _lastKnownPhase = phase;
 
             _logger.LogInformation("LCU ?ъ뿰寃??깃났 ??Phase: {Phase}", phase);
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] reconnect success, phase={phase}");
             OnConnectionChanged?.Invoke(true);
             OnPhaseChanged?.Invoke(phase);
 
@@ -570,6 +576,7 @@ public class LcuProvider : IGameStateProvider
         catch (Exception ex)
         {
             _logger.LogWarning("?ъ뿰寃??ㅽ뙣 #{Attempt}: {Msg}", _reconnectAttempt, ex.Message);
+            AddConnectionLog($"[{DateTime.Now:HH:mm:ss}] reconnect failed: {ex.Message}");
         }
     }
 

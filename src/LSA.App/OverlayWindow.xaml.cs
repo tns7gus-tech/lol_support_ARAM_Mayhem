@@ -94,9 +94,11 @@ public partial class OverlayWindow : Window
     private GamePhase _currentPhase = GamePhase.None;
     private int? _currentChampionId;
     private RecommendationResult? _currentRecommendation;
+    private bool _freezeRecommendationsInGame;
     private readonly List<string> _selectedAugmentIds = new();
     private readonly List<string> _connectionLogs = new();
     private const int MaxConnectionLogLines = 50;
+    private int _lastLcuLogCount;
 
     // Phase 2: fallback ?대쭅 ??대㉧ (媛꾧꺽 5珥???WebSocket ?쒖꽦 ??蹂댁“ ??븷)
     private DispatcherTimer? _fallbackPollTimer;
@@ -186,6 +188,7 @@ public partial class OverlayWindow : Window
         var lcuProvider = new LcuProvider(
             _loggerFactory.CreateLogger<LcuProvider>(),
             _dataService.Config.Lol.InstallPath);
+        _lastLcuLogCount = 0;
 
         if (await lcuProvider.TryConnectAsync())
         {
@@ -226,8 +229,7 @@ public partial class OverlayWindow : Window
         {
             Dispatcher.BeginInvoke(() =>
             {
-                _currentPhase = phase;
-                UpdatePhaseUI();
+                ApplyPhaseUpdate(phase);
             });
         };
 
@@ -237,6 +239,11 @@ public partial class OverlayWindow : Window
             {
                 if (champId != _currentChampionId)
                 {
+                    if (_freezeRecommendationsInGame)
+                    {
+                        return;
+                    }
+
                     _currentChampionId = champId;
                     if (_currentChampionId.HasValue)
                     {
@@ -265,8 +272,7 @@ public partial class OverlayWindow : Window
 
                 if (!connected)
                 {
-                    _currentPhase = GamePhase.None;
-                    UpdatePhaseUI();
+                    ApplyPhaseUpdate(GamePhase.None);
                 }
             });
         };
@@ -327,10 +333,18 @@ public partial class OverlayWindow : Window
 
     private void AppendLcuLogs(LcuProvider provider)
     {
-        foreach (var line in provider.ConnectionLog)
+        var logs = provider.ConnectionLog;
+        if (logs.Count < _lastLcuLogCount)
         {
-            AppendConnectionLog(line);
+            _lastLcuLogCount = 0;
         }
+
+        for (var i = _lastLcuLogCount; i < logs.Count; i++)
+        {
+            AppendConnectionLog(logs[i]);
+        }
+
+        _lastLcuLogCount = logs.Count;
     }
 
     private void AppendConnectionLog(string text)
@@ -356,6 +370,11 @@ public partial class OverlayWindow : Window
     {
         if (_provider == null) return;
 
+        if (_provider is LcuProvider lcuProvider)
+        {
+            AppendLcuLogs(lcuProvider);
+        }
+
         try
         {
             // ?곌껐 ?곹깭 UI 媛깆떊
@@ -373,14 +392,18 @@ public partial class OverlayWindow : Window
 
             // REST fallback ?대쭅
             var phase = await _provider.GetPhaseAsync();
-            var champId = await _provider.GetMyChampionIdAsync();
 
             if (phase != _currentPhase)
             {
-                _currentPhase = phase;
-                UpdatePhaseUI();
+                ApplyPhaseUpdate(phase);
             }
 
+            if (_freezeRecommendationsInGame)
+            {
+                return;
+            }
+
+            var champId = await _provider.GetMyChampionIdAsync();
             if (champId != _currentChampionId && champId.HasValue)
             {
                 _currentChampionId = champId;
@@ -396,6 +419,30 @@ public partial class OverlayWindow : Window
         {
             _logger.LogDebug(ex, "Fallback ?대쭅 以??ㅻ쪟");
         }
+    }
+
+    /// <summary>
+    /// Phase???곕Ⅸ UI ?꾪솚
+    /// </summary>
+    private void ApplyPhaseUpdate(GamePhase phase)
+    {
+        _currentPhase = phase;
+
+        if (phase == GamePhase.InProgress && _currentRecommendation != null && !_freezeRecommendationsInGame)
+        {
+            _freezeRecommendationsInGame = true;
+            AppendConnectionLog("Recommendation freeze ON (in-game)");
+        }
+        else if (phase is GamePhase.ChampSelect or GamePhase.Lobby or GamePhase.EndOfGame)
+        {
+            if (_freezeRecommendationsInGame)
+            {
+                AppendConnectionLog("Recommendation freeze OFF");
+            }
+            _freezeRecommendationsInGame = false;
+        }
+
+        UpdatePhaseUI();
     }
 
     /// <summary>
@@ -426,7 +473,7 @@ public partial class OverlayWindow : Window
     /// </summary>
     private async Task UpdateRecommendationsAsync()
     {
-        if (_currentChampionId == null) return;
+        if (_currentChampionId == null || _freezeRecommendationsInGame) return;
 
         List<string>? enemyTags = null;
         try
