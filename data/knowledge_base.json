@@ -1,7 +1,7 @@
 ﻿{
     "meta": {
-        "version": "0.3.0",
-        "updatedAt": "2026-02-17",
+        "version": "0.3.9",
+        "updatedAt": "2026-02-20",
         "totalChampions": 169,
         "sampleChampionsConfigured": [
             "브랜드",
@@ -401,6 +401,38 @@
                 "fighter",
                 "survival"
             ]
+        },
+        "3143": {
+            "name": "란두인의 예언",
+            "tags": [
+                "tank",
+                "armor",
+                "antiCrit"
+            ]
+        },
+        "3190": {
+            "name": "강철의 솔라리 펜던트",
+            "tags": [
+                "support",
+                "shield",
+                "defense"
+            ]
+        },
+        "4401": {
+            "name": "대자연의 힘",
+            "tags": [
+                "tank",
+                "mr",
+                "move"
+            ]
+        },
+        "6693": {
+            "name": "황혼검",
+            "tags": [
+                "ad",
+                "lethality",
+                "burst"
+            ]
         }
     },
     "champions": {
@@ -707,41 +739,42 @@
             ],
             "augmentPreferences": [
                 {
-                    "baseBonus": 22,
+                    "baseBonus": 20,
                     "augmentId": "aug_shadow_hunt",
-                    "reason": "Role: Assassin (Burst)"
+                    "reason": "Role: AP Assassin (Burst)"
                 },
                 {
                     "baseBonus": 18,
-                    "augmentId": "aug_executioner_edge",
-                    "reason": "Role: Assassin (Execute)"
+                    "augmentId": "aug_arcane_surge",
+                    "reason": "Role: AP Assassin (Spell Burst)"
                 },
                 {
-                    "baseBonus": 10,
-                    "augmentId": "aug_bruiser_drive",
-                    "reason": "Role: Assassin (Survival)"
+                    "baseBonus": 12,
+                    "augmentId": "aug_spellweaver",
+                    "reason": "Role: AP Assassin (DPS)"
                 }
             ],
             "itemBuild": {
                 "core": [
-                    6692,
-                    3158,
-                    3142
+                    6655,
+                    3020,
+                    3157
                 ],
                 "situational": [
                     {
-                        "reason": "Edge of Night",
+                        "reason": "Heavy AP",
                         "whenTags": [
-                            "cc"
+                            "burst",
+                            "scaling"
                         ],
-                        "itemId": 3814
+                        "itemId": 3089
                     },
                     {
-                        "reason": "Prowler\u0027s",
+                        "reason": "Magic Pen",
                         "whenTags": [
                             "tank"
                         ],
-                        "itemId": 6693
+                        "itemId": 3135
                     }
                 ]
             }
@@ -1728,41 +1761,42 @@
             ],
             "augmentPreferences": [
                 {
-                    "baseBonus": 22,
+                    "baseBonus": 20,
                     "augmentId": "aug_shadow_hunt",
-                    "reason": "Role: Assassin (Burst)"
+                    "reason": "Role: AP Assassin (Burst)"
                 },
                 {
                     "baseBonus": 18,
-                    "augmentId": "aug_executioner_edge",
-                    "reason": "Role: Assassin (Execute)"
+                    "augmentId": "aug_arcane_surge",
+                    "reason": "Role: AP Assassin (Spell Burst)"
                 },
                 {
-                    "baseBonus": 10,
-                    "augmentId": "aug_bruiser_drive",
-                    "reason": "Role: Assassin (Survival)"
+                    "baseBonus": 12,
+                    "augmentId": "aug_spellweaver",
+                    "reason": "Role: AP Assassin (DPS)"
                 }
             ],
             "itemBuild": {
                 "core": [
-                    6692,
-                    3158,
-                    3142
+                    6655,
+                    3020,
+                    3157
                 ],
                 "situational": [
                     {
-                        "reason": "Edge of Night",
+                        "reason": "Heavy AP",
                         "whenTags": [
-                            "cc"
+                            "burst",
+                            "scaling"
                         ],
-                        "itemId": 3814
+                        "itemId": 3089
                     },
                     {
-                        "reason": "Prowler\u0027s",
+                        "reason": "Magic Pen",
                         "whenTags": [
                             "tank"
                         ],
-                        "itemId": 6693
+                        "itemId": 3135
                     }
                 ]
             }
@@ -2843,41 +2877,42 @@
             ],
             "augmentPreferences": [
                 {
-                    "baseBonus": 22,
+                    "baseBonus": 20,
                     "augmentId": "aug_shadow_hunt",
-                    "reason": "Role: Assassin (Burst)"
+                    "reason": "Role: AP Assassin (Burst)"
                 },
                 {
                     "baseBonus": 18,
-                    "augmentId": "aug_executioner_edge",
-                    "reason": "Role: Assassin (Execute)"
+                    "augmentId": "aug_arcane_surge",
+                    "reason": "Role: AP Assassin (Spell Burst)"
                 },
                 {
-                    "baseBonus": 10,
-                    "augmentId": "aug_bruiser_drive",
-                    "reason": "Role: Assassin (Survival)"
+                    "baseBonus": 12,
+                    "augmentId": "aug_spellweaver",
+                    "reason": "Role: AP Assassin (DPS)"
                 }
             ],
             "itemBuild": {
                 "core": [
-                    6692,
-                    3158,
-                    3142
+                    6655,
+                    3020,
+                    3157
                 ],
                 "situational": [
                     {
-                        "reason": "Edge of Night",
+                        "reason": "Heavy AP",
                         "whenTags": [
-                            "cc"
+                            "burst",
+                            "scaling"
                         ],
-                        "itemId": 3814
+                        "itemId": 3089
                     },
                     {
-                        "reason": "Prowler\u0027s",
+                        "reason": "Magic Pen",
                         "whenTags": [
                             "tank"
                         ],
-                        "itemId": 6693
+                        "itemId": 3135
                     }
                 ]
             }
@@ -3086,41 +3121,42 @@
             ],
             "augmentPreferences": [
                 {
-                    "baseBonus": 22,
+                    "baseBonus": 20,
                     "augmentId": "aug_shadow_hunt",
-                    "reason": "Role: Assassin (Burst)"
+                    "reason": "Role: AP Assassin (Burst)"
                 },
                 {
                     "baseBonus": 18,
-                    "augmentId": "aug_executioner_edge",
-                    "reason": "Role: Assassin (Execute)"
+                    "augmentId": "aug_arcane_surge",
+                    "reason": "Role: AP Assassin (Spell Burst)"
                 },
                 {
-                    "baseBonus": 10,
-                    "augmentId": "aug_bruiser_drive",
-                    "reason": "Role: Assassin (Survival)"
+                    "baseBonus": 12,
+                    "augmentId": "aug_spellweaver",
+                    "reason": "Role: AP Assassin (DPS)"
                 }
             ],
             "itemBuild": {
                 "core": [
-                    6692,
-                    3158,
-                    3142
+                    6655,
+                    3020,
+                    3157
                 ],
                 "situational": [
                     {
-                        "reason": "Edge of Night",
+                        "reason": "Heavy AP",
                         "whenTags": [
-                            "cc"
+                            "burst",
+                            "scaling"
                         ],
-                        "itemId": 3814
+                        "itemId": 3089
                     },
                     {
-                        "reason": "Prowler\u0027s",
+                        "reason": "Magic Pen",
                         "whenTags": [
                             "tank"
                         ],
-                        "itemId": 6693
+                        "itemId": 3135
                     }
                 ]
             }
@@ -3621,41 +3657,42 @@
             ],
             "augmentPreferences": [
                 {
-                    "baseBonus": 22,
+                    "baseBonus": 20,
                     "augmentId": "aug_shadow_hunt",
-                    "reason": "Role: Assassin (Burst)"
+                    "reason": "Role: AP Assassin (Burst)"
                 },
                 {
                     "baseBonus": 18,
-                    "augmentId": "aug_executioner_edge",
-                    "reason": "Role: Assassin (Execute)"
+                    "augmentId": "aug_arcane_surge",
+                    "reason": "Role: AP Assassin (Spell Burst)"
                 },
                 {
-                    "baseBonus": 10,
-                    "augmentId": "aug_bruiser_drive",
-                    "reason": "Role: Assassin (Survival)"
+                    "baseBonus": 12,
+                    "augmentId": "aug_spellweaver",
+                    "reason": "Role: AP Assassin (DPS)"
                 }
             ],
             "itemBuild": {
                 "core": [
-                    6692,
-                    3158,
-                    3142
+                    6655,
+                    3020,
+                    3157
                 ],
                 "situational": [
                     {
-                        "reason": "Edge of Night",
+                        "reason": "Heavy AP",
                         "whenTags": [
-                            "cc"
+                            "burst",
+                            "scaling"
                         ],
-                        "itemId": 3814
+                        "itemId": 3089
                     },
                     {
-                        "reason": "Prowler\u0027s",
+                        "reason": "Magic Pen",
                         "whenTags": [
                             "tank"
                         ],
-                        "itemId": 6693
+                        "itemId": 3135
                     }
                 ]
             }
@@ -4011,41 +4048,42 @@
             ],
             "augmentPreferences": [
                 {
-                    "baseBonus": 22,
+                    "baseBonus": 20,
                     "augmentId": "aug_shadow_hunt",
-                    "reason": "Role: Assassin (Burst)"
+                    "reason": "Role: AP Assassin (Burst)"
                 },
                 {
                     "baseBonus": 18,
-                    "augmentId": "aug_executioner_edge",
-                    "reason": "Role: Assassin (Execute)"
+                    "augmentId": "aug_arcane_surge",
+                    "reason": "Role: AP Assassin (Spell Burst)"
                 },
                 {
-                    "baseBonus": 10,
-                    "augmentId": "aug_bruiser_drive",
-                    "reason": "Role: Assassin (Survival)"
+                    "baseBonus": 12,
+                    "augmentId": "aug_spellweaver",
+                    "reason": "Role: AP Assassin (DPS)"
                 }
             ],
             "itemBuild": {
                 "core": [
-                    6692,
-                    3158,
-                    3142
+                    6655,
+                    3020,
+                    3157
                 ],
                 "situational": [
                     {
-                        "reason": "Edge of Night",
+                        "reason": "Heavy AP",
                         "whenTags": [
-                            "cc"
+                            "burst",
+                            "scaling"
                         ],
-                        "itemId": 3814
+                        "itemId": 3089
                     },
                     {
-                        "reason": "Prowler\u0027s",
+                        "reason": "Magic Pen",
                         "whenTags": [
                             "tank"
                         ],
-                        "itemId": 6693
+                        "itemId": 3135
                     }
                 ]
             }
@@ -4688,41 +4726,42 @@
             ],
             "augmentPreferences": [
                 {
+                    "baseBonus": 20,
                     "augmentId": "aug_shadow_hunt",
-                    "baseBonus": 22,
-                    "reason": "암살 진입 시너지"
+                    "reason": "Role: AP Assassin (Burst)"
                 },
                 {
-                    "augmentId": "aug_executioner_edge",
-                    "baseBonus": 16,
-                    "reason": "마무리 킬각 강화"
+                    "baseBonus": 18,
+                    "augmentId": "aug_arcane_surge",
+                    "reason": "Role: AP Assassin (Spell Burst)"
                 },
                 {
-                    "augmentId": "aug_spellshield_matrix",
-                    "baseBonus": 10,
-                    "reason": "진입 안정성 확보"
+                    "baseBonus": 12,
+                    "augmentId": "aug_spellweaver",
+                    "reason": "Role: AP Assassin (DPS)"
                 }
             ],
             "itemBuild": {
                 "core": [
-                    6692,
-                    3158,
-                    3814
+                    6655,
+                    3020,
+                    3157
                 ],
                 "situational": [
                     {
-                        "itemId": 3742,
+                        "itemId": 3089,
                         "whenTags": [
-                            "burst"
+                            "burst",
+                            "scaling"
                         ],
-                        "reason": "진입 후 생존"
+                        "reason": "Heavy AP"
                     },
                     {
-                        "itemId": 3036,
+                        "itemId": 3135,
                         "whenTags": [
                             "tank"
                         ],
-                        "reason": "단단한 조합 대응"
+                        "reason": "Magic Pen"
                     }
                 ]
             }
@@ -5464,41 +5503,41 @@
             "augmentPreferences": [
                 {
                     "baseBonus": 20,
-                    "augmentId": "aug_bruiser_drive",
-                    "reason": "Role: Fighter (Sustain)"
+                    "augmentId": "aug_shadow_hunt",
+                    "reason": "Role: AP Assassin (Burst)"
                 },
                 {
-                    "baseBonus": 15,
-                    "augmentId": "aug_omnivamp_frenzy",
-                    "reason": "Role: Fighter (Vamp)"
+                    "baseBonus": 18,
+                    "augmentId": "aug_arcane_surge",
+                    "reason": "Role: AP Assassin (Spell Burst)"
                 },
                 {
                     "baseBonus": 12,
-                    "augmentId": "aug_anti_tank_core",
-                    "reason": "Role: Fighter (Anti-Tank)"
+                    "augmentId": "aug_spellweaver",
+                    "reason": "Role: AP Assassin (DPS)"
                 }
             ],
             "itemBuild": {
                 "core": [
-                    6630,
-                    3071,
-                    3053
+                    6655,
+                    3020,
+                    3157
                 ],
                 "situational": [
                     {
-                        "reason": "Death\u0027s Dance",
+                        "reason": "Heavy AP",
                         "whenTags": [
-                            "ad",
-                            "defense"
+                            "burst",
+                            "scaling"
                         ],
-                        "itemId": 3742
+                        "itemId": 3089
                     },
                     {
-                        "reason": "Anti-Heal",
+                        "reason": "Magic Pen",
                         "whenTags": [
-                            "heal"
+                            "tank"
                         ],
-                        "itemId": 3075
+                        "itemId": 3135
                     }
                 ]
             }
@@ -6871,41 +6910,42 @@
             ],
             "augmentPreferences": [
                 {
-                    "baseBonus": 22,
+                    "baseBonus": 20,
                     "augmentId": "aug_shadow_hunt",
-                    "reason": "Role: Assassin (Burst)"
+                    "reason": "Role: AP Assassin (Burst)"
                 },
                 {
                     "baseBonus": 18,
-                    "augmentId": "aug_executioner_edge",
-                    "reason": "Role: Assassin (Execute)"
+                    "augmentId": "aug_arcane_surge",
+                    "reason": "Role: AP Assassin (Spell Burst)"
                 },
                 {
-                    "baseBonus": 10,
-                    "augmentId": "aug_bruiser_drive",
-                    "reason": "Role: Assassin (Survival)"
+                    "baseBonus": 12,
+                    "augmentId": "aug_spellweaver",
+                    "reason": "Role: AP Assassin (DPS)"
                 }
             ],
             "itemBuild": {
                 "core": [
-                    6692,
-                    3158,
-                    3142
+                    6655,
+                    3020,
+                    3157
                 ],
                 "situational": [
                     {
-                        "reason": "Edge of Night",
+                        "reason": "Heavy AP",
                         "whenTags": [
-                            "cc"
+                            "burst",
+                            "scaling"
                         ],
-                        "itemId": 3814
+                        "itemId": 3089
                     },
                     {
-                        "reason": "Prowler\u0027s",
+                        "reason": "Magic Pen",
                         "whenTags": [
                             "tank"
                         ],
-                        "itemId": 6693
+                        "itemId": 3135
                     }
                 ]
             }

@@ -95,6 +95,20 @@ $templates = @{
             )
         }
     };
+    "AssassinAP" = @{
+        "augments" = @(
+            @{ "augmentId" = "aug_shadow_hunt"; "baseBonus" = 20; "reason" = "Role: AP Assassin (Burst)" },
+            @{ "augmentId" = "aug_arcane_surge"; "baseBonus" = 18; "reason" = "Role: AP Assassin (Spell Burst)" },
+            @{ "augmentId" = "aug_spellweaver"; "baseBonus" = 12; "reason" = "Role: AP Assassin (DPS)" }
+        );
+        "items"    = @{
+            "core"        = @(6655, 3020, 3157);
+            "situational" = @(
+                @{ "itemId" = 3089; "whenTags" = @("burst", "scaling"); "reason" = "Heavy AP" },
+                @{ "itemId" = 3135; "whenTags" = @("tank"); "reason" = "Magic Pen" }
+            )
+        }
+    };
     "Support"  = @{
         "augments" = @(
             @{ "augmentId" = "aug_harmonic_echo"; "baseBonus" = 20; "reason" = "Role: Support (Heal)" },
@@ -111,6 +125,20 @@ $templates = @{
     };
 }
 
+# Champion-level overrides for templates.
+# These champions are AP-oriented in ARAM and should not use the AD assassin/fighter template.
+$championTemplateOverrides = @{
+    "Leblanc" = "AssassinAP";
+    "Evelynn" = "AssassinAP";
+    "Katarina" = "AssassinAP";
+    "Elise" = "AssassinAP";
+    "Nidalee" = "AssassinAP";
+    "Akali" = "AssassinAP";
+    "Ekko" = "AssassinAP";
+    "Fizz" = "AssassinAP";
+    "Diana" = "AssassinAP";
+}
+
 $count = 0
 $debugCount = 0
 foreach ($prop in $content.champions.PSObject.Properties) {
@@ -119,14 +147,21 @@ foreach ($prop in $content.champions.PSObject.Properties) {
         Write-Host "Debug: $($champ.name) ($($champ.id)) PrefCount: $($champ.augmentPreferences.Count) Type: $($champ.augmentPreferences.GetType().Name)"
         $debugCount++
     }
-    if ($champ.augmentPreferences.Count -eq 0) {
-        $primaryRole = $champ.roles[0]
-        if (-not $templates.ContainsKey($primaryRole)) {
-            Write-Host "Warning: No template for role $primaryRole (Champ: $($champ.name))" -ForegroundColor Yellow
+    $forcedTemplate = $null
+    if ($championTemplateOverrides.ContainsKey($champ.id)) {
+        $forcedTemplate = $championTemplateOverrides[$champ.id]
+    }
+
+    # Keep the original behavior (fill only missing data),
+    # but allow explicit champion overrides to fix known bad templates.
+    if ($champ.augmentPreferences.Count -eq 0 -or $forcedTemplate) {
+        $templateKey = if ($forcedTemplate) { $forcedTemplate } else { $champ.roles[0] }
+        if (-not $templates.ContainsKey($templateKey)) {
+            Write-Host "Warning: No template for role/template $templateKey (Champ: $($champ.name))" -ForegroundColor Yellow
             continue
         }
         
-        $template = $templates[$primaryRole]
+        $template = $templates[$templateKey]
         
         # Apply Augments
         # Convert to PS custom object array to ensure JSON serialization works
@@ -140,7 +175,12 @@ foreach ($prop in $content.champions.PSObject.Properties) {
         $champ.itemBuild.situational = $template.items.situational
         
         $count++
-        Write-Host "Updated $($champ.name) ($($champ.id)) with $primaryRole template" -ForegroundColor Green
+        if ($forcedTemplate) {
+            Write-Host "Updated $($champ.name) ($($champ.id)) with forced $templateKey template" -ForegroundColor Green
+        }
+        else {
+            Write-Host "Updated $($champ.name) ($($champ.id)) with $templateKey template" -ForegroundColor Green
+        }
     }
 }
 
