@@ -8,7 +8,7 @@
 
 ### 1. 다운로드
 
-👉 [**최신 버전 다운로드 (v0.3.8)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
+👉 [**최신 버전 다운로드 (v0.4.1)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
 
 > ZIP 파일을 다운로드하고 원하는 곳에 압축 해제하세요.
 

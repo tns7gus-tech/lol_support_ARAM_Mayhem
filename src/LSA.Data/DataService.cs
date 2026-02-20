@@ -13,7 +13,7 @@ public class DataService
     private readonly string _basePath;
     private static readonly HttpClient _httpClient = new();
     private const string CommunityDragonAugmentUrl =
-        "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/cherry/augments.json";
+        "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/ko_kr/v1/cherry-augments.json";
 
     // JSON 직렬화 옵션 (한글 지원 + 들여쓰기)
     private static readonly JsonSerializerOptions _jsonOptions = new()
@@ -190,7 +190,9 @@ public class DataService
                 var id = TryGetString(node, "id")
                          ?? TryGetString(node, "apiName")
                          ?? TryGetString(node, "key");
-                var name = TryGetString(node, "name") ?? id;
+                var name = TryGetString(node, "nameTRA")
+                           ?? TryGetString(node, "name")
+                           ?? id;
 
                 if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(name))
                 {
@@ -227,30 +229,39 @@ public class DataService
     {
         if (AugmentDictionary.Entries.Count == 0) return;
 
-        var addedCount = 0;
+        var updatedCount = 0;
         foreach (var (id, entry) in AugmentDictionary.Entries)
         {
-            if (KnowledgeBase.Augments.ContainsKey(id)) continue;
-
-            KnowledgeBase.Augments[id] = new Augment
+            if (!KnowledgeBase.Augments.TryGetValue(id, out var augment))
             {
-                Name = entry.Name,
-                Tier = "C",
-                Tags = new List<string>(),
-                Notes = "auto: augment dictionary"
-            };
-            addedCount++;
+                continue;
+            }
+
+            if (string.IsNullOrWhiteSpace(entry.Name)) continue;
+            if (augment.Name == entry.Name) continue;
+
+            augment.Name = entry.Name;
+            if (string.IsNullOrWhiteSpace(augment.Notes))
+            {
+                augment.Notes = "name synced from communitydragon";
+            }
+            updatedCount++;
         }
 
-        if (addedCount > 0)
+        if (updatedCount > 0)
         {
-            _logger.LogInformation("증강 사전 병합 완료 — 신규 {Added}개", addedCount);
+            _logger.LogInformation("증강 사전 병합 완료 — 이름 갱신 {Updated}개", updatedCount);
         }
     }
 
     private static string? TryGetString(JsonElement element, string name)
     {
         if (!element.TryGetProperty(name, out var value)) return null;
-        return value.ValueKind == JsonValueKind.String ? value.GetString() : null;
+        return value.ValueKind switch
+        {
+            JsonValueKind.String => value.GetString(),
+            JsonValueKind.Number => value.GetRawText(),
+            _ => null
+        };
     }
 }
