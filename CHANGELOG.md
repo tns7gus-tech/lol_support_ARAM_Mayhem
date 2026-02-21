@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.4.5] - 2026-02-21
+
+### Changed
+- **Readability Boost**: Increased overlay text size to `20px` across recommendation/status/log text for better in-game visibility.
+- **Collapse Height Adjustment**: Raised collapsed overlay height to match enlarged typography and prevent clipping.
+- **README Run Guide**: Added explicit recommendation to use `Windowed` or `Borderless` mode under `2. 실행`.
+
+### Restored
+- **Connection Log Panel**: Re-enabled in-overlay connection log and connection status indicators to improve live error cause tracing.
+
 ## [v0.4.4] - 2026-02-21
 
 ### Changed

@@ -1,10 +1,11 @@
 ﻿## 사용 방법
 
-1. 아래 `LSA_v0.4.4.zip` 다운로드
+1. 아래 `LSA_v0.4.5.zip` 다운로드
 2. 압축 해제
 3. LoL 클라이언트 실행
 4. `LSA.exe` 더블클릭
-5. 완료
+5. 게임 화면은 **창모드 또는 테두리 없음 모드** 권장
+6. 완료
 
 ## 단축키
 - `Ctrl+Shift+O`: 오버레이 표시/숨김
@@ -60,3 +61,12 @@
   - `notes: source: op.gg aram-mayhem + communitydragon ko_kr`
   - `reason: OP.GG S-tier (ARAM Mayhem)`
   - `reason: OP.GG alternative core build`
+
+## v0.4.5 Changed
+- 오버레이 전체 폰트를 `20px`로 확대해 가독성 개선
+- 접기 상태 높이를 조정해 큰 폰트에서도 잘림 방지
+- README 실행 가이드에 `창모드/테두리 없음 모드 권장` 문구 추가
+
+## v0.4.5 Restored
+- 오버레이 내 `Connection Log` 창 복원
+- 연결 상태(CT/WS/REST/MOCK) 표시 복원
