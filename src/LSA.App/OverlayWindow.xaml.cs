@@ -735,7 +735,7 @@ public partial class OverlayWindow : Window
         if (_isCollapsed)
         {
             SizeToContent = SizeToContent.Manual;
-            Height = 42;
+            Height = 90;
         }
         else
         {
