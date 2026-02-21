@@ -70,6 +70,9 @@
 | 🟣 **MOCK** | 테스트 모드 (LoL 없이 작동) |
 
 ###실행화면##
+![33333333333![4444444444444444](https://github.com/user-attachments/assets/5d15b052-1b8c-4a73-bca6-a8a9488ec200)
+333333](https://github.com/user-attachments/assets/f4baeb60-8d24-41d5-b4aa-11fd6deea4a3)
+
 ![111111111](https://github.com/user-attachments/assets/a67a398b-f9d8-4556-9cb3-cd599ecdd104)
 ![222222222222222222222](https://github.com/user-attachments/assets/b20cd301-25fc-4b5e-ba0c-b3721c68c166)
 
