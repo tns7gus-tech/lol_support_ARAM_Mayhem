@@ -1,6 +1,6 @@
 ﻿## 사용 방법
 
-1. 아래 `LSA_v0.4.1.zip` 다운로드
+1. 아래 `LSA_v0.4.4.zip` 다운로드
 2. 압축 해제
 3. LoL 클라이언트 실행
 4. `LSA.exe` 더블클릭
@@ -47,3 +47,16 @@
 - 아이템/챔피언 이름 한글 인코딩 깨짐(모지바케) 복구
 - 아이템 섹션 `Situational` 라벨을 `상황별`로 변경
 - OP.GG 동기화 스크립트의 Data Dragon 로딩 경로를 UTF-8 안전 방식으로 보강
+
+## v0.4.4 Changed
+- 오버레이를 스크롤 없는 미니멀 레이아웃으로 재구성(정보 한 화면 표시)
+- UI 전체 크기/폰트/여백을 50%+ 축소
+- 티어 문자(`S/A/B/C`) 제거, 색상 점만 유지
+- 증강/아이템 `reason` 텍스트 및 선택 힌트 제거
+
+## v0.4.4 Removed
+- 연결 로그/핫키 안내 등 부가 문구 표시 제거
+- `knowledge_base.json`의 불필요 OP.GG 문구 제거
+  - `notes: source: op.gg aram-mayhem + communitydragon ko_kr`
+  - `reason: OP.GG S-tier (ARAM Mayhem)`
+  - `reason: OP.GG alternative core build`

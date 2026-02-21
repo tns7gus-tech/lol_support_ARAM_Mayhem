@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.4.4] - 2026-02-21
+
+### Changed
+- **Minimal Overlay UI**: Reworked overlay layout to a compact no-scroll format with auto height (`SizeToContent=Height`) so augment/item info is visible at once.
+- **Compact Typography/Spacing**: Reduced panel width, font sizes, paddings, and row heights by over 50% for a denser ARAM in-game footprint.
+- **Tier Badge Simplification**: Removed explicit `S/A/B/C` text badges and retained only tier color dots for faster visual scanning.
+
+### Removed
+- **Reason/Hint Noise in Overlay**: Removed on-screen reason texts, augment selection hint box, and click-to-filter flow from the recommendations panel.
+- **Auxiliary Panels**: Removed visible connection log/hotkey guidance blocks from overlay content to keep only core recommendation data.
+- **Data Source Noise Text**: Cleared OP.GG source note/reason strings (`notes: source: op.gg...`, `reason: OP.GG S-tier...`, `reason: OP.GG alternative core build`) from `knowledge_base.json`.
+
 ## [v0.4.3] - 2026-02-21
 
 ### Fixed
