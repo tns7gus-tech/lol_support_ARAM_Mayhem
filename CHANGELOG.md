@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.4.2] - 2026-02-21
+
+### Added
+- **OP.GG ARAM Mayhem Full Sync Script**: Added `scripts/update_knowledge_base_from_opgg.ps1` to collect champion-specific augment/item data for all champions and update `knowledge_base.json`.
+- **OP.GG Raw Fetch Script**: Added `scripts/fetch_opgg_aram_mayhem_builds.ps1` for reusable champion build data extraction.
+
+### Changed
+- **Augment Display Scope**: Overlay now displays the full champion recommendation list instead of truncating to Top 8 (`OverlayWindow` no longer applies `.Take(8)`).
+- **Champion Data Coverage**: Updated `knowledge_base.json` with full champion-specific S-tier augment lists and item builds from OP.GG ARAM Mayhem.
+
+### Fixed
+- **Smolder/Champion Specificity**: Prevented global S-tier mixing by enforcing champion-specific augment pools in recommendation scoring.
+- **Unknown Augment Names**: Removed unresolved `???` entries by syncing augment IDs/names through CommunityDragon mapping during data generation.
+
 ## [v0.3.8] - 2026-02-19
 
 ### Added

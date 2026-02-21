@@ -8,7 +8,7 @@
 
 ### 1. 다운로드
 
-👉 [**최신 버전 다운로드 (v0.4.1)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
+👉 [**최신 버전 다운로드 (v0.4.2)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
 
 > ZIP 파일을 다운로드하고 원하는 곳에 압축 해제하세요.
 
@@ -46,7 +46,7 @@
 
 ### 오버레이 화면 설명
 
-- **증강 추천 (Top 8)** — 티어(S/A/B/C)별 색상으로 표시
+- **증강 추천 (S티어 전체)** — 티어(S/A/B/C)별 색상으로 표시
   - 🟡 **S티어** = 무조건 픽
   - 🟣 **A티어** = 강추
   - 🔵 **B티어** = 괜찮음

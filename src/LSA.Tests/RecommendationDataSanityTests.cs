@@ -41,7 +41,24 @@ public class RecommendationDataSanityTests
             .Select(i => i.ItemId)
             .ToList();
 
-        Assert.Contains(6655, coreItemIds);      // AP core mythic-like item
+        // OP.GG source data can rotate AP cores by patch/champion.
+        // Validate broad AP core presence and block AD lethality core.
+        var apCoreCandidates = new HashSet<int>
+        {
+            6655, // Ludens (legacy expectation)
+            6653, // Liandry
+            3146, // Hextech Rocketbelt
+            4633, // Riftmaker
+            4645, // Shadowflame
+            3118, // Malignance
+            3089, // Rabadon's Deathcap
+            3157, // Zhonya's Hourglass
+            2503  // Blackfire Torch
+        };
+
+        Assert.True(
+            coreItemIds.Any(id => apCoreCandidates.Contains(id)),
+            $"Expected AP core candidates but found: {string.Join(", ", coreItemIds)}");
         Assert.DoesNotContain(6692, coreItemIds); // AD lethality core
     }
 

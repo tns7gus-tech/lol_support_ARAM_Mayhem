@@ -516,7 +516,7 @@ public partial class OverlayWindow : Window
 
         ChampionText.Text = _currentRecommendation.ChampionName;
 
-        UpdateAugmentUI(_currentRecommendation.Augments.Take(8).ToList());
+        UpdateAugmentUI(_currentRecommendation.Augments);
         UpdateItemUI(_currentRecommendation.Items);
 
         _selectedAugmentIds.Clear();

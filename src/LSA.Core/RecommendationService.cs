@@ -88,8 +88,27 @@ public class RecommendationService
         var preferenceMap = champion.AugmentPreferences
             .GroupBy(p => p.AugmentId)
             .ToDictionary(g => g.Key, g => g.First());
+        var candidateAugments = new List<KeyValuePair<string, Augment>>();
 
-        foreach (var (augId, augment) in kb.Augments)
+        // Known champion: recommend only champion-specific augment IDs.
+        // Fallback to generic pool only when champion preferences are empty or invalid.
+        if (preferenceMap.Count > 0)
+        {
+            foreach (var augId in preferenceMap.Keys)
+            {
+                if (kb.Augments.TryGetValue(augId, out var augment))
+                {
+                    candidateAugments.Add(new KeyValuePair<string, Augment>(augId, augment));
+                }
+            }
+        }
+
+        if (candidateAugments.Count == 0)
+        {
+            candidateAugments.AddRange(kb.Augments);
+        }
+
+        foreach (var (augId, augment) in candidateAugments)
         {
             var score = 0;
             var reasons = new List<string>();
