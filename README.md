@@ -69,6 +69,11 @@
 | 🔴 **미연결** | LoL 클라이언트를 먼저 실행하세요 |
 | 🟣 **MOCK** | 테스트 모드 (LoL 없이 작동) |
 
+###실행화면##
+![111111111](https://github.com/user-attachments/assets/a67a398b-f9d8-4556-9cb3-cd599ecdd104)
+![222222222222222222222](https://github.com/user-attachments/assets/b20cd301-25fc-4b5e-ba0c-b3721c68c166)
+
+
 ---
 
 ## ❓ FAQ
