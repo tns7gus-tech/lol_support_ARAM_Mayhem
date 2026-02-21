@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.4.3] - 2026-02-21
+
+### Fixed
+- **Korean Encoding Recovery**: Repaired mojibake in item/champion names inside `knowledge_base.json` by re-syncing names from Data Dragon ko_KR with UTF-8-safe loading.
+- **Overlay Label Localization**: Changed item section label from `Situational` to `상황별` in overlay UI.
+
+### Changed
+- **Data Sync Script Encoding Path**: Updated `scripts/update_knowledge_base_from_opgg.ps1` to load Data Dragon JSON via explicit UTF-8 text download before parsing.
+
 ## [v0.4.2] - 2026-02-21
 
 ### Added

@@ -113,8 +113,8 @@ function Get-ChampionMetaFromDataDragon {
     $enUrl = "https://ddragon.leagueoflegends.com/cdn/$version/data/en_US/champion.json"
     $koUrl = "https://ddragon.leagueoflegends.com/cdn/$version/data/ko_KR/champion.json"
 
-    $enData = Invoke-RestMethod -Uri $enUrl -TimeoutSec $TimeoutSec
-    $koData = Invoke-RestMethod -Uri $koUrl -TimeoutSec $TimeoutSec
+    $enData = (Download-Utf8Text -Url $enUrl -TimeoutSec $TimeoutSec) | ConvertFrom-Json
+    $koData = (Download-Utf8Text -Url $koUrl -TimeoutSec $TimeoutSec) | ConvertFrom-Json
 
     $aliasMap = @{}
     $keyMap = @{}
@@ -155,7 +155,7 @@ function Get-ItemNameMapFromDataDragon {
     )
 
     $url = "https://ddragon.leagueoflegends.com/cdn/$Version/data/ko_KR/item.json"
-    $itemData = Invoke-RestMethod -Uri $url -TimeoutSec $TimeoutSec
+    $itemData = (Download-Utf8Text -Url $url -TimeoutSec $TimeoutSec) | ConvertFrom-Json
 
     $map = @{}
     foreach ($prop in $itemData.data.PSObject.Properties) {

@@ -208,7 +208,7 @@
                     </ItemsControl>
 
                     <!-- ?곹솴??-->
-                    <TextBlock Text="Situational"
+                    <TextBlock Text="상황별"
                                Foreground="{StaticResource SubTextBrush}"
                                FontSize="11" Margin="0,6,0,4"/>
                     <ItemsControl x:Name="SituationalItemList">

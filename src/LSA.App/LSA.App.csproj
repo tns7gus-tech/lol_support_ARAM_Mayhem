@@ -8,7 +8,7 @@
     <AssemblyName>LSA</AssemblyName>
 
     <!-- 앱 정보 -->
-    <Version>0.4.2</Version>
+    <Version>0.4.3</Version>
     <Product>LSA — ARAM Overlay</Product>
     <Description>ARAM 증강/아이템 추천 오버레이</Description>
   </PropertyGroup>
