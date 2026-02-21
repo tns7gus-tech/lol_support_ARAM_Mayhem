@@ -8,7 +8,7 @@
 
 ### 1. 다운로드
 
-👉 [**최신 버전 다운로드 (v0.4.5)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
+👉 [**최신 버전 다운로드 (v0.4.6)**](https://github.com/tns7gus-tech/lol_support_ARAM_Mayhem/releases/latest)
 
 > ZIP 파일을 다운로드하고 원하는 곳에 압축 해제하세요.
 
@@ -22,8 +22,7 @@
 
 1. **LoL 클라이언트를 먼저 실행**
 2. **`LSA.exe` 더블클릭**
-3. **게임 화면은 창모드 또는 테두리 없음(전체화면 창) 모드 권장**
-4. 끝! 오버레이가 화면에 표시됩니다
+3. 끝! 오버레이가 화면에 표시됩니다
 
 ### 3. 핫키
 
@@ -93,6 +92,27 @@ USB나 클라우드에 `LSA.exe` + `data/` 폴더만 넣어가세요.
 
 ### Q: .NET 런타임 설치해야 하나요?
 **아니요!** `LSA.exe`는 self-contained 빌드라 **.NET 없이 바로 실행** 가능합니다.
+
+### Q: SmartScreen 경고(Windows의 PC 보호) 없이 배포하려면?
+`LSA.exe`를 **코드서명(Authenticode)** 해야 합니다.  
+이 저장소에는 서명 배포 스크립트를 포함했습니다.
+
+```powershell
+# 1) EV/OV 코드서명 인증서(PFX) 준비
+# 2) 서명된 릴리스 생성
+powershell -ExecutionPolicy Bypass -File scripts/publish_signed_release.ps1 `
+  -Version 0.4.3 `
+  -CertificatePath "C:\cert\your_codesign.pfx" `
+  -CertificatePassword "YOUR_PASSWORD"
+
+# 3) 결과 검증
+powershell -ExecutionPolicy Bypass -File scripts/verify_signed_release.ps1 `
+  -ExePath ".\signed_releases\v0.4.3\publish\LSA.exe"
+```
+
+주의:
+- 모든 PC에서 경고를 최소화하려면 **EV 코드서명 인증서** 사용이 가장 효과적입니다.
+- PC방/관리형 PC는 로컬 보안정책 때문에 서명 앱도 차단될 수 있습니다.
 
 ---
 

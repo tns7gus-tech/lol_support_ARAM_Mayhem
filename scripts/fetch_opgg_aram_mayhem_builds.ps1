@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param(
     [string]$Locale = "ko",
     [string]$Mode = "aram-mayhem",
@@ -131,7 +131,7 @@ $fail = 0
 
 for ($i = 0; $i -lt $ChampionSlugs.Count; $i++) {
     $slug = $ChampionSlugs[$i]
-    $url = "https://op.gg/$Locale/lol/modes/$Mode/$slug/build"
+    $url = "https:///$Locale/lol/modes/$Mode/$slug/build"
     Write-Host ("[{0}/{1}] {2}" -f ($i + 1), $ChampionSlugs.Count, $slug)
 
     try {
@@ -182,7 +182,7 @@ for ($i = 0; $i -lt $ChampionSlugs.Count; $i++) {
 
 $payload = [PSCustomObject]@{
     meta = [PSCustomObject]@{
-        source = "op.gg"
+        source = ""
         locale = $Locale
         mode = $Mode
         generatedAt = [DateTimeOffset]::UtcNow.ToString("o")
@@ -205,3 +205,4 @@ Write-Host ""
 Write-Host "Done."
 Write-Host "Output: $OutputPath"
 Write-Host "Success: $ok / Failed: $fail"
+

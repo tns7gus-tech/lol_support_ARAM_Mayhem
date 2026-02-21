@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param(
     [string]$Locale = "ko",
     [string]$Mode = "aram-mayhem",
@@ -171,7 +171,7 @@ function Get-OpggChampionSlugAliasMap {
         [int]$TimeoutSec = 30
     )
 
-    $url = "https://op.gg/$Locale/lol/modes/${Mode}?region=global"
+    $url = "https:///$Locale/lol/modes/${Mode}?region=global"
     $html = (Invoke-WebRequest -UseBasicParsing -Uri $url -TimeoutSec $TimeoutSec).Content
 
     $loc = [regex]::Escape($Locale)
@@ -369,7 +369,7 @@ function Upsert-AugmentCatalogEntry {
             name = $Name
             tier = $Tier
             tags = @()
-            notes = "source: op.gg aram-mayhem + communitydragon ko_kr"
+            notes = "source:  aram-mayhem + communitydragon ko_kr"
         })
         return
     }
@@ -385,7 +385,7 @@ function Upsert-AugmentCatalogEntry {
     }
 
     [void](Ensure-ObjectProperty -Object $entry -Name "tags" -Factory { @() })
-    [void](Ensure-ObjectProperty -Object $entry -Name "notes" -Factory { "source: op.gg aram-mayhem + communitydragon ko_kr" })
+    [void](Ensure-ObjectProperty -Object $entry -Name "notes" -Factory { "source:  aram-mayhem + communitydragon ko_kr" })
 }
 
 function Upsert-ItemCatalogEntry {
@@ -457,7 +457,7 @@ function Build-ItemBuildFromRows {
                 $situationalMap[$idKey] = [PSCustomObject]@{
                     itemId = $id
                     whenTags = @()
-                    reason = "OP.GG alternative core build"
+                    reason = " alternative core build"
                 }
             }
         }
@@ -472,7 +472,7 @@ function Build-ItemBuildFromRows {
                 $situationalMap[$idKey] = [PSCustomObject]@{
                     itemId = $id
                     whenTags = @()
-                    reason = "OP.GG boots option"
+                    reason = " boots option"
                 }
             }
         }
@@ -487,7 +487,7 @@ function Build-ItemBuildFromRows {
                 $situationalMap[$idKey] = [PSCustomObject]@{
                     itemId = $id
                     whenTags = @()
-                    reason = "OP.GG starter item"
+                    reason = " starter item"
                 }
             }
         }
@@ -516,7 +516,7 @@ Write-Host "Loading Data Dragon metadata..."
 $dd = Get-ChampionMetaFromDataDragon -TimeoutSec $TimeoutSec
 $itemNameMap = Get-ItemNameMapFromDataDragon -Version $dd.version -TimeoutSec $TimeoutSec
 
-Write-Host "Loading OP.GG champion mode list..."
+Write-Host "Loading  champion mode list..."
 $slugAliasMap = Get-OpggChampionSlugAliasMap -Locale $Locale -Mode $Mode -TimeoutSec $TimeoutSec
 
 if ($ChampionSlugs.Count -gt 0) {
@@ -581,7 +581,7 @@ for ($i = 0; $i -lt $targetSlugs.Count; $i++) {
 
     $champMeta = $dd.aliasMap[$aliasLower]
     $champKey = $champMeta.key
-    $url = "https://op.gg/$Locale/lol/modes/$Mode/$slug/build"
+    $url = "https:///$Locale/lol/modes/$Mode/$slug/build"
     Write-Host ("[{0}/{1}] {2} -> {3}" -f ($i + 1), $targetSlugs.Count, $slug, $champMeta.nameKo)
 
     try {
@@ -618,7 +618,7 @@ for ($i = 0; $i -lt $targetSlugs.Count; $i++) {
             $newPreferences.Add([PSCustomObject]@{
                 augmentId = $augmentId
                 baseBonus = $baseBonus
-                reason = "OP.GG S-tier (ARAM Mayhem)"
+                reason = " S-tier (ARAM Mayhem)"
             })
 
             $tierForCatalog = if ([string]::IsNullOrWhiteSpace($row.tier)) { "S" } else { [string]$row.tier }
@@ -713,8 +713,8 @@ foreach ($champProp in $kb.champions.PSObject.Properties) {
 $today = Get-Date -Format "yyyy-MM-dd"
 Set-ObjectProperty -Object $kb.meta -Name "updatedAt" -Value $today
 Set-ObjectProperty -Object $kb.meta -Name "totalChampions" -Value (($kb.champions.PSObject.Properties | Measure-Object).Count)
-Set-ObjectProperty -Object $kb.meta -Name "augmentDataSource" -Value "OP.GG champion build + OP.GG mode list + CommunityDragon ko_kr (S-tier only)"
-Set-ObjectProperty -Object $kb.meta -Name "itemDataSource" -Value "OP.GG champion build item rows + Data Dragon ko_KR names"
+Set-ObjectProperty -Object $kb.meta -Name "augmentDataSource" -Value " champion build +  mode list + CommunityDragon ko_kr (S-tier only)"
+Set-ObjectProperty -Object $kb.meta -Name "itemDataSource" -Value " champion build item rows + Data Dragon ko_KR names"
 Set-ObjectProperty -Object $kb.meta -Name "sTierAugmentCount" -Value (($kb.augments.PSObject.Properties | Where-Object { $_.Value.tier -eq "S" } | Measure-Object).Count)
 Set-ObjectProperty -Object $kb.meta -Name "championsWithChampionSpecificSTier" -Value (($kb.champions.PSObject.Properties | Where-Object { @($_.Value.augmentPreferences).Count -gt 0 } | Measure-Object).Count)
 Set-ObjectProperty -Object $kb.meta -Name "championsWithChampionSpecificItems" -Value (($kb.champions.PSObject.Properties | Where-Object {
@@ -777,3 +777,4 @@ if ($unresolvedAugments.Count -gt 0) {
     Write-Host "Unresolved augment names (first 20):"
     $unresolvedAugments | Select-Object -Unique | Select-Object -First 20 | ForEach-Object { Write-Host " - $_" }
 }
+

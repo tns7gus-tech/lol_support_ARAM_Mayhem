@@ -1,9 +1,8 @@
-<Window x:Class="LSA.App.OverlayWindow"
+﻿<Window x:Class="LSA.App.OverlayWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="LSA Overlay"
-        Width="170"
-        SizeToContent="Height"
+        Width="340" Height="640"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
@@ -13,222 +12,285 @@
         Loaded="Window_Loaded"
         MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
-    <Border CornerRadius="8"
+    <Border CornerRadius="12"
             Background="{StaticResource PrimaryBrush}"
-            Opacity="0.94"
+            Opacity="0.92"
             BorderBrush="{StaticResource AccentBrush}"
             BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="36"/>
+                <!-- ?곷떒 諛?-->
+                <RowDefinition Height="44"/>
+                <!-- ?곹깭 ?쒖떆 -->
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="Auto"/>
+                <!-- 蹂몃Ц (利앷컯 + ?꾩씠?? -->
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="0"
-                    CornerRadius="8,8,0,0"
+            <!-- ===== ?곷떒 諛?===== -->
+            <Border Grid.Row="0" CornerRadius="12,12,0,0"
                     Background="{StaticResource SecondaryBrush}">
-                <Grid Margin="6,0">
+                <Grid Margin="12,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="LSA"
-                               Foreground="{StaticResource HighlightBrush}"
-                               FontSize="20"
-                               FontWeight="Bold"
-                               VerticalAlignment="Center"/>
+                    <!-- 濡쒓퀬/??댄? -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="⚔️" FontSize="11" Margin="0,0,6,0"/>
+                        <TextBlock Text="LSA"
+                                   Foreground="{StaticResource HighlightBrush}"
+                                   FontSize="11" FontWeight="Bold"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
 
-                    <StackPanel Grid.Column="1"
-                                Orientation="Horizontal"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Right">
-                        <Border x:Name="MockBadge"
-                                CornerRadius="3"
-                                Background="#44FF6B6B"
-                                Padding="2,1"
-                                Margin="0,0,4,0"
-                                Visibility="Collapsed">
-                            <TextBlock Text="M"
-                                       Foreground="#FFFF6B6B"
-                                       FontSize="20"
-                                       FontWeight="Bold"/>
+                    <!-- 踰꾪듉 ?곸뿭 -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal"
+                                VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <!-- MOCK 諛곗? -->
+                        <Border x:Name="MockBadge" CornerRadius="4"
+                                Background="#44FF6B6B" Padding="4,2"
+                                Margin="0,0,8,0" Visibility="Collapsed">
+                            <TextBlock Text="MOCK" Foreground="#FFFF6B6B"
+                                       FontSize="11" FontWeight="Bold"/>
                         </Border>
-                        <Button x:Name="CollapseBtn"
-                                Content="-"
+                        <!-- ?묎린 踰꾪듉 -->
+                                                <Button x:Name="CollapseBtn" Content="-"
                                 Click="CollapseBtn_Click"
-                                Width="24"
-                                Height="24"
+                                Width="28" Height="28"
                                 Background="Transparent"
                                 Foreground="{StaticResource TextBrush}"
-                                BorderThickness="0"
-                                FontSize="20"
+                                BorderThickness="0" FontSize="11"
                                 Cursor="Hand"/>
-                        <Button x:Name="ExitBtn"
-                                Content="X"
+                        <Button x:Name="ExitBtn" Content="X"
                                 Click="ExitBtn_Click"
-                                Width="24"
-                                Height="24"
-                                Margin="2,0,0,0"
+                                Width="28" Height="28"
+                                Margin="4,0,0,0"
                                 Background="Transparent"
                                 Foreground="{StaticResource HighlightBrush}"
-                                BorderThickness="0"
-                                FontSize="20"
-                                FontWeight="Bold"
+                                BorderThickness="0" FontSize="11" FontWeight="Bold"
                                 Cursor="Hand"/>
                     </StackPanel>
                 </Grid>
             </Border>
 
-            <Border Grid.Row="1"
-                    Background="{StaticResource AccentBrush}"
-                    Padding="6,0">
-                <StackPanel Orientation="Horizontal"
-                            VerticalAlignment="Center">
-                    <TextBlock x:Name="PhaseText"
-                               Text="Idle"
-                               Foreground="{StaticResource SubTextBrush}"
-                               FontSize="20"/>
-                    <TextBlock Text=" | "
-                               Foreground="{StaticResource SubTextBrush}"
-                               FontSize="20"/>
-                    <TextBlock x:Name="ChampionText"
-                               Text="-"
-                               Foreground="{StaticResource TextBrush}"
-                               FontSize="20"
-                               FontWeight="SemiBold"/>
-                </StackPanel>
+            <!-- ===== ?곹깭 ?쒖떆以?===== -->
+            <Border Grid.Row="1" Background="{StaticResource AccentBrush}" Padding="12,4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="PhaseText" Text="대기 중..."
+                                   Foreground="{StaticResource SubTextBrush}" FontSize="11"/>
+                        <TextBlock Text="  |  " Foreground="{StaticResource SubTextBrush}" FontSize="11"/>
+                        <TextBlock x:Name="ChampionText" Text=""
+                                   Foreground="{StaticResource TextBrush}" FontSize="11" FontWeight="SemiBold"/>
+                    </StackPanel>
+
+                    <!-- ?곌껐 ?곹깭 ?몃뵒耳?댄꽣 -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal"
+                                VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <TextBlock x:Name="ClickThroughText" Text="CT OFF"
+                                   Foreground="{StaticResource SubTextBrush}"
+                                   FontSize="11" FontWeight="SemiBold"
+                                   Margin="0,0,8,0"
+                                   VerticalAlignment="Center"/>
+                        <Ellipse x:Name="ConnIndicator" Width="8" Height="8"
+                                 Fill="#FF808080" Margin="0,0,4,0"/>
+                        <TextBlock x:Name="ConnText" Text="Disconnected"
+                                   Foreground="{StaticResource SubTextBrush}"
+                                   FontSize="11" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
             </Border>
 
-            <StackPanel x:Name="ContentPanel"
-                        Grid.Row="2"
-                        Margin="6,4,6,6">
-                <TextBlock Text="Augments"
-                           Foreground="{StaticResource HighlightBrush}"
-                           FontSize="20"
-                           FontWeight="Bold"
-                           Margin="0,0,0,3"/>
-                <ItemsControl x:Name="AugmentList">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border CornerRadius="3"
-                                    Background="#22FFFFFF"
-                                    Margin="0,0,0,2"
-                                    Padding="4,3">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="8"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
+            <!-- ===== 蹂몃Ц 肄섑뀗痢?(?ㅽ겕濡?媛?? ===== -->
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto"
+                          Margin="0" Padding="0">
+                <StackPanel x:Name="ContentPanel" Margin="12,8,12,12">
 
-                                    <Ellipse Grid.Column="0"
-                                             Width="5"
-                                             Height="5"
-                                             Fill="{Binding TierBrush}"
-                                             VerticalAlignment="Center"/>
-                                    <TextBlock Grid.Column="1"
-                                               Text="{Binding Name}"
-                                               Foreground="{StaticResource TextBrush}"
-                                               FontSize="20"
-                                               VerticalAlignment="Center"/>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                    <!-- 利앷컯 異붿쿇 ?뱀뀡 -->
+                    <TextBlock Text="증강 추천"
+                               Foreground="{StaticResource HighlightBrush}"
+                               FontSize="11" FontWeight="Bold" Margin="0,4,0,8"/>
 
-                <Border Height="1"
-                        Background="#33FFFFFF"
-                        Margin="0,4"/>
+                    <!-- "?꾩옱 3媛?利앷컯 ?좏깮" ?덈궡 -->
+                    <Border x:Name="AugmentSelectHint" CornerRadius="6"
+                            Background="#22FFFFFF" Padding="8,6" Margin="0,0,0,6"
+                            Visibility="Collapsed">
+                        <TextBlock Text="Click 3 current augments from the list below."
+                                   Foreground="{StaticResource SubTextBrush}"
+                                   FontSize="11" TextWrapping="Wrap"/>
+                    </Border>
 
-                <TextBlock Text="Core"
-                           Foreground="{StaticResource HighlightBrush}"
-                           FontSize="20"
-                           FontWeight="Bold"
-                           Margin="0,0,0,2"/>
-                <ItemsControl x:Name="CoreItemList">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border CornerRadius="3"
-                                    Background="#1AFFFFFF"
-                                    Margin="0,0,0,2"
-                                    Padding="4,3">
-                                <TextBlock Text="{Binding Name}"
-                                           Foreground="{StaticResource TextBrush}"
-                                           FontSize="20"/>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                    <!-- 利앷컯 由ъ뒪??-->
+                    <ItemsControl x:Name="AugmentList">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="3"
+                                        Background="#22FFFFFF"
+                                        Margin="0,0,0,2"
+                                        Padding="5,4"
+                                        Cursor="Hand"
+                                        MouseLeftButtonUp="Augment_Click">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="24"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Situational"
-                           Foreground="{StaticResource SubTextBrush}"
-                           FontSize="20"
-                           Margin="0,3,0,2"/>
-                <ItemsControl x:Name="SituationalItemList">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border CornerRadius="3"
-                                    Background="#1AFFFFFF"
-                                    Margin="0,0,0,2"
-                                    Padding="4,3">
-                                <TextBlock Text="{Binding Name}"
-                                           Foreground="{StaticResource TextBrush}"
-                                           FontSize="20"/>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                        <!-- ?곗뼱 諭껋? -->
+                                        <Border Grid.Column="0" CornerRadius="2"
+                                                Width="18" Height="18"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Top"
+                                                Background="{Binding TierBrush}">
+                                            <TextBlock Text="{Binding Tier}"
+                                                       Foreground="#FFFF3B30"
+                                                       FontSize="6" FontWeight="Bold"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"/>
+                                        </Border>
 
-                <Border CornerRadius="3"
-                        Background="#11FFFFFF"
-                        Margin="0,4,0,0"
-                        Padding="4,4">
-                    <StackPanel>
-                        <Grid Margin="0,0,0,3">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+                                        <!-- 利앷컯 ?뺣낫 -->
+                                        <StackPanel Grid.Column="1" Margin="4,0,0,0">
+                                            <TextBlock Text="{Binding Name}"
+                                                       Foreground="{StaticResource TextBrush}"
+                                                       FontSize="11" FontWeight="SemiBold"
+                                                       LineStackingStrategy="BlockLineHeight"
+                                                       LineHeight="10"/>
+                                            <TextBlock Text="{Binding TagsText}"
+                                                       Foreground="{StaticResource SubTextBrush}"
+                                                       FontSize="11" Margin="0,1,0,0"
+                                                       LineStackingStrategy="BlockLineHeight"
+                                                       LineHeight="10"/>
+                                            <TextBlock Text="{Binding ReasonText}"
+                                                       Foreground="#FFAED581"
+                                                       FontSize="11" Margin="0,1,0,0"
+                                                       Visibility="{Binding ReasonVisibility}"
+                                                       LineStackingStrategy="BlockLineHeight"
+                                                       LineHeight="10"
+                                                       TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- 援щ텇??-->
+                    <Border Height="1" Background="#33FFFFFF" Margin="0,8"/>
+
+                    <!-- ?꾩씠??異붿쿇 ?뱀뀡 -->
+                    <TextBlock Text="아이템 빌드"
+                               Foreground="{StaticResource HighlightBrush}"
+                               FontSize="11" FontWeight="Bold" Margin="0,4,0,8"/>
+
+                    <!-- 肄붿뼱 ?꾩씠??-->
+                    <TextBlock Text="코어"
+                               Foreground="{StaticResource SubTextBrush}"
+                               FontSize="11" Margin="0,0,0,4"/>
+                    <ItemsControl x:Name="CoreItemList">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="4"
+                                        Background="#1AFFFFFF"
+                                        Margin="0,0,0,3"
+                                        Padding="8,6">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}"
+                                                   Foreground="{StaticResource TextBrush}"
+                                                   FontSize="11"/>
+                                        <TextBlock Text="{Binding Reason}"
+                                                   Foreground="{StaticResource SubTextBrush}"
+                                                   FontSize="11"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- ?곹솴??-->
+                    <TextBlock Text="상황별"
+                               Foreground="{StaticResource SubTextBrush}"
+                               FontSize="11" Margin="0,6,0,4"/>
+                    <ItemsControl x:Name="SituationalItemList">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="4"
+                                        Background="#1AFFFFFF"
+                                        Margin="0,0,0,3"
+                                        Padding="8,6">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}"
+                                                   Foreground="{StaticResource TextBrush}"
+                                                   FontSize="11"/>
+                                        <TextBlock Text="{Binding Reason}"
+                                                   Foreground="#FFFFAB40"
+                                                   FontSize="11" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <Border CornerRadius="6" Background="#11FFFFFF"
+                            Padding="8,6" Margin="0,10,0,0">
+                        <StackPanel>
                             <TextBlock Text="Connection Log"
                                        Foreground="{StaticResource SubTextBrush}"
-                                       FontSize="20"
-                                       FontWeight="Bold"/>
-                            <StackPanel Grid.Column="1"
-                                        Orientation="Horizontal"
-                                        VerticalAlignment="Center">
-                                <TextBlock x:Name="ClickThroughText"
-                                           Foreground="{StaticResource SubTextBrush}"
-                                           FontSize="20"
-                                           Margin="0,0,6,0"/>
-                                <Ellipse x:Name="ConnIndicator"
-                                         Width="6"
-                                         Height="6"
-                                         Fill="#FF808080"
-                                         Margin="0,0,4,0"/>
-                                <TextBlock x:Name="ConnText"
-                                           Foreground="{StaticResource SubTextBrush}"
-                                           FontSize="20"/>
-                            </StackPanel>
-                        </Grid>
-                        <TextBox x:Name="ConnectionLogTextBox"
-                                 IsReadOnly="True"
-                                 IsReadOnlyCaretVisible="True"
-                                 AcceptsReturn="True"
-                                 TextWrapping="Wrap"
-                                 VerticalScrollBarVisibility="Auto"
-                                 BorderThickness="0"
-                                 Background="Transparent"
-                                 Foreground="{StaticResource SubTextBrush}"
-                                 FontSize="20"
-                                 FontFamily="Consolas"
-                                 MinHeight="60"
-                                 MaxHeight="90"
-                                 Padding="0"/>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
+                                       FontSize="11" FontWeight="Bold" Margin="0,0,0,4"/>
+                            <TextBox x:Name="ConnectionLogTextBox"
+                                     IsReadOnly="True"
+                                     IsReadOnlyCaretVisible="True"
+                                     AcceptsReturn="True"
+                                     TextWrapping="Wrap"
+                                     VerticalScrollBarVisibility="Auto"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     Foreground="{StaticResource SubTextBrush}"
+                                     FontSize="11"
+                                     FontFamily="Consolas"
+                                     MinHeight="48"
+                                     MaxHeight="96"
+                                     Padding="0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- ?ロ궎 ?덈궡 -->
+                    <Border CornerRadius="6" Background="#11FFFFFF"
+                            Padding="8,6" Margin="0,10,0,0">
+                        <StackPanel>
+                            <TextBlock Text="Hotkeys" Foreground="{StaticResource SubTextBrush}"
+                                       FontSize="11" FontWeight="Bold" Margin="0,0,0,4"/>
+                            <TextBlock Foreground="{StaticResource SubTextBrush}" FontSize="11">
+                                <Run Text="Ctrl+Shift+O" FontWeight="SemiBold"/> 오버레이 ON/OFF
+                            </TextBlock>
+                            <TextBlock Foreground="{StaticResource SubTextBrush}" FontSize="11">
+                                <Run Text="Ctrl+Shift+C" FontWeight="SemiBold"/> 클릭 통과 토글
+                            </TextBlock>
+                            <TextBlock Foreground="{StaticResource SubTextBrush}" FontSize="11">
+                                <Run Text="Ctrl+Shift+P" FontWeight="SemiBold"/> [DEV] Phase 변경
+                            </TextBlock>
+                            <TextBlock Foreground="#FFFFAB40" FontSize="11" Margin="0,4,0,0" TextWrapping="Wrap">
+                                게임 화면 모드는 테두리 없음/창 모드를 권장합니다.
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Border>
 </Window>
+
+
+
+
+
+
+

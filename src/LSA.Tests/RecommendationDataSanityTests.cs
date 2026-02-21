@@ -1,4 +1,4 @@
-using LSA.Core;
+﻿using LSA.Core;
 using LSA.Data;
 using Microsoft.Extensions.Logging;
 using Xunit;
@@ -41,7 +41,7 @@ public class RecommendationDataSanityTests
             .Select(i => i.ItemId)
             .ToList();
 
-        // OP.GG source data can rotate AP cores by patch/champion.
+        //  source data can rotate AP cores by patch/champion.
         // Validate broad AP core presence and block AD lethality core.
         var apCoreCandidates = new HashSet<int>
         {
@@ -92,3 +92,4 @@ public class RecommendationDataSanityTests
             $"Undefined item IDs found in knowledge base: {string.Join(", ", undefined)}");
     }
 }
+

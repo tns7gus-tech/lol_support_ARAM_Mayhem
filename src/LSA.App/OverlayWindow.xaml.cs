@@ -30,6 +30,11 @@ public class AugmentViewModel
     public string AugmentId { get; set; } = "";
     public string Name { get; set; } = "";
     public string Tier { get; set; } = "C";
+    public string TagsText { get; set; } = "";
+    public string ReasonText { get; set; } = "";
+    public Visibility ReasonVisibility =>
+        string.IsNullOrWhiteSpace(ReasonText) ? Visibility.Collapsed : Visibility.Visible;
+    public bool IsSelected { get; set; }
 
     /// <summary>?곗뼱蹂??됱긽 釉뚮윭??/summary>
     public SolidColorBrush TierBrush => Tier switch
@@ -55,6 +60,7 @@ public class ItemViewModel
 {
     public int ItemId { get; set; }
     public string Name { get; set; } = "";
+    public string Reason { get; set; } = "";
 }
 
 /// <summary>
@@ -108,6 +114,7 @@ public partial class OverlayWindow : Window
     private int? _currentChampionId;
     private RecommendationResult? _currentRecommendation;
     private bool _freezeRecommendationsInGame;
+    private readonly List<string> _selectedAugmentIds = new();
     private readonly List<string> _connectionLogs = new();
     private const int MaxConnectionLogLines = 50;
     private int _lastLcuLogCount;
@@ -469,12 +476,12 @@ public partial class OverlayWindow : Window
     {
         var phaseText = _currentPhase switch
         {
-            GamePhase.None => "Idle",
+            GamePhase.None => "대기 중...",
             GamePhase.Lobby => "Lobby",
-            GamePhase.ChampSelect => "Select",
-            GamePhase.InProgress => "In Game",
-            GamePhase.EndOfGame => "Done",
-            _ => "Unknown"
+            GamePhase.ChampSelect => "챔피언 선택",
+            GamePhase.InProgress => "In Progress",
+            GamePhase.EndOfGame => "게임 종료",
+            _ => "알 수 없음"
         };
         PhaseText.Text = phaseText;
 
@@ -513,6 +520,9 @@ public partial class OverlayWindow : Window
 
         UpdateAugmentUI(_currentRecommendation.Augments);
         UpdateItemUI(_currentRecommendation.Items);
+
+        _selectedAugmentIds.Clear();
+        AugmentSelectHint.Visibility = Visibility.Visible;
     }
 
     private void ClearRecommendationsUI()
@@ -522,6 +532,8 @@ public partial class OverlayWindow : Window
         AugmentList.ItemsSource = null;
         CoreItemList.ItemsSource = null;
         SituationalItemList.ItemsSource = null;
+        _selectedAugmentIds.Clear();
+        AugmentSelectHint.Visibility = Visibility.Visible;
     }
 
     /// <summary>
@@ -563,11 +575,17 @@ public partial class OverlayWindow : Window
     private void UpdateAugmentUI(List<AugmentRecommendation> augments)
     {
         var viewModels = augments.Select(a => new AugmentViewModel
-        {
-            AugmentId = a.AugmentId,
-            Name = a.Name,
-            Tier = a.Tier
-        }).ToList();
+            {
+                AugmentId = a.AugmentId,
+                Name = a.Name,
+                Tier = a.Tier,
+                TagsText = string.Join(" · ", a.Tags),
+                ReasonText = string.Join(" | ", a.Reasons
+                    .Where(r => !r.Contains("S-tier (ARAM Mayhem)", StringComparison.OrdinalIgnoreCase))
+                    .Where(r => !r.StartsWith("티어", StringComparison.OrdinalIgnoreCase))
+                    .Where(r => !r.StartsWith("Tier", StringComparison.OrdinalIgnoreCase))
+                    .Take(1))
+            }).ToList();
 
         AugmentList.ItemsSource = viewModels;
     }
@@ -578,12 +596,42 @@ public partial class OverlayWindow : Window
     private void UpdateItemUI(List<ItemRecommendation> items)
     {
         CoreItemList.ItemsSource = items.Where(i => i.IsCore)
-            .Select(i => new ItemViewModel { ItemId = i.ItemId, Name = i.Name })
+            .Select(i => new ItemViewModel { ItemId = i.ItemId, Name = i.Name, Reason = i.Reason })
             .ToList();
 
         SituationalItemList.ItemsSource = items.Where(i => !i.IsCore)
-            .Select(i => new ItemViewModel { ItemId = i.ItemId, Name = i.Name })
+            .Select(i => new ItemViewModel { ItemId = i.ItemId, Name = i.Name, Reason = i.Reason })
             .ToList();
+    }
+
+    /// <summary>
+    /// 利앷컯 ?대┃ ??"?꾩옱 3媛?利앷컯 ?좏깮" 湲곕뒫
+    /// </summary>
+    private void Augment_Click(object sender, MouseButtonEventArgs e)
+    {
+        if (sender is FrameworkElement fe && fe.DataContext is AugmentViewModel vm)
+        {
+            if (_selectedAugmentIds.Contains(vm.AugmentId))
+            {
+                _selectedAugmentIds.Remove(vm.AugmentId);
+            }
+            else if (_selectedAugmentIds.Count < 3)
+            {
+                _selectedAugmentIds.Add(vm.AugmentId);
+            }
+
+            if (_selectedAugmentIds.Count == 3 && _currentRecommendation != null)
+            {
+                var filtered = _recommendationService.FilterShownAugments(
+                    _currentRecommendation, _selectedAugmentIds);
+                UpdateAugmentUI(filtered);
+                AugmentSelectHint.Visibility = Visibility.Collapsed;
+            }
+            else if (_selectedAugmentIds.Count < 3)
+            {
+                AugmentSelectHint.Visibility = Visibility.Visible;
+            }
+        }
     }
 
     // ===== ?ロ궎 ?몃뱾??=====
@@ -732,15 +780,7 @@ public partial class OverlayWindow : Window
         _isCollapsed = !_isCollapsed;
         ContentPanel.Visibility = _isCollapsed ? Visibility.Collapsed : Visibility.Visible;
         CollapseBtn.Content = _isCollapsed ? "+" : "-";
-        if (_isCollapsed)
-        {
-            SizeToContent = SizeToContent.Manual;
-            Height = 90;
-        }
-        else
-        {
-            SizeToContent = SizeToContent.Height;
-        }
+        Height = _isCollapsed ? 80 : 640;
     }
 
     private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -787,6 +827,7 @@ public partial class OverlayWindow : Window
         base.OnClosing(e);
     }
 }
+
 
 
 

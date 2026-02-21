@@ -23,3 +23,10 @@ packages/
 
 # Publish output
 dist/
+
+# Signed release artifacts
+signed_releases/
+
+# Signing secrets
+*.pfx
+*.p12

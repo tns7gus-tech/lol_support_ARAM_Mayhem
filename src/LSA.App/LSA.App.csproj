@@ -8,7 +8,9 @@
     <AssemblyName>LSA</AssemblyName>
 
     <!-- 앱 정보 -->
-    <Version>0.4.5</Version>
+    <Version>0.4.6</Version>
+    <Company>TNS7G Tech</Company>
+    <Authors>TNS7G Tech</Authors>
     <Product>LSA — ARAM Overlay</Product>
     <Description>ARAM 증강/아이템 추천 오버레이</Description>
   </PropertyGroup>
