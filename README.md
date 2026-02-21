@@ -70,11 +70,20 @@
 | 🟣 **MOCK** | 테스트 모드 (LoL 없이 작동) |
 
 ###실행화면##
-![4444444444444444](https://github.com/user-attachments/assets/36cf724f-f922-4111-8811-f210a0c47698)
-![33333333333333333](https://github.com/user-attachments/assets/6e6b3543-89bf-42dc-99f2-6eb15ab4a1c2)
-![111111111](https://github.com/user-attachments/assets/a67a398b-f9d8-4556-9cb3-cd599ecdd104)
-![222222222222222222222](https://github.com/user-attachments/assets/b20cd301-25fc-4b5e-ba0c-b3721c68c166)
 
+
+
+![4444444444444444](https://github.com/user-attachments/assets/36cf724f-f922-4111-8811-f210a0c47698)
+-> [추가정보] 클릭
+
+![33333333333333333](https://github.com/user-attachments/assets/6e6b3543-89bf-42dc-99f2-6eb15ab4a1c2)
+-> [실행] 클릭
+
+![111111111](https://github.com/user-attachments/assets/a67a398b-f9d8-4556-9cb3-cd599ecdd104)
+-> 캐릭터 선택
+
+![222222222222222222222](https://github.com/user-attachments/assets/b20cd301-25fc-4b5e-ba0c-b3721c68c166)
+-> 증강 및 템트리 확인
 
 ---
 
